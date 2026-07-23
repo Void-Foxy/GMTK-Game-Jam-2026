@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://diuqrqsbypkbu"]
+
+[ext_resource type="Script" uid="uid://g0m3aepmgjk3" path="res://actions/teleport orb/teleport_orb.gd" id="1_cqi4o"]
+
+[sub_resource type="Gradient" id="Gradient_n1kqn"]
+colors = PackedColorArray(2.887845e-06, 0.57727355, 0.8103297, 1, 0.7834489, 0.6578342, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gh8rv"]
+gradient = SubResource("Gradient_n1kqn")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yi0h0"]
+radius = 8.0
+
+[node name="teleport orb" type="RigidBody2D" unique_id=1012338163]
+script = ExtResource("1_cqi4o")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1871546367]
+scale = Vector2(0.25, 0.25)
+texture = SubResource("GradientTexture2D_gh8rv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=569908224]
+shape = SubResource("CircleShape2D_yi0h0")

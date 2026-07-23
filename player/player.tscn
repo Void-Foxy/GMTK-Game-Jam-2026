@@ -14,6 +14,7 @@ script = ExtResource("1_oul6g")
 rayCast2D = NodePath("RayCast2D")
 jumpForce = -2500.0
 knockbackForce = 300.0
+throwForce = 400.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1102253999]
 scale = Vector2(0.039062496, 0.06250001)

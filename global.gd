@@ -2,6 +2,8 @@ extends Node
 
 var throwables : Node2D
 var explosiveExist := false
+var teleportExist := false
+var cannonExist := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

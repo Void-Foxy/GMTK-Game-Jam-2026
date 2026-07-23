@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://61x2frfj70px"]
+
+[ext_resource type="Texture2D" uid="uid://d2dj5te2gih0i" path="res://sprites/wheel.png" id="1_f5qg7"]
+[ext_resource type="Script" uid="uid://hnjygsgoi7u7" path="res://actions/cannon/cannon.gd" id="1_on40s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6sixj"]
+radius = 12.0415945
+
+[sub_resource type="Gradient" id="Gradient_g4dc8"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f5qg7"]
+gradient = SubResource("Gradient_g4dc8")
+
+[node name="cannon" type="Area2D" unique_id=1555445549 node_paths=PackedStringArray("barrel")]
+script = ExtResource("1_on40s")
+barrel = NodePath("barrel")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=69607535]
+scale = Vector2(0.029999996, 0.03)
+texture = ExtResource("1_f5qg7")
+offset = Vector2(0, -400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1113265453]
+position = Vector2(0, -12)
+shape = SubResource("CircleShape2D_6sixj")
+
+[node name="barrel" type="Sprite2D" parent="." unique_id=560877136]
+position = Vector2(0, -12)
+scale = Vector2(0.328125, 0.24999996)
+texture = SubResource("GradientTexture2D_f5qg7")
+offset = Vector2(32, -3.8146973e-06)
+
+[node name="barreltip" type="Node2D" parent="barrel" unique_id=770859420]
+position = Vector2(64, 0)

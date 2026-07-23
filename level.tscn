@@ -6,17 +6,37 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tsgae"]
 size = Vector2(1152, 104)
 
+[sub_resource type="Gradient" id="Gradient_vonw3"]
+offsets = PackedFloat32Array(0.57093424, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6sixj"]
+gradient = SubResource("Gradient_vonw3")
+fill_to = Vector2(0, 1)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6sixj"]
 size = Vector2(64, 544)
 
+[sub_resource type="Gradient" id="Gradient_oi3di"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_td1io"]
+gradient = SubResource("Gradient_oi3di")
+fill_from = Vector2(0.17094018, 0)
+fill_to = Vector2(0, 0)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u52ul"]
 size = Vector2(64, 544)
+
+[sub_resource type="Gradient" id="Gradient_0b4ue"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_he0qb"]
+gradient = SubResource("Gradient_0b4ue")
+fill_from = Vector2(0.7692308, 0)
 
 [node name="Level" type="Node2D" unique_id=859746014]
 script = ExtResource("1_vonw3")
 
 [node name="Player" parent="." unique_id=2079557712 instance=ExtResource("1_u52ul")]
-position = Vector2(538, 475)
+position = Vector2(536, 496)
 jumpForce = -250.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1816823362]
@@ -26,12 +46,27 @@ metadata/_edit_lock_ = true
 position = Vector2(576, 596)
 shape = SubResource("RectangleShape2D_tsgae")
 
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/Floor" unique_id=431260010]
+position = Vector2(-4.5776367e-05, -5.2452087e-06)
+scale = Vector2(17.999998, 1.6249999)
+texture = SubResource("GradientTexture2D_6sixj")
+
 [node name="Wall Left" type="CollisionShape2D" parent="StaticBody2D" unique_id=1010615971]
 position = Vector2(32, 272)
 shape = SubResource("RectangleShape2D_6sixj")
 
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/Wall Left" unique_id=957045526]
+position = Vector2(0, -7.6293945e-06)
+scale = Vector2(1, 8.5)
+texture = SubResource("GradientTexture2D_td1io")
+
 [node name="Wall Right" type="CollisionShape2D" parent="StaticBody2D" unique_id=1846861883]
 position = Vector2(1120, 272)
 shape = SubResource("RectangleShape2D_u52ul")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/Wall Right" unique_id=1013534706]
+position = Vector2(0, 7.6293945e-06)
+scale = Vector2(1, 8.5)
+texture = SubResource("GradientTexture2D_he0qb")
 
 [node name="throwables" type="Node2D" parent="." unique_id=1680356930]

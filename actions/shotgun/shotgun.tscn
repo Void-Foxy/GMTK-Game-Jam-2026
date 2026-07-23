@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://c6p13g3fhqj3t" path="res://actions/shotgun/shotgun.gd" id="1_dqnu3"]
 
-[sub_resource type="Gradient" id="Gradient_g4dc8"]
+[sub_resource type="Gradient" id="Gradient_dqnu3"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_pxgy3"]
-gradient = SubResource("Gradient_g4dc8")
+gradient = SubResource("Gradient_dqnu3")
 
 [node name="Shotgun" type="Node2D" unique_id=93258039 node_paths=PackedStringArray("gunTip")]
 script = ExtResource("1_dqnu3")
