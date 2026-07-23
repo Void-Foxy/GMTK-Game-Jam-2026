@@ -1,30 +1,31 @@
 [gd_scene format=3 uid="uid://c78ywnactohs7"]
 
-[ext_resource type="Texture2D" uid="uid://ccfvtfa3uk74u" path="res://tiles/Kings and Pigs/Sprites/11-Door/Closiong (46x56).png" id="1_w5v3q"]
+[ext_resource type="Script" uid="uid://cbowlibatvj5c" path="res://tiles/door/door.gd" id="1_5orni"]
+[ext_resource type="Texture2D" uid="uid://bisyu3kmoqbyx" path="res://tiles/door/door_frames.png" id="2_5orni"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rdd60"]
-atlas = ExtResource("1_w5v3q")
-region = Rect2(0, 0, 46, 56)
+[sub_resource type="AtlasTexture" id="AtlasTexture_omvr2"]
+atlas = ExtResource("2_5orni")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_08xnr"]
-atlas = ExtResource("1_w5v3q")
-region = Rect2(46, 0, 46, 56)
+[sub_resource type="AtlasTexture" id="AtlasTexture_1m2d7"]
+atlas = ExtResource("2_5orni")
+region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1xxlg"]
-atlas = ExtResource("1_w5v3q")
-region = Rect2(92, 0, 46, 56)
+[sub_resource type="AtlasTexture" id="AtlasTexture_n42ai"]
+atlas = ExtResource("2_5orni")
+region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tsgae"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rdd60")
+"texture": SubResource("AtlasTexture_omvr2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_08xnr")
+"texture": SubResource("AtlasTexture_1m2d7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1xxlg")
+"texture": SubResource("AtlasTexture_n42ai")
 }],
 "loop": 0,
 "name": &"default",
@@ -32,16 +33,14 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tsgae"]
-size = Vector2(46, 56)
+size = Vector2(32, 32)
 
 [node name="Door" type="StaticBody2D" unique_id=1866437962]
+script = ExtResource("1_5orni")
 
 [node name="DoorFrames" type="AnimatedSprite2D" parent="." unique_id=55098278]
-position = Vector2(0, -12)
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_tsgae")
-frame = 2
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1737617281]
-position = Vector2(0, -12)
 shape = SubResource("RectangleShape2D_tsgae")
