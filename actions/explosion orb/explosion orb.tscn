@@ -16,6 +16,8 @@ radius = 8.0
 radius = 56.0
 
 [node name="explosive" type="RigidBody2D" unique_id=745836869]
+contact_monitor = true
+max_contacts_reported = 5
 script = ExtResource("1_wjfay")
 explosiveForce = 400.0
 

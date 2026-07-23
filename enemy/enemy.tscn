@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://u3wfqyj7fvky"]
+
+[ext_resource type="Script" uid="uid://dgtyg8ddraj6d" path="res://enemy/enemy.gd" id="1_2mvqj"]
+
+[sub_resource type="Gradient" id="Gradient_scxef"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5fla4"]
+gradient = SubResource("Gradient_scxef")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_he0qb"]
+height = 32.0
+
+[node name="Enemy" type="RigidBody2D" unique_id=1439044223]
+lock_rotation = true
+script = ExtResource("1_2mvqj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1539332550]
+position = Vector2(7.1525574e-07, 0)
+scale = Vector2(0.078125, 32.000004)
+texture = SubResource("GradientTexture1D_5fla4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1132228702]
+shape = SubResource("CapsuleShape2D_he0qb")

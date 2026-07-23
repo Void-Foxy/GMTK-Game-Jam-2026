@@ -15,6 +15,7 @@ gradient = SubResource("Gradient_g4dc8")
 script = ExtResource("1_on40s")
 barrel = NodePath("barrel")
 barrelTip = NodePath("barrel/barreltip")
+shootingForce = 1000.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=69607535]
 scale = Vector2(0.029999996, 0.03)

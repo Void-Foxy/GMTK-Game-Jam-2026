@@ -11,6 +11,8 @@ var lookDir : Vector2
 
 var cannon := preload("res://actions/cannon/cannon.tscn") 
 
+func _ready() -> void:
+	add_to_group("player")
 
 func _physics_process(delta: float) -> void:
 	var horizontal := Input.get_axis("left", "right")
