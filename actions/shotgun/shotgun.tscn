@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cd0vkjqdtgmdv"]
+
+[sub_resource type="Gradient" id="Gradient_g4dc8"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pxgy3"]
+gradient = SubResource("Gradient_g4dc8")
+
+[node name="Shotgun" type="Node2D" unique_id=93258039]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1672683903]
+texture = SubResource("GradientTexture2D_pxgy3")

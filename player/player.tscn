@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://1ucbm3ov5krm"]
+
+[ext_resource type="Script" uid="uid://bo0pgyqd3def5" path="res://player/player.gd" id="1_oul6g"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tsgae"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tsgae"]
+height = 32.0
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=2079557712]
+script = ExtResource("1_oul6g")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1102253999]
+scale = Vector2(0.039062496, 0.06250001)
+texture = SubResource("NoiseTexture2D_tsgae")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1182789671]
+shape = SubResource("CapsuleShape2D_tsgae")
+
+[node name="Actions" type="Node2D" parent="." unique_id=728056454]
