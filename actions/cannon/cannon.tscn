@@ -11,9 +11,10 @@ radius = 12.0415945
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_f5qg7"]
 gradient = SubResource("Gradient_g4dc8")
 
-[node name="cannon" type="Area2D" unique_id=1555445549 node_paths=PackedStringArray("barrel")]
+[node name="cannon" type="Area2D" unique_id=1555445549 node_paths=PackedStringArray("barrel", "barrelTip") groups=["things that can go in a cannon"]]
 script = ExtResource("1_on40s")
 barrel = NodePath("barrel")
+barrelTip = NodePath("barrel/barreltip")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=69607535]
 scale = Vector2(0.029999996, 0.03)
@@ -32,3 +33,5 @@ offset = Vector2(32, -3.8146973e-06)
 
 [node name="barreltip" type="Node2D" parent="barrel" unique_id=770859420]
 position = Vector2(64, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

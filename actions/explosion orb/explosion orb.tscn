@@ -31,7 +31,7 @@ shape = SubResource("CircleShape2D_6sixj")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=262801727]
 shape = SubResource("CircleShape2D_he0qb")
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D/CollisionShape2D" unique_id=1372198979]
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/CollisionShape2D" unique_id=1372198979 groups=["things that can go in a cannon"]]
 position = Vector2(-5.9604645e-06, 6.198883e-06)
 scale = Vector2(0.13999999, 0.14000002)
 texture = ExtResource("2_u63et")
