@@ -1,20 +1,31 @@
 [gd_scene format=3 uid="uid://1ucbm3ov5krm"]
 
 [ext_resource type="Script" uid="uid://bo0pgyqd3def5" path="res://player/player.gd" id="1_oul6g"]
+[ext_resource type="PackedScene" uid="uid://cd0vkjqdtgmdv" path="res://actions/shotgun/shotgun.tscn" id="2_rkbax"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tsgae"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tsgae"]
 height = 32.0
 
-[node name="RigidBody2D" type="RigidBody2D" unique_id=2079557712]
+[node name="RigidBody2D" type="RigidBody2D" unique_id=2079557712 node_paths=PackedStringArray("rayCast2D")]
+lock_rotation = true
 script = ExtResource("1_oul6g")
+rayCast2D = NodePath("RayCast2D")
+jumpForce = -2500.0
+knockbackForce = 300.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1102253999]
 scale = Vector2(0.039062496, 0.06250001)
 texture = SubResource("NoiseTexture2D_tsgae")
 
+[node name="Actions" type="Node2D" parent="." unique_id=728056454]
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1182789671]
 shape = SubResource("CapsuleShape2D_tsgae")
 
-[node name="Actions" type="Node2D" parent="." unique_id=728056454]
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1117347641]
+target_position = Vector2(0, 17)
+
+[node name="Shotgun" parent="." unique_id=93258039 instance=ExtResource("2_rkbax")]
+scale = Vector2(0.075, 0.075)

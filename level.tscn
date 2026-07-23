@@ -1,18 +1,37 @@
 [gd_scene format=3 uid="uid://byj33hgixghfh"]
 
 [ext_resource type="PackedScene" uid="uid://1ucbm3ov5krm" path="res://player/player.tscn" id="1_u52ul"]
+[ext_resource type="Script" uid="uid://b7s8tok4nt8fy" path="res://level.gd" id="1_vonw3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tsgae"]
-size = Vector2(1154, 102)
+size = Vector2(1152, 104)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6sixj"]
+size = Vector2(64, 544)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u52ul"]
+size = Vector2(64, 544)
 
 [node name="Level" type="Node2D" unique_id=859746014]
+script = ExtResource("1_vonw3")
 
 [node name="Player" parent="." unique_id=2079557712 instance=ExtResource("1_u52ul")]
 position = Vector2(538, 475)
+jumpForce = -250.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1816823362]
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1506051399]
-position = Vector2(575, 598)
+[node name="Floor" type="CollisionShape2D" parent="StaticBody2D" unique_id=1506051399]
+position = Vector2(576, 596)
 shape = SubResource("RectangleShape2D_tsgae")
+
+[node name="Wall Left" type="CollisionShape2D" parent="StaticBody2D" unique_id=1010615971]
+position = Vector2(32, 272)
+shape = SubResource("RectangleShape2D_6sixj")
+
+[node name="Wall Right" type="CollisionShape2D" parent="StaticBody2D" unique_id=1846861883]
+position = Vector2(1120, 272)
+shape = SubResource("RectangleShape2D_u52ul")
+
+[node name="throwables" type="Node2D" parent="." unique_id=1680356930]
