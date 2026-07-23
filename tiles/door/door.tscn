@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://c78ywnactohs7"]
+
+[ext_resource type="Texture2D" uid="uid://ccfvtfa3uk74u" path="res://tiles/Kings and Pigs/Sprites/11-Door/Closiong (46x56).png" id="1_w5v3q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdd60"]
+atlas = ExtResource("1_w5v3q")
+region = Rect2(0, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08xnr"]
+atlas = ExtResource("1_w5v3q")
+region = Rect2(46, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xxlg"]
+atlas = ExtResource("1_w5v3q")
+region = Rect2(92, 0, 46, 56)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tsgae"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdd60")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08xnr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xxlg")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tsgae"]
+size = Vector2(46, 56)
+
+[node name="Door" type="StaticBody2D" unique_id=1866437962]
+
+[node name="DoorFrames" type="AnimatedSprite2D" parent="." unique_id=55098278]
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_tsgae")
+frame = 2
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1737617281]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_tsgae")
