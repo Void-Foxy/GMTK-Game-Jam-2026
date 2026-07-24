@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dknnqhpjetyj6"]
 
 [ext_resource type="Script" uid="uid://dtu3ohfn1el7w" path="res://ui/hud/hud.gd" id="1_4d6w6"]
-[ext_resource type="PackedScene" uid="uid://bx1vebx0wmk70" path="res://ui/hud/action_slots/action_slot.tscn" id="1_xmswo"]
 
 [node name="Hud" type="Control" unique_id=566647011 node_paths=PackedStringArray("action_slots_container")]
 layout_mode = 3
@@ -25,6 +24,3 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-
-[node name="ActionSlot" parent="MarginContainer/ActionSlotsContainer" unique_id=2035803764 instance=ExtResource("1_xmswo")]
-layout_mode = 2

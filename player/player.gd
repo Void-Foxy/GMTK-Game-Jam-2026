@@ -47,11 +47,11 @@ func knockback(kb: Vector2) -> void:
 func _process(delta: float) -> void:
 	lookDir = get_global_mouse_position() - global_position
 	lookDir = lookDir.normalized()
-	if Input.is_action_just_pressed("teleport action") && !Global.teleportExist:
+	if scm.action_container.just_pressed("teleport action") && !Global.teleportExist:
 		throwTeleport()
-	if Input.is_action_just_pressed("explosion action") && !Global.explosiveExist:
+	if scm.action_container.just_pressed("explosion action") && !Global.explosiveExist:
 		throwExplosive()
-	if Input.is_action_just_pressed("cannon action") && !Global.cannonExist:
+	if scm.action_container.just_pressed("cannon action") && !Global.cannonExist:
 		summonCannon()
 	update_trajectory()
 	
