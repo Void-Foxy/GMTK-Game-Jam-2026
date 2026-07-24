@@ -1,4 +1,9 @@
 extends RigidBody2D
+class_name Player
+
+var scm := SubComponentManager.new()
+
+
 
 var MOVE_FORCE := 3600
 var MAX_SPEED := 200.
@@ -29,50 +34,8 @@ func _ready() -> void:
 	add_to_group("player")
 	swordOffset = sword.position.x
 
-func _physics_process(delta: float) -> void:
-	var horizontal := Input.get_axis("left", "right")
-	var vertical := Input.get_axis("up", "down")
-	
-	var force := Vector2.ZERO
-	linear_velocity.x *= 0.8
-	
-	if horizontal > 0:
-		faceDir = 1
-	elif horizontal < 0:
-		faceDir = -1
-	setSwordSide(faceDir)
-	if !playerMovementLocked:
-		if horizontal:
-			force.x = MOVE_FORCE * horizontal
-			#if abs(linear_velocity.x) > MAX_SPEED:
-				#linear_velocity.x = MAX_SPEED * horizontal
-		apply_central_force(force)
-		#print(velocity_error, linear_velocity, " ", impulse)
-		jumpLogic(vertical)
-
-func jumpLogic(vertical: float) -> void:
-	if (isGrounded && vertical < 0 && !justJumped && !playerMovementLocked):
-		apply_central_impulse(Vector2(0, jumpForce))
-		isJumping = true
-		justJumped = true
-	
-	if (!isGrounded && !isJumping && vertical >= 0):
-		doFallFast = true
-	
-	#print(doFallFast)k
-	
-	if (doFallFast):
-		gravity_scale = 2.
-	else:
-		gravity_scale = 1.0
-	
-	if (shapeCast2D.is_colliding()):
-		isGrounded = true
-		doFallFast = false
-		isJumping = false
-	else:
-		justJumped = false
-		isGrounded = false
+func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
+	scm.fsm.state._integration_state_logic(state)
 
 
 func knockback(kb: Vector2) -> void:
