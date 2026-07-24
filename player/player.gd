@@ -30,8 +30,8 @@ func _physics_process(delta: float) -> void:
 	
 	if horizontal:
 		force.x = MOVE_FORCE * horizontal
-		if abs(linear_velocity.x) > MAX_SPEED:
-			linear_velocity.x = MAX_SPEED * horizontal
+		#if abs(linear_velocity.x) > MAX_SPEED:
+			#linear_velocity.x = MAX_SPEED * horizontal
 	apply_central_force(force)
 	#print(velocity_error, linear_velocity, " ", impulse)
 	jumpLogic(vertical)
@@ -45,7 +45,7 @@ func jumpLogic(vertical: float) -> void:
 	if (!isGrounded && !isJumping && vertical >= 0):
 		doFallFast = true
 	
-	print(doFallFast)
+	#print(doFallFast)k
 	
 	if (doFallFast):
 		gravity_scale = 2.

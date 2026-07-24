@@ -80,6 +80,7 @@ down={
 [layer_names]
 
 2d_physics/layer_2="Teleport Orb RigidBody"
+2d_physics/layer_16="Walls"
 
 [physics]
 
