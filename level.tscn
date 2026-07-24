@@ -12,9 +12,9 @@ main_tile_layer = NodePath("TileMapLayers/TileMapLayer")
 
 [node name="Player" parent="." unique_id=2079557712 instance=ExtResource("1_u52ul")]
 position = Vector2(536, 496)
-jumpForce = 0.0
-knockbackForce = 0.0
-throwForce = 0.0
+jumpForce = null
+knockbackForce = null
+throwForce = null
 
 [node name="throwables" type="Node2D" parent="." unique_id=1680356930]
 

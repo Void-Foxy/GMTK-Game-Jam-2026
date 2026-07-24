@@ -91,7 +91,7 @@ func _process(delta: float) -> void:
 		throwExplosive()
 	if Input.is_action_just_pressed("cannon action") && !Global.cannonExist:
 		summonCannon()
-	
+	update_trajectory()
 	
 	pass
 
@@ -138,3 +138,20 @@ func unlockPlayerMovement() -> void:
 
 func update_trajectory() -> void:
 	throwLine.clear_points()
+	var vel: Vector2 = lookDir
+	vel *= throwForce
+	var tstep := 0.05 #time in each iteration
+	var linePos := lookDir*2
+	var g: float = ProjectSettings.get_setting("physics/2d/default_gravity")
+	for i in range(1, 151):
+		throwLine.add_point(linePos)
+		vel.y += g * tstep
+		linePos += vel*tstep
+		var query := PhysicsRayQueryParameters2D.create(linePos, linePos + vel)
+		query.collide_with_areas = true
+		query.exclude = [self]
+		var collision := get_world_2d().direct_space_state.intersect_ray(query)
+		if collision != null:
+			
+		
+	
