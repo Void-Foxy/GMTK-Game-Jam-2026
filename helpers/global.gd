@@ -1,6 +1,7 @@
 extends Node
 
 var level: Level
+signal level_ready
 
 var throwables : Node2D:
 	get: return level.throwables
@@ -8,11 +9,5 @@ var explosiveExist := false
 var teleportExist := false
 var cannonExist := false
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func emit_level_ready() -> void:
+	level_ready.emit()

@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://ihplpk4dptfq" path="res://actions/sword/sword.tscn" id="3_g1dw6"]
 [ext_resource type="Script" uid="uid://dp43jpqchpx0o" path="res://player/states/default.gd" id="3_qjkh3"]
 [ext_resource type="Script" uid="uid://b2ugbkf5v3ocb" path="res://player/states/sword_vertical_slash.gd" id="4_g6k8r"]
+[ext_resource type="Script" uid="uid://cqphymlcja8f2" path="res://objects/actions/action.gd" id="5_boad6"]
+[ext_resource type="Script" uid="uid://vk0dhc874ksw" path="res://objects/actions/action_container.gd" id="5_rgyib"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g1dw6"]
 friction = 0.0
@@ -49,7 +51,20 @@ position = Vector2(1.1920929e-07, 0)
 scale = Vector2(0.03125, 0.06250001)
 texture = SubResource("NoiseTexture2D_tsgae")
 
-[node name="Actions" type="Node2D" parent="." unique_id=728056454]
+[node name="Actions" type="Node" parent="." unique_id=766765288]
+script = ExtResource("5_rgyib")
+
+[node name="Explosive" type="Node" parent="Actions" unique_id=613749430]
+script = ExtResource("5_boad6")
+action_name = "explosion action"
+
+[node name="Teleport" type="Node" parent="Actions" unique_id=2057908756]
+script = ExtResource("5_boad6")
+action_name = "teleport action"
+
+[node name="Cannon" type="Node" parent="Actions" unique_id=1515054134]
+script = ExtResource("5_boad6")
+action_name = "cannon action"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1182789671]
 shape = SubResource("CapsuleShape2D_tsgae")

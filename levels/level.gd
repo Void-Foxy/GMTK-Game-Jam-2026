@@ -12,8 +12,4 @@ class_name Level
 func _ready() -> void:
 	assert(main_tile_layer)
 	Global.level = self
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	Global.emit_level_ready()
