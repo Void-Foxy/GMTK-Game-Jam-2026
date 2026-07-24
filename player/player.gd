@@ -5,6 +5,7 @@ var isGrounded := false
 @export var jumpForce : float
 @export var knockbackForce : float
 
+var explosive := preload("res://actions/explosion orb/explosion orb.tscn") 
 var teleportOrb := preload("res://actions/teleport orb/teleport Orb.tscn") 
 var lookDir : Vector2
 @export var throwForce : float
@@ -37,6 +38,8 @@ func _process(delta: float) -> void:
 	lookDir = lookDir.normalized()
 	if Input.is_action_just_pressed("mouse left click") && !Global.teleportExist:
 		throwTeleport()
+	if Input.is_action_just_pressed("mouse right click") && !Global.explosiveExist:
+		throwExplosive()
 	if Input.is_action_just_pressed("cannon action") && !Global.cannonExist:
 		summonCannon()
 	
@@ -51,6 +54,14 @@ func throwTeleport() -> void:
 	thing.apply_impulse(lookDir * throwForce)
 	thing.setPlayer(self)
 	Global.teleportExist = true
+
+func throwExplosive() -> void:
+	var thing : RigidBody2D = explosive.instantiate()
+	Global.throwables.add_child(thing)
+	thing.global_position = global_position + lookDir*2
+	thing.apply_impulse(lookDir * throwForce)
+	Global.explosiveExist = true
+	knockback(-lookDir)
 
 func summonCannon() -> void:
 	var thing : Area2D = cannon.instantiate()
