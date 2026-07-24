@@ -103,17 +103,20 @@ func update_trajectory() -> void:
 	var vel: Vector2 = lookDir
 	vel *= throwForce
 	var tstep := 0.05 #time in each iteration
-	var linePos := lookDir*2
+	var linePos := global_position + lookDir*2
 	var g: float = ProjectSettings.get_setting("physics/2d/default_gravity")
+	throwLine.add_point(linePos)
 	for i in range(1, 151):
-		throwLine.add_point(linePos)
 		vel.y += g * tstep
-		linePos += vel*tstep
-		var query := PhysicsRayQueryParameters2D.create(linePos, linePos + vel)
-		query.collide_with_areas = true
+		linePos += vel * tstep
+		throwLine.add_point(linePos)
+		var query := PhysicsRayQueryParameters2D.create(linePos, linePos + vel * tstep)
 		query.exclude = [self]
 		var collision := get_world_2d().direct_space_state.intersect_ray(query)
-		if collision != null:
-			
+		if !collision.is_empty():
+			vel.y += g * tstep
+			linePos += vel * tstep
+			throwLine.add_point(linePos)
+			break
 		
 	
