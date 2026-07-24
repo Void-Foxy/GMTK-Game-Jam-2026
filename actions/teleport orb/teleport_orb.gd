@@ -21,16 +21,19 @@ func setPlayer(p : RigidBody2D) -> void:
 	player = p
 
 func teleport() -> void:
+	var orb_velocity := linear_velocity
+	
+	$CollisionShape2D.set_deferred("disabled", true)
+	
 	if enemy == null:
-		$CollisionShape2D.set_deferred("disabled", true)
 		player.global_position = global_position
-		Global.teleportExist = false
 	else:
-		$CollisionShape2D.set_deferred("disabled", true)
 		var tempPos := enemy.global_position
 		enemy.position = player.position
 		player.position = tempPos
-		Global.teleportExist = false
+	
+	player.linear_velocity = orb_velocity
+	Global.teleportExist = false
 	queue_free()
 
 
