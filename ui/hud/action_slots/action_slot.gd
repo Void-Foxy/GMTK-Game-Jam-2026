@@ -1,10 +1,15 @@
 extends PanelContainer
 class_name ActionSlot
 
+var action: Action
+
 var num_uses: int:
 	set(value): 
 		num_uses = value
-		amount_label.text = str(value)
+		if action && action.infinite_amount:
+			amount_label.text = ""
+		else:
+			amount_label.text = str(value)
 var keybind: String:
 	set(value): 
 		keybind = value

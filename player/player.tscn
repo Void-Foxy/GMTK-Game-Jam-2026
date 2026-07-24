@@ -61,6 +61,7 @@ action_name = "explosion action"
 [node name="Shotgun" type="Node" parent="Actions" unique_id=1273445609]
 script = ExtResource("5_boad6")
 action_name = "shotgun action"
+infinite_amount = true
 
 [node name="Sword" type="Node" parent="Actions" unique_id=707152325]
 script = ExtResource("5_boad6")

@@ -15,6 +15,7 @@ var is_just_pressed: bool
 var is_just_pressed_physics: bool
 var handled := false
 
+@export var infinite_amount := false
 @export var amount: int = 4:
 	set(value):
 		amount = value
@@ -32,6 +33,7 @@ var keybind: String:
 
 func _enter_tree() -> void:
 	action_slot = action_slot_scene.instantiate()
+	action_slot.action = self
 	if not container:
 		await Global.level_ready
 		

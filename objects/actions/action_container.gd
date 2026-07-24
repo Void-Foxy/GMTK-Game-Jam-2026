@@ -27,8 +27,9 @@ func just_pressed(action_name: String, physics_process := false, ignore_handled 
 		return false
 	action.handled = true
 	
-	if action.amount <= 0:
-		return false
-	action.amount -= 1
+	if not action.infinite_amount:
+		if action.amount <= 0:
+			return false
+		action.amount -= 1
 	
 	return true
