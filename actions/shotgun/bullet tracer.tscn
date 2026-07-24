@@ -11,6 +11,8 @@ gradient = SubResource("Gradient_ja3tu")
 [node name="BulletTracer" type="Node2D" unique_id=1906373345]
 scale = Vector2(0.1, 0.1)
 script = ExtResource("1_smwpp")
+fadeDelay = 0.5
+fadeDuration = 0.5
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=583260646]
 position = Vector2(5, 0)

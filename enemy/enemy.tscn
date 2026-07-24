@@ -11,7 +11,7 @@ gradient = SubResource("Gradient_scxef")
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_he0qb"]
 height = 32.0
 
-[node name="Enemy" type="RigidBody2D" unique_id=1439044223 node_paths=PackedStringArray("rayCast2D") groups=["enemy"]]
+[node name="Enemy" type="RigidBody2D" unique_id=1439044223 node_paths=PackedStringArray("rayCast2D") groups=["enemy", "teleportable"]]
 lock_rotation = true
 script = ExtResource("1_2mvqj")
 rayCast2D = NodePath("RayCast2D")
