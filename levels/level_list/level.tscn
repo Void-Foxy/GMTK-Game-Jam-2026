@@ -16,9 +16,6 @@ main_tile_layer = NodePath("TileMapLayers/TileMapLayer")
 [node name="Player" parent="." unique_id=2079557712 instance=ExtResource("2_jns8x")]
 position = Vector2(536, 496)
 
-[node name="Hud" parent="Player" unique_id=566647011 instance=ExtResource("4_lqoxw")]
-top_level = true
-
 [node name="throwables" type="Node2D" parent="." unique_id=1680356930]
 
 [node name="TileMapLayers" type="Node2D" parent="." unique_id=959366449]
@@ -31,3 +28,6 @@ tile_map_data = PackedByteArray("AAALAA8AAAABAAUAAAAOAA4AAAAHAAEAAAAMAA8AAAACAAU
 
 [node name="Enemy" parent="." unique_id=1439044223 instance=ExtResource("5_dl6gc")]
 position = Vector2(152, 400)
+
+[node name="Hud" parent="." unique_id=566647011 instance=ExtResource("4_lqoxw")]
+top_level = true
