@@ -11,9 +11,11 @@ gradient = SubResource("Gradient_scxef")
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_he0qb"]
 height = 32.0
 
-[node name="Enemy" type="RigidBody2D" unique_id=1439044223]
+[node name="Enemy" type="RigidBody2D" unique_id=1439044223 node_paths=PackedStringArray("rayCast2D") groups=["enemy"]]
 lock_rotation = true
 script = ExtResource("1_2mvqj")
+rayCast2D = NodePath("RayCast2D")
+fallVelocityKill = 500.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1539332550]
 position = Vector2(7.1525574e-07, 0)
@@ -22,3 +24,6 @@ texture = SubResource("GradientTexture1D_5fla4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1132228702]
 shape = SubResource("CapsuleShape2D_he0qb")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1352438021]
+target_position = Vector2(0, 17)

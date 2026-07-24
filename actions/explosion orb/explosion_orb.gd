@@ -23,6 +23,8 @@ func explode() -> void:
 			var explosionForceDir := obj.global_position - global_position
 			explosionForceDir = explosionForceDir.normalized()
 			obj.apply_impulse(explosionForceDir * explosiveForce)
+			if obj.is_in_group("enemy"):
+				obj.killThisEnemy()
 	Global.explosiveExist = false
 	queue_free()
  

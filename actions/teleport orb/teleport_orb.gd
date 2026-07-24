@@ -36,7 +36,9 @@ func _on_body_entered(body: Node) -> void:
 	if !body.is_in_group("player"):
 		call_deferred("set_freeze_enabled", true)
 		if body.is_in_group("enemy"):
+			$CollisionShape2D.set_deferred("disabled", true)
 			enemy = body
-			freeze_mode = FreezeMode.FREEZE_MODE_KINEMATIC
-			enemy.add_child(self)
+			linear_velocity = Vector2.ZERO
+			angular_velocity = 0
+			reparent(enemy, true)
 	pass # Replace with function body.

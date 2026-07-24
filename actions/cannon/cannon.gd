@@ -32,6 +32,7 @@ func fire() -> void:
 	thingInCannon.freeze = false
 	await get_tree().process_frame
 	thingInCannon.apply_impulse(dir * shootingForce)
+	thingInCannon = null
 	hasSomething = false
 
 

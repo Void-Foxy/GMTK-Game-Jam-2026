@@ -15,7 +15,7 @@ radius = 8.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_he0qb"]
 radius = 56.0
 
-[node name="explosive" type="RigidBody2D" unique_id=745836869]
+[node name="explosive" type="RigidBody2D" unique_id=745836869 groups=["things that can go in a cannon"]]
 contact_monitor = true
 max_contacts_reported = 5
 script = ExtResource("1_wjfay")
