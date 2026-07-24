@@ -23,6 +23,7 @@ var explosive := preload("res://actions/explosion orb/explosion orb.tscn")
 var teleportOrb := preload("res://actions/teleport orb/teleport Orb.tscn") 
 var lookDir : Vector2
 @export var throwForce : float
+var throwLine : Line2D
 
 var cannon := preload("res://actions/cannon/cannon.tscn") 
 
@@ -33,6 +34,7 @@ var swordOffset : float
 func _ready() -> void:
 	add_to_group("player")
 	swordOffset = sword.position.x
+	throwLine = $Line2D
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	scm.fsm.state._integration_state_logic(state)
@@ -51,6 +53,7 @@ func _process(delta: float) -> void:
 		throwExplosive()
 	if Input.is_action_just_pressed("cannon action") && !Global.cannonExist:
 		summonCannon()
+	update_trajectory()
 	
 	pass
 
@@ -87,6 +90,30 @@ func setSwordSide(side : float) -> void:
 
 func lockPlayerMovement() -> void:
 	playerMovementLocked = true
+	doFallFast = true
+	gravity_scale = 2.
 
 func unlockPlayerMovement() -> void:
 	playerMovementLocked = false
+	doFallFast = false
+	gravity_scale = 1.0
+
+func update_trajectory() -> void:
+	throwLine.clear_points()
+	var vel: Vector2 = lookDir
+	vel *= throwForce
+	var tstep := 0.05 #time in each iteration
+	var linePos := lookDir*2
+	var g: float = ProjectSettings.get_setting("physics/2d/default_gravity")
+	for i in range(1, 151):
+		throwLine.add_point(linePos)
+		vel.y += g * tstep
+		linePos += vel*tstep
+		var query := PhysicsRayQueryParameters2D.create(linePos, linePos + vel)
+		query.collide_with_areas = true
+		query.exclude = [self]
+		var collision := get_world_2d().direct_space_state.intersect_ray(query)
+		if collision != null:
+			
+		
+	
