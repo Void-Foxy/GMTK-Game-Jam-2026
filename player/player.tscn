@@ -13,6 +13,7 @@ friction = 0.0
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tsgae"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tsgae"]
+radius = 8.0
 height = 32.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rkbax"]
@@ -44,7 +45,8 @@ script = ExtResource("4_g6k8r")
 sword = NodePath("../../sword")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1102253999]
-scale = Vector2(0.039062496, 0.06250001)
+position = Vector2(1.1920929e-07, 0)
+scale = Vector2(0.03125, 0.06250001)
 texture = SubResource("NoiseTexture2D_tsgae")
 
 [node name="Actions" type="Node2D" parent="." unique_id=728056454]

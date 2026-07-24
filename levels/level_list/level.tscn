@@ -29,6 +29,38 @@ tile_map_data = PackedByteArray("AAABAAAAAgACAAUAAAAiAAAAAgACAAUAAAAPAAgAAgABAAE
 position = Vector2(152, 400)
 
 [node name="Enemy" parent="EnemyGroup" unique_id=1439044223 instance=ExtResource("5_dl6gc")]
+position = Vector2(8, -96)
+
+[node name="Enemy2" parent="EnemyGroup" unique_id=1050558418 instance=ExtResource("5_dl6gc")]
+position = Vector2(-40, 256)
+
+[node name="Enemy3" parent="EnemyGroup" unique_id=293672807 instance=ExtResource("5_dl6gc")]
+position = Vector2(-16, 128)
+
+[node name="Enemy4" parent="EnemyGroup" unique_id=1977348665 instance=ExtResource("5_dl6gc")]
+position = Vector2(512, 160)
+
+[node name="Enemy5" parent="EnemyGroup" unique_id=1597305550 instance=ExtResource("5_dl6gc")]
+position = Vector2(1280, 288)
+
+[node name="Enemy6" parent="EnemyGroup" unique_id=1276652716 instance=ExtResource("5_dl6gc")]
+position = Vector2(1368, -32)
+
+[node name="Enemy7" parent="EnemyGroup" unique_id=1934396735 instance=ExtResource("5_dl6gc")]
+position = Vector2(704, 32)
+
+[node name="Enemy8" parent="EnemyGroup" unique_id=225366833 instance=ExtResource("5_dl6gc")]
+position = Vector2(760, 32)
+
+[node name="Enemy9" parent="EnemyGroup" unique_id=1622619424 instance=ExtResource("5_dl6gc")]
+position = Vector2(1384, -256)
+
+[node name="Enemy10" parent="EnemyGroup" unique_id=1939077818 instance=ExtResource("5_dl6gc")]
+position = Vector2(-48, -288)
+
+[node name="Enemy11" parent="EnemyGroup" unique_id=961732264 instance=ExtResource("5_dl6gc")]
+position = Vector2(472, -352)
 
 [node name="Hud" parent="." unique_id=566647011 instance=ExtResource("4_lqoxw")]
 top_level = true
+metadata/_edit_lock_ = true

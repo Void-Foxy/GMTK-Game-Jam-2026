@@ -28,14 +28,15 @@ func shoot() -> void:
 	var query := PhysicsRayQueryParameters2D.create(gunTip.global_position, gunTip.global_position + gunDir * 200000)
 	query.exclude = [self]
 	var collision := get_world_2d().direct_space_state.intersect_ray(query)
-	var dist : float = gunTip.global_position.distance_to(collision.position)
-	var thing : Node2D = tracer.instantiate()
-	Global.throwables.add_child(thing)
-	thing.scale.x *= dist
-	thing.global_position = gunTip.global_position
-	thing.rotation = rotation
-	player.knockback(-gunDir)
-	if collision.collider != null:
-		if collision.collider.is_in_group("enemy"):
-			var enemy : RigidBody2D = collision.collider
-			enemy.apply_impulse(gunDir * shootingForce)
+	if !collision.is_empty():
+		var dist : float = gunTip.global_position.distance_to(collision.position)
+		var thing : Node2D = tracer.instantiate()
+		Global.throwables.add_child(thing)
+		thing.scale.x *= dist
+		thing.global_position = gunTip.global_position
+		thing.rotation = rotation
+		player.knockback(-gunDir)
+		if collision.collider != null:
+			if collision.collider.is_in_group("enemy"):
+				var enemy : RigidBody2D = collision.collider
+				enemy.apply_impulse(gunDir * shootingForce)
