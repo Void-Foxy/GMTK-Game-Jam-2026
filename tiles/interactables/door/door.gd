@@ -21,7 +21,6 @@ func close() -> void:
 	$CollisionShape2D.call_deferred("set", "disabled", false)
 
 func interaction_input(value: bool) -> void:
-	print("inputting")
 	if value:
 		open()
 	else:

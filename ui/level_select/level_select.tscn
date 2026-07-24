@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cj65yjqao2hwr"]
 
-[ext_resource type="PackedScene" uid="uid://c78c4214r3xv1" path="res://ui/level_select/level_select_item/level_select_item.tscn" id="1_pjhtp"]
+[ext_resource type="Script" uid="uid://b7b8urdf0frff" path="res://ui/level_select/level_item_container.gd" id="1_pjhtp"]
+[ext_resource type="PackedScene" uid="uid://c78c4214r3xv1" path="res://ui/level_select/level_select_item/level_select_item.tscn" id="2_r5cd4"]
 
 [node name="LevelSelect" type="Control" unique_id=1430696741]
 layout_mode = 3
@@ -18,14 +19,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HFlowContainer" type="HFlowContainer" parent="MarginContainer" unique_id=2124935636]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer" unique_id=753733345]
 layout_mode = 2
+horizontal_scroll_mode = 0
 
-[node name="LevelSelectItem" parent="MarginContainer/HFlowContainer" unique_id=683008157 instance=ExtResource("1_pjhtp")]
+[node name="LevelItemContainer" type="HFlowContainer" parent="MarginContainer/ScrollContainer" unique_id=2124935636]
 layout_mode = 2
-
-[node name="LevelSelectItem2" parent="MarginContainer/HFlowContainer" unique_id=1426551678 instance=ExtResource("1_pjhtp")]
-layout_mode = 2
-
-[node name="LevelSelectItem3" parent="MarginContainer/HFlowContainer" unique_id=1083440975 instance=ExtResource("1_pjhtp")]
-layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("1_pjhtp")
+level_select_item_scene = ExtResource("2_r5cd4")

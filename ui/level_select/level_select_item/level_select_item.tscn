@@ -27,3 +27,5 @@ texture_focused = SubResource("GradientTexture2D_e85x0")
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=1144725299]
 layout_mode = 2
+
+[connection signal="pressed" from="VBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
