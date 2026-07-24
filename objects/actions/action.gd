@@ -12,6 +12,8 @@ var container: HBoxContainer:
 
 @export var action_name: String
 var is_just_pressed: bool
+var is_just_pressed_physics: bool
+var handled := false
 
 @export var amount: int = 4:
 	set(value):
@@ -45,3 +47,11 @@ func _process(_delta: float) -> void:
 		is_just_pressed = true
 	else:
 		is_just_pressed = false
+		handled = false
+
+func _physics_process(_delta: float) -> void:
+	if Input.is_action_just_pressed(action_name):
+		is_just_pressed_physics = true
+	else:
+		is_just_pressed_physics = false
+		handled = false

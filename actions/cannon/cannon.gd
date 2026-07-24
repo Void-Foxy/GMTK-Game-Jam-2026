@@ -15,7 +15,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if thingInCannon != null && Input.is_action_just_pressed("cannon action"):
+	if thingInCannon != null && Global.player.scm.action_container.just_pressed("cannon action"):
 		fire()
 	if thingInCannon == null && hasSomething:
 		hasSomething = false

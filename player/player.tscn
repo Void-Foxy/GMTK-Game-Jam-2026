@@ -58,6 +58,14 @@ script = ExtResource("5_rgyib")
 script = ExtResource("5_boad6")
 action_name = "explosion action"
 
+[node name="Shotgun" type="Node" parent="Actions" unique_id=1273445609]
+script = ExtResource("5_boad6")
+action_name = "shotgun action"
+
+[node name="Sword" type="Node" parent="Actions" unique_id=707152325]
+script = ExtResource("5_boad6")
+action_name = "sword action"
+
 [node name="Teleport" type="Node" parent="Actions" unique_id=2057908756]
 script = ExtResource("5_boad6")
 action_name = "teleport action"

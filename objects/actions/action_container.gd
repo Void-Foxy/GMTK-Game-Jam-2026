@@ -11,10 +11,22 @@ func _ready() -> void:
 		var action := child as Action
 		string_to_action[action.action_name] = action
 
-func just_pressed(action_name: String) -> bool:
+func just_pressed(action_name: String, physics_process := false, ignore_handled := false) -> bool:
 	var action := string_to_action[action_name]
-	if not action.is_just_pressed:
+
+	var just_pressed_var := action.is_just_pressed
+	if physics_process:
+		just_pressed_var = action.is_just_pressed_physics
+	
+	if not just_pressed_var:
 		return false
+		
+	print(action_name)
+	
+	if not ignore_handled && action.handled:
+		return false
+	action.handled = true
+	
 	if action.amount <= 0:
 		return false
 	action.amount -= 1

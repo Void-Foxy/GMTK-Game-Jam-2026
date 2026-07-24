@@ -32,6 +32,7 @@ var swordOffset : float
 
 
 func _ready() -> void:
+	Global.player = self
 	add_to_group("player")
 	swordOffset = sword.position.x
 	throwLine = $Line2D

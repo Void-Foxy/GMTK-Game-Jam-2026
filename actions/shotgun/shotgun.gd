@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 	look_at(get_global_mouse_position())
 	gunDir = gunTip.global_position - global_position
 	gunDir = gunDir.normalized()
-	if Input.is_action_just_pressed("shotgun action"):
+	if Global.player.scm.action_container.just_pressed("shotgun action"):
 		shoot()
 	pass
 

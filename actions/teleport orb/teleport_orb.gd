@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var player : RigidBody2D
+var player : Player
 var other : RigidBody2D
 
 @export var area2D : Area2D
@@ -13,7 +13,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("teleport action"):
+	if player.scm.action_container.just_pressed("teleport action"):
 		teleport()
 	pass
 
