@@ -20,7 +20,7 @@ lock_rotation = true
 continuous_cd = 2
 script = ExtResource("1_oul6g")
 shapeCast2D = NodePath("ShapeCast2D")
-jumpForce = -400.0
+jumpForce = -500.0
 knockbackForce = 300.0
 throwForce = 400.0
 

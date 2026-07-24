@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var MOVE_SPEED := 60.
+var MOVE_FORCE := 3600
 var MAX_SPEED := 200.
 
 @export var shapeCast2D: ShapeCast2D
@@ -29,12 +29,11 @@ func _physics_process(delta: float) -> void:
 	linear_velocity.x *= 0.8
 	
 	if horizontal:
-		force.x = MOVE_SPEED * horizontal
+		force.x = MOVE_FORCE * horizontal
 		if abs(linear_velocity.x) > MAX_SPEED:
 			linear_velocity.x = MAX_SPEED * horizontal
-	apply_central_impulse(force)
+	apply_central_force(force)
 	#print(velocity_error, linear_velocity, " ", impulse)
-	
 	jumpLogic(vertical)
 
 func jumpLogic(vertical: float) -> void:
@@ -60,6 +59,7 @@ func jumpLogic(vertical: float) -> void:
 	else:
 		justJumped = false
 		isGrounded = false
+
 
 func knockback(kb: Vector2) -> void:
 	apply_impulse(kb * knockbackForce)
