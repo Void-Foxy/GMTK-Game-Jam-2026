@@ -1,4 +1,5 @@
 extends PanelContainer
+class_name ActionSlot
 
 var num_uses: int:
 	set(value): 

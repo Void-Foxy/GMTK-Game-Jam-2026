@@ -1,14 +1,17 @@
 [gd_scene format=3 uid="uid://dknnqhpjetyj6"]
 
+[ext_resource type="Script" uid="uid://dtu3ohfn1el7w" path="res://ui/hud/hud.gd" id="1_4d6w6"]
 [ext_resource type="PackedScene" uid="uid://bx1vebx0wmk70" path="res://ui/hud/action_slots/action_slot.tscn" id="1_xmswo"]
 
-[node name="Hud" type="Control" unique_id=566647011]
+[node name="Hud" type="Control" unique_id=566647011 node_paths=PackedStringArray("action_slots_container")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_4d6w6")
+action_slots_container = NodePath("MarginContainer/ActionSlotsContainer")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1066332098]
 layout_mode = 1
@@ -18,10 +21,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=127104466]
+[node name="ActionSlotsContainer" type="HBoxContainer" parent="MarginContainer" unique_id=127104466]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 
-[node name="ActionSlot" parent="MarginContainer/HBoxContainer" unique_id=2035803764 instance=ExtResource("1_xmswo")]
+[node name="ActionSlot" parent="MarginContainer/ActionSlotsContainer" unique_id=2035803764 instance=ExtResource("1_xmswo")]
 layout_mode = 2
