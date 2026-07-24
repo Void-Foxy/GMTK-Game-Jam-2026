@@ -1,6 +1,9 @@
 extends Node
 
-var throwables : Node2D
+var level: Level
+
+var throwables : Node2D:
+	get: return level.throwables
 var explosiveExist := false
 var teleportExist := false
 var cannonExist := false
