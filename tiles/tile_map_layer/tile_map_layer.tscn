@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://brfn3mn1bhknf"]
 
 [ext_resource type="Texture2D" uid="uid://fm42vdpsqwe6" path="res://tiles/Kings and Pigs/Sprites/14-TileSets/Terrain (32x32).png" id="1_0ugm7"]
-[ext_resource type="PackedScene" uid="uid://c78ywnactohs7" path="res://tiles/door/door.tscn" id="1_vqaso"]
+[ext_resource type="PackedScene" uid="uid://c78ywnactohs7" path="res://tiles/interactables/door/door.tscn" id="1_vqaso"]
+[ext_resource type="PackedScene" uid="uid://cls8j36bthd3f" path="res://tiles/interactables/lever/lever.tscn" id="2_1s5wp"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_uuaxm"]
 resource_name = "Interactables"
 scenes/1/scene = ExtResource("1_vqaso")
+scenes/2/scene = ExtResource("2_1s5wp")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vqaso"]
 texture = ExtResource("1_0ugm7")
