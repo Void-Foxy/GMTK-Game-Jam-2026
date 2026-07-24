@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://ihplpk4dptfq"]
+
+[ext_resource type="Script" uid="uid://dtrfg44qv5fse" path="res://actions/sword/sword.gd" id="1_m21y0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_srd8r"]
+size = Vector2(22, 31)
+
+[sub_resource type="Gradient" id="Gradient_rkbax"]
+colors = PackedColorArray(1, 0, 0, 0.39215687, 1, 0, 0, 0.38431373)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m21y0"]
+gradient = SubResource("Gradient_rkbax")
+
+[node name="sword" type="Area2D" unique_id=1691647377]
+visible = false
+script = ExtResource("1_m21y0")
+duration = 1.0
+upForce = -800.0
+sideForce = 400.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1419997559]
+shape = SubResource("RectangleShape2D_srd8r")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1584997505]
+scale = Vector2(0.34375, 0.484375)
+texture = SubResource("GradientTexture2D_m21y0")
