@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cls8j36bthd3f"]
+
+[ext_resource type="Script" uid="uid://cwsgf7pqy8px5" path="res://tiles/interactables/lever/lever.gd" id="1_iygol"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ago6c"]
+size = Vector2(32, 32)
+
+[sub_resource type="Gradient" id="Gradient_ago6c"]
+offsets = PackedFloat32Array(0.23225807, 0.5, 0.716129)
+colors = PackedColorArray(1, 1, 1, 1, 0.17732674, 0.0685408, 0.022897657, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tsgae"]
+gradient = SubResource("Gradient_ago6c")
+width = 32
+height = 32
+fill_from = Vector2(0, 0.94017094)
+
+[node name="Lever" type="Area2D" unique_id=182957238]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_iygol")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1736163011]
+shape = SubResource("RectangleShape2D_ago6c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1575374960]
+texture = SubResource("GradientTexture2D_tsgae")
