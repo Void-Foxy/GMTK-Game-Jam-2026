@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 var player : RigidBody2D
-var enemy : RigidBody2D
+var other : RigidBody2D
 
 @export var area2D : Area2D
 
@@ -25,11 +25,11 @@ func teleport() -> void:
 	
 	$CollisionShape2D.set_deferred("disabled", true)
 	
-	if enemy == null:
+	if other == null:
 		player.global_position = global_position
 	else:
-		var tempPos := enemy.global_position
-		enemy.position = player.position
+		var tempPos := other.global_position
+		other.position = player.position
 		player.position = tempPos
 	
 	player.linear_velocity = orb_velocity
@@ -40,10 +40,12 @@ func teleport() -> void:
 func _on_body_entered(body: Node) -> void:
 	if !body.is_in_group("player"):
 		call_deferred("set_freeze_enabled", true)
-		if body.is_in_group("enemy"):
+		if body.is_in_group("teleportable"):
 			$CollisionShape2D.set_deferred("disabled", true)
-			enemy = body
+			other = body
 			linear_velocity = Vector2.ZERO
 			angular_velocity = 0
-			reparent(enemy, true)
+			reparent(other, true)
+			if other is ExplosiveOrb:
+				other.attachTeleport(self)
 	pass # Replace with function body.

@@ -36,6 +36,7 @@ window/stretch/aspect="expand"
 "things that can go in a cannon"=""
 enemy=""
 player=""
+teleportable=""
 
 [input]
 
