@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://c78c4214r3xv1"]
+
+[ext_resource type="Script" uid="uid://lqn84rdxetud" path="res://ui/level_select/level_select_item/level_select_item.gd" id="1_6pya2"]
+[ext_resource type="Texture2D" uid="uid://gg5rua1yrnf4" path="res://icon.svg" id="2_e85x0"]
+
+[sub_resource type="Gradient" id="Gradient_6pya2"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 0.8509804)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e85x0"]
+gradient = SubResource("Gradient_6pya2")
+
+[node name="LevelSelectItem" type="PanelContainer" unique_id=1624398972 node_paths=PackedStringArray("texture_btn", "label")]
+offset_right = 128.0
+offset_bottom = 155.0
+script = ExtResource("1_6pya2")
+texture_btn = NodePath("VBoxContainer/TextureButton")
+label = NodePath("VBoxContainer/Label")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=609498396]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer" unique_id=1745182070]
+layout_mode = 2
+texture_normal = ExtResource("2_e85x0")
+texture_focused = SubResource("GradientTexture2D_e85x0")
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1144725299]
+layout_mode = 2

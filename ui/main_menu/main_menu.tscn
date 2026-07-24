@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dimxo2kgtlow2"]
+
+[ext_resource type="Script" uid="uid://c4bfcafnv4ca2" path="res://ui/main_menu/main_menu.gd" id="1_uhj5c"]
+
+[node name="MainMenu" type="Control" unique_id=970228861 node_paths=PackedStringArray("level_select", "exit_game")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uhj5c")
+level_select = NodePath("MarginContainer/VBoxContainer/LevelSelectButton")
+exit_game = NodePath("MarginContainer/VBoxContainer/ExitGameButton")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1232061349]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1775571841]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 15
+
+[node name="LevelSelectButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1285063562]
+layout_mode = 2
+text = "Level Select"
+
+[node name="ExitGameButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1319896247]
+layout_mode = 2
+text = "Exit"
