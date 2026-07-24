@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-@export var rayCast2D: RayCast2D
+@export var shapeCast2D: ShapeCast2D
 var isGrounded := false
 @export var jumpForce : float
 @export var knockbackForce : float
@@ -29,7 +29,7 @@ func knockback(kb: Vector2) -> void:
 	#print("knockback")
 
 func _process(delta: float) -> void:
-	if (rayCast2D.get_collider() == null):
+	if (shapeCast2D.get_collider(0) == null):
 		isGrounded = false
 	else:
 		isGrounded = true

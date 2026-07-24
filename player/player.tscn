@@ -8,10 +8,14 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tsgae"]
 height = 32.0
 
-[node name="RigidBody2D" type="RigidBody2D" unique_id=2079557712 node_paths=PackedStringArray("rayCast2D")]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rkbax"]
+radius = 9.0
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=2079557712 node_paths=PackedStringArray("shapeCast2D")]
 lock_rotation = true
+continuous_cd = 2
 script = ExtResource("1_oul6g")
-rayCast2D = NodePath("RayCast2D")
+shapeCast2D = NodePath("ShapeCast2D")
 jumpForce = -2500.0
 knockbackForce = 300.0
 throwForce = 400.0
@@ -25,8 +29,9 @@ texture = SubResource("NoiseTexture2D_tsgae")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1182789671]
 shape = SubResource("CapsuleShape2D_tsgae")
 
-[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1117347641]
-target_position = Vector2(0, 17)
+[node name="ShapeCast2D" type="ShapeCast2D" parent="." unique_id=243071655]
+shape = SubResource("CapsuleShape2D_rkbax")
+target_position = Vector2(0, 1.5)
 
 [node name="Shotgun" parent="." unique_id=93258039 instance=ExtResource("2_rkbax")]
 scale = Vector2(0.075, 0.075)
