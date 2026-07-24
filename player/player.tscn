@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bo0pgyqd3def5" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="PackedScene" uid="uid://cd0vkjqdtgmdv" path="res://actions/shotgun/shotgun.tscn" id="2_rkbax"]
+[ext_resource type="PackedScene" uid="uid://ihplpk4dptfq" path="res://actions/sword/sword.tscn" id="3_g1dw6"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g1dw6"]
 friction = 0.0
@@ -14,15 +15,16 @@ height = 32.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rkbax"]
 radius = 4.0
 
-[node name="Player" type="RigidBody2D" unique_id=2079557712 node_paths=PackedStringArray("shapeCast2D")]
+[node name="Player" type="RigidBody2D" unique_id=2079557712 node_paths=PackedStringArray("shapeCast2D", "sword")]
 physics_material_override = SubResource("PhysicsMaterial_g1dw6")
 lock_rotation = true
 continuous_cd = 2
 script = ExtResource("1_oul6g")
 shapeCast2D = NodePath("ShapeCast2D")
 jumpForce = -500.0
-knockbackForce = 300.0
+knockbackForce = 400.0
 throwForce = 400.0
+sword = NodePath("sword")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1102253999]
 scale = Vector2(0.039062496, 0.06250001)
@@ -40,3 +42,6 @@ collision_mask = 32768
 
 [node name="Shotgun" parent="." unique_id=93258039 instance=ExtResource("2_rkbax")]
 scale = Vector2(0.075, 0.075)
+
+[node name="sword" parent="." unique_id=1691647377 instance=ExtResource("3_g1dw6")]
+position = Vector2(12, -3)

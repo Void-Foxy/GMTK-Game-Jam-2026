@@ -3,6 +3,9 @@ extends RigidBody2D
 var MOVE_FORCE := 3600
 var MAX_SPEED := 200.
 
+var faceDir : float
+var playerMovementLocked := false
+
 @export var shapeCast2D: ShapeCast2D
 var isGrounded := false
 @export var jumpForce : float
@@ -18,8 +21,13 @@ var lookDir : Vector2
 
 var cannon := preload("res://actions/cannon/cannon.tscn") 
 
+@export var sword : Area2D
+var swordOffset : float
+
+
 func _ready() -> void:
 	add_to_group("player")
+	swordOffset = sword.position.x
 
 func _physics_process(delta: float) -> void:
 	var horizontal := Input.get_axis("left", "right")
@@ -28,16 +36,22 @@ func _physics_process(delta: float) -> void:
 	var force := Vector2.ZERO
 	linear_velocity.x *= 0.8
 	
-	if horizontal:
-		force.x = MOVE_FORCE * horizontal
-		#if abs(linear_velocity.x) > MAX_SPEED:
-			#linear_velocity.x = MAX_SPEED * horizontal
-	apply_central_force(force)
-	#print(velocity_error, linear_velocity, " ", impulse)
-	jumpLogic(vertical)
+	if horizontal > 0:
+		faceDir = 1
+	elif horizontal < 0:
+		faceDir = -1
+	setSwordSide(faceDir)
+	if !playerMovementLocked:
+		if horizontal:
+			force.x = MOVE_FORCE * horizontal
+			#if abs(linear_velocity.x) > MAX_SPEED:
+				#linear_velocity.x = MAX_SPEED * horizontal
+		apply_central_force(force)
+		#print(velocity_error, linear_velocity, " ", impulse)
+		jumpLogic(vertical)
 
 func jumpLogic(vertical: float) -> void:
-	if (isGrounded && vertical < 0 && !justJumped):
+	if (isGrounded && vertical < 0 && !justJumped && !playerMovementLocked):
 		apply_central_impulse(Vector2(0, jumpForce))
 		isJumping = true
 		justJumped = true
@@ -101,3 +115,15 @@ func summonCannon() -> void:
 	thing.global_position = global_position - Vector2 (0,-16)
 	thing.setUpCannon()
 	Global.cannonExist = true
+
+func getFaceDir() -> float:
+	return faceDir
+
+func setSwordSide(side : float) -> void:
+	sword.position.x = swordOffset * side
+
+func lockPlayerMovement() -> void:
+	playerMovementLocked = true
+
+func unlockPlayerMovement() -> void:
+	playerMovementLocked = false
