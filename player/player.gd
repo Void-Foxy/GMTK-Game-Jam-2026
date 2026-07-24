@@ -47,9 +47,9 @@ func knockback(kb: Vector2) -> void:
 func _process(delta: float) -> void:
 	lookDir = get_global_mouse_position() - global_position
 	lookDir = lookDir.normalized()
-	if Input.is_action_just_pressed("mouse left click") && !Global.teleportExist:
+	if Input.is_action_just_pressed("teleport action") && !Global.teleportExist:
 		throwTeleport()
-	if Input.is_action_just_pressed("mouse right click") && !Global.explosiveExist:
+	if Input.is_action_just_pressed("explosion action") && !Global.explosiveExist:
 		throwExplosive()
 	if Input.is_action_just_pressed("cannon action") && !Global.cannonExist:
 		summonCannon()
@@ -73,7 +73,6 @@ func throwExplosive() -> void:
 	thing.global_position = global_position + lookDir*2
 	thing.apply_impulse(lookDir * throwForce)
 	Global.explosiveExist = true
-	knockback(-lookDir)
 
 func summonCannon() -> void:
 	var thing : Area2D = cannon.instantiate()
@@ -102,11 +101,11 @@ func update_trajectory() -> void:
 	throwLine.clear_points()
 	var vel: Vector2 = lookDir
 	vel *= throwForce
-	var tstep := 0.05 #time in each iteration
+	var tstep := 0.005 #time in each iteration
 	var linePos := global_position + lookDir*2
 	var g: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 	throwLine.add_point(linePos)
-	for i in range(1, 151):
+	for i in range(1, 1000):
 		vel.y += g * tstep
 		linePos += vel * tstep
 		throwLine.add_point(linePos)

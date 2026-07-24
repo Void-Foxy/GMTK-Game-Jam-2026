@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dblw5u5yvo0lb"]
+
+[ext_resource type="Script" uid="uid://cc3vlkcbr4ax1" path="res://actions/shotgun/bullet_tracer.gd" id="1_smwpp"]
+
+[sub_resource type="Gradient" id="Gradient_ja3tu"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_smwpp"]
+gradient = SubResource("Gradient_ja3tu")
+
+[node name="BulletTracer" type="Node2D" unique_id=1906373345]
+scale = Vector2(0.1, 0.1)
+script = ExtResource("1_smwpp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=583260646]
+position = Vector2(5, 0)
+scale = Vector2(0.15624999, 0.25)
+texture = SubResource("GradientTexture2D_smwpp")
