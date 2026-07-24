@@ -18,6 +18,7 @@ var explosive := preload("res://actions/explosion orb/explosion orb.tscn")
 var teleportOrb := preload("res://actions/teleport orb/teleport Orb.tscn") 
 var lookDir : Vector2
 @export var throwForce : float
+var throwLine : Line2D
 
 var cannon := preload("res://actions/cannon/cannon.tscn") 
 
@@ -28,6 +29,7 @@ var swordOffset : float
 func _ready() -> void:
 	add_to_group("player")
 	swordOffset = sword.position.x
+	throwLine = $Line2D
 
 func _physics_process(delta: float) -> void:
 	var horizontal := Input.get_axis("left", "right")
@@ -36,12 +38,13 @@ func _physics_process(delta: float) -> void:
 	var force := Vector2.ZERO
 	linear_velocity.x *= 0.8
 	
-	if horizontal > 0:
-		faceDir = 1
-	elif horizontal < 0:
-		faceDir = -1
-	setSwordSide(faceDir)
+	
 	if !playerMovementLocked:
+		if horizontal > 0:
+			faceDir = 1
+		elif horizontal < 0:
+			faceDir = -1
+		setSwordSide(faceDir)
 		if horizontal:
 			force.x = MOVE_FORCE * horizontal
 			#if abs(linear_velocity.x) > MAX_SPEED:
@@ -89,6 +92,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("cannon action") && !Global.cannonExist:
 		summonCannon()
 	
+	
 	pass
 
 
@@ -124,6 +128,13 @@ func setSwordSide(side : float) -> void:
 
 func lockPlayerMovement() -> void:
 	playerMovementLocked = true
+	doFallFast = true
+	gravity_scale = 2.
 
 func unlockPlayerMovement() -> void:
 	playerMovementLocked = false
+	doFallFast = false
+	gravity_scale = 1.0
+
+func update_trajectory() -> void:
+	throwLine.clear_points()
