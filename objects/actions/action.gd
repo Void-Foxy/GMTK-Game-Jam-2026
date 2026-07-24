@@ -15,6 +15,8 @@ var is_just_pressed: bool
 var is_just_pressed_physics: bool
 var handled := false
 
+@export var disabled := false
+
 @export var infinite_amount := false
 @export var amount: int = 4:
 	set(value):

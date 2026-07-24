@@ -12,7 +12,12 @@ func _ready() -> void:
 		string_to_action[action.action_name] = action
 
 func just_pressed(action_name: String, physics_process := false, ignore_handled := false) -> bool:
+	if not string_to_action.has(action_name):
+		return false
+	
 	var action := string_to_action[action_name]
+	if action.disabled:
+		return false
 
 	var just_pressed_var := action.is_just_pressed
 	if physics_process:
