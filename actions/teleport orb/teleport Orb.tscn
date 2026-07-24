@@ -11,10 +11,13 @@ gradient = SubResource("Gradient_n1kqn")
 [sub_resource type="CircleShape2D" id="CircleShape2D_yi0h0"]
 radius = 8.0
 
-[node name="teleport orb" type="RigidBody2D" unique_id=1012338163 groups=["enemy", "player", "things that can go in a cannon"]]
+[node name="teleport orb" type="RigidBody2D" unique_id=1012338163 node_paths=PackedStringArray("area2D") groups=["things that can go in a cannon"]]
+collision_layer = 2
+collision_mask = 2
 contact_monitor = true
 max_contacts_reported = 5
 script = ExtResource("1_cqi4o")
+area2D = NodePath("Area2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1871546367]
 scale = Vector2(0.25, 0.25)
@@ -23,4 +26,7 @@ texture = SubResource("GradientTexture2D_gh8rv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=569908224]
 shape = SubResource("CircleShape2D_yi0h0")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="Area2D" type="Area2D" parent="." unique_id=1664939942]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=612721445]
+shape = SubResource("CircleShape2D_yi0h0")

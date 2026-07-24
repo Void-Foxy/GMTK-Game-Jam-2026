@@ -2,10 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://fm42vdpsqwe6" path="res://tiles/Kings and Pigs/Sprites/14-TileSets/Terrain (32x32).png" id="1_0ugm7"]
 [ext_resource type="PackedScene" uid="uid://c78ywnactohs7" path="res://tiles/door/door.tscn" id="1_vqaso"]
+[ext_resource type="PackedScene" uid="uid://1ucbm3ov5krm" path="res://player/player.tscn" id="2_1s5wp"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_uuaxm"]
 resource_name = "Interactables"
 scenes/1/scene = ExtResource("1_vqaso")
+scenes/2/scene = ExtResource("2_1s5wp")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vqaso"]
 texture = ExtResource("1_0ugm7")
@@ -389,7 +391,8 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_pxgy3"]
 tile_size = Vector2i(32, 32)
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Walls"
 terrain_set_0/terrain_0/color = Color(0.18215749, 0.5048514, 1, 1)
