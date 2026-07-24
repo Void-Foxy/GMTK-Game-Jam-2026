@@ -1,8 +1,14 @@
 extends RigidBody2D
 
+var MOVE_SPEED := 60.
+var MAX_SPEED := 200.
+
 @export var shapeCast2D: ShapeCast2D
 var isGrounded := false
 @export var jumpForce : float
+var isJumping : bool = false
+var justJumped : bool = false
+var doFallFast : bool = false
 @export var knockbackForce : float
 
 var teleportOrb := preload("res://actions/teleport orb/teleport Orb.tscn") 
@@ -17,22 +23,48 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var horizontal := Input.get_axis("left", "right")
 	var vertical := Input.get_axis("up", "down")
-	if (isGrounded && vertical < 0):
-		apply_impulse(Vector2(0, jumpForce))
-		print("jumping")
-	var force := Vector2(horizontal, 0)*2000.
-	apply_central_force(force)
-	# print(force)
+	
+	var force := Vector2.ZERO
+	linear_velocity.x *= 0.8
+	
+	if horizontal:
+		force.x = MOVE_SPEED * horizontal
+		if abs(linear_velocity.x) > MAX_SPEED:
+			linear_velocity.x = MAX_SPEED * horizontal
+	apply_central_impulse(force)
+	#print(velocity_error, linear_velocity, " ", impulse)
+	
+	jumpLogic(vertical)
+
+func jumpLogic(vertical: float) -> void:
+	if (isGrounded && vertical < 0 && !justJumped):
+		apply_central_impulse(Vector2(0, jumpForce))
+		isJumping = true
+		justJumped = true
+	
+	if (!isGrounded && !isJumping && vertical >= 0):
+		doFallFast = true
+	
+	print(doFallFast)
+	
+	if (doFallFast):
+		gravity_scale = 2.
+	else:
+		gravity_scale = 1.0
+	
+	if (shapeCast2D.is_colliding()):
+		isGrounded = true
+		doFallFast = false
+		isJumping = false
+	else:
+		justJumped = false
+		isGrounded = false
 
 func knockback(kb: Vector2) -> void:
 	apply_impulse(kb * knockbackForce)
 	#print("knockback")
 
 func _process(delta: float) -> void:
-	if (shapeCast2D.get_collider(0) == null):
-		isGrounded = false
-	else:
-		isGrounded = true
 	lookDir = get_global_mouse_position() - global_position
 	lookDir = lookDir.normalized()
 	if Input.is_action_just_pressed("mouse left click") && !Global.teleportExist:
