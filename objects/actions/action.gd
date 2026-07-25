@@ -11,6 +11,7 @@ var container: HBoxContainer:
 		return Global.level.hud.action_slots_container
 
 @export var action_name: String
+@export var action_icon: Texture2D
 var is_just_pressed: bool
 var is_just_pressed_physics: bool
 var handled := false
@@ -36,6 +37,8 @@ var keybind: String:
 func _enter_tree() -> void:
 	action_slot = action_slot_scene.instantiate()
 	action_slot.action = self
+	if action_icon:
+		action_slot.set_texture(action_icon)
 	if not container:
 		await Global.level_ready
 		

@@ -2,12 +2,13 @@
 
 [ext_resource type="Script" uid="uid://c0bert3ddisio" path="res://ui/hud/action_slots/action_slot.gd" id="1_tpwss"]
 
-[node name="ActionSlot" type="PanelContainer" unique_id=2035803764 node_paths=PackedStringArray("amount_label", "keybind_label")]
+[node name="ActionSlot" type="PanelContainer" unique_id=2035803764 node_paths=PackedStringArray("amount_label", "keybind_label", "texture_rect")]
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_tpwss")
 amount_label = NodePath("Amount")
 keybind_label = NodePath("MarginContainer/VBoxContainer/Keybind")
+texture_rect = NodePath("MarginContainer/VBoxContainer/PanelContainer/TextureRect")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=901200938]
 layout_mode = 2
@@ -20,13 +21,13 @@ theme_override_constants/margin_bottom = 1
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/VBoxContainer" unique_id=129750328]
-layout_mode = 2
-stretch_mode = 1
-
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/AspectRatioContainer" unique_id=1685430506]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=1685430506]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/PanelContainer" unique_id=1448374074]
+layout_mode = 2
+expand_mode = 4
 
 [node name="Keybind" type="Label" parent="MarginContainer/VBoxContainer" unique_id=295936863]
 layout_mode = 2

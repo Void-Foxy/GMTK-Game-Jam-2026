@@ -17,3 +17,7 @@ var keybind: String:
 
 @export var amount_label: Label
 @export var keybind_label: Label
+@export var texture_rect: TextureRect
+
+func set_texture(texture: Texture2D) -> void:
+	texture_rect.texture = texture

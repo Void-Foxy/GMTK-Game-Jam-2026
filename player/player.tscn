@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://b2ugbkf5v3ocb" path="res://player/states/sword_vertical_slash.gd" id="4_g6k8r"]
 [ext_resource type="Script" uid="uid://cqphymlcja8f2" path="res://objects/actions/action.gd" id="5_boad6"]
 [ext_resource type="Script" uid="uid://vk0dhc874ksw" path="res://objects/actions/action_container.gd" id="5_rgyib"]
+[ext_resource type="Texture2D" uid="uid://chp472xr3bi7i" path="res://sprites/cannon barrel.png" id="7_hg6s5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g1dw6"]
 friction = 0.0
@@ -74,6 +75,7 @@ action_name = "teleport action"
 [node name="Cannon" type="Node" parent="Actions" unique_id=1515054134]
 script = ExtResource("5_boad6")
 action_name = "cannon action"
+action_icon = ExtResource("7_hg6s5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1182789671]
 shape = SubResource("CapsuleShape2D_tsgae")
