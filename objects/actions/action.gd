@@ -44,7 +44,8 @@ func _enter_tree() -> void:
 		
 	amount = amount
 	keybind = keybind
-	container.add_child(action_slot)
+	if not disabled:
+		container.add_child(action_slot)
 
 func _exit_tree() -> void:
 	container.remove_child(action_slot)
