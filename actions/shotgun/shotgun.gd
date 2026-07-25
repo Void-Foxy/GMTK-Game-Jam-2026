@@ -16,10 +16,11 @@ func _ready() -> void:
 	player = get_parent()
 	pass # Replace with function body.
 
+func _physics_process(delta: float) -> void:
+	update_trajectory()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	update_trajectory()
 	look_at(get_global_mouse_position())
 	gunDir = gunTip.global_position - global_position
 	gunDir = gunDir.normalized()

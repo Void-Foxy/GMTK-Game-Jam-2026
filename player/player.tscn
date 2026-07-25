@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://vk0dhc874ksw" path="res://objects/actions/action_container.gd" id="5_rgyib"]
 [ext_resource type="PackedScene" uid="uid://crt6dv67igioc" path="res://ui/failed_or_victory_screen/failed_or_victory_screen.tscn" id="6_kb6p2"]
 [ext_resource type="Texture2D" uid="uid://chp472xr3bi7i" path="res://sprites/cannon barrel.png" id="7_hg6s5"]
+[ext_resource type="Script" uid="uid://sv3bf5qr03r1" path="res://player/states/setting_up_cannon.gd" id="7_kb6p2"]
 [ext_resource type="PackedScene" uid="uid://cuevyqhlfjkwn" path="res://actions/bow/bow.tscn" id="10_8t03j"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g1dw6"]
@@ -85,6 +86,9 @@ visible = false
 
 [node name="Default" type="Node" parent="FiniteStateMachine" unique_id=1908623282]
 script = ExtResource("3_qjkh3")
+
+[node name="SettingUpCannon" type="Node" parent="FiniteStateMachine" unique_id=1021102041]
+script = ExtResource("7_kb6p2")
 
 [node name="SwordVerticalSlash" type="Node" parent="FiniteStateMachine" unique_id=1347470279 node_paths=PackedStringArray("sword")]
 script = ExtResource("4_g6k8r")
