@@ -15,6 +15,7 @@ class_name Level
 @export var action_amounts_for_assignment: PackedInt32Array
 
 @export var timerChallenge := false
+@export var timerChallengeTime : float = 300
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

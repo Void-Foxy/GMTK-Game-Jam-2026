@@ -21,6 +21,7 @@ var doFallFast : bool = false
 
 var explosive := preload("res://actions/explosion orb/explosion orb.tscn") 
 var teleportOrb := preload("res://actions/teleport orb/teleport Orb.tscn") 
+var arrow := preload("res://actions/bow/arrow.tscn") 
 var lookDir : Vector2
 var spawnThingsDir : Vector2
 @export var throwForce : float
@@ -28,6 +29,8 @@ var spawnThingsDir : Vector2
 @export var throwForceUpperLimit : float
 @export var throwForceChargeTime : float
 var throwForceChargeTimer := 0.0
+var throwForceCharging := false
+
 var throwLine : Line2D
 
 var cannon := preload("res://actions/cannon/cannon.tscn") 
@@ -39,7 +42,9 @@ var swordOffset : float
 var label : Label
 var timeElapsed := 0
 
-var holdState := false
+var canThrowTele := false
+var canThrowExplosive := false
+var canShootBow := false
 
 func _ready() -> void:
 	Global.player = self
@@ -74,13 +79,24 @@ func _process(delta: float) -> void:
 	lookDir = lookDir.normalized()
 	spawnThingsDir = lookDir * 4
 	if scm.action_container.just_pressed("teleport action") && !Global.teleportExist:
-		throwTeleport()
+		canThrowTele = true
 	if scm.action_container.just_pressed("explosion action") && !Global.explosiveExist:
-		throwExplosive()
+		canThrowExplosive = true
 	if scm.action_container.just_pressed("cannon action") && !Global.cannonExist:
 		summonCannon()
 	
-	if Input.is_key_pressed(KEY_L):
+	if scm.action_container.just_released("teleport action") && canThrowTele:
+		throwTeleport()
+		canThrowTele = false
+	if scm.action_container.just_released("explosion action") && canThrowExplosive:
+		throwExplosive()
+		canThrowExplosive = false
+	if scm.action_container.just_released("bow action"):
+		shootBow()
+	
+	if scm.action_container.pressed("explosion action")\
+	 or scm.action_container.pressed("teleport action")\
+	 or scm.action_container.pressed("bow action"):
 		throwForceChargeTimer += delta
 		if throwForceChargeTimer > throwForceChargeTime:
 			throwForceChargeTimer = throwForceChargeTime
@@ -113,6 +129,12 @@ func throwExplosive() -> void:
 	thing.global_position = global_position + spawnThingsDir
 	thing.apply_impulse(lookDir * throwForce)
 	Global.explosiveExist = true
+
+func shootBow() -> void:
+	var thing : RigidBody2D = arrow.instantiate()
+	Global.throwables.add_child(thing)
+	thing.global_position = global_position + spawnThingsDir
+	thing.apply_impulse(lookDir * throwForce)
 
 func summonCannon() -> void:
 	var thing : Area2D = cannon.instantiate()
