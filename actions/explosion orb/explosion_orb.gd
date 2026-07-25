@@ -14,7 +14,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if Global.player.scm.action_container.just_pressed("explosion action"):
+	var explosion_action := "explosion action"
+	if Global.player.scm.action_container.just_pressed(explosion_action):
+		Global.player.scm.action_container.use_action_slot(explosion_action)
 		explode()
 	pass
 

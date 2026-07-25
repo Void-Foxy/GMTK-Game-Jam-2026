@@ -13,7 +13,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if player.scm.action_container.just_pressed("teleport action"):
+	var teleport_action := "teleport action"
+	if player.scm.action_container.just_pressed(teleport_action):
+		player.scm.action_container.use_action_slot(teleport_action)
 		teleport()
 	pass
 

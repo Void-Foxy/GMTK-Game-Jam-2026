@@ -11,6 +11,20 @@ func _ready() -> void:
 		var action := child as Action
 		string_to_action[action.action_name] = action
 
+func use_action_slot(action_name: String) -> void:
+	if not string_to_action.has(action_name):
+		return
+	
+	var action := string_to_action[action_name]
+	if not action.infinite_amount:
+		if action.amount <= 0:
+			return
+		action.amount -= 1
+		
+	if Global.level.timerChallenge:
+		Global.player.removeTimeToChallengeTimer(action.timeCost)
+
+
 func just_pressed(action_name: String, physics_process := false, ignore_handled := false) -> bool:
 	if not string_to_action.has(action_name):
 		return false
@@ -34,10 +48,6 @@ func just_pressed(action_name: String, physics_process := false, ignore_handled 
 	if not action.infinite_amount:
 		if action.amount <= 0:
 			return false
-		action.amount -= 1
-		
-	if Global.level.timerChallenge:
-		Global.player.removeTimeToChallengeTimer(action.timeCost)
 	
 	return true
 
@@ -64,7 +74,6 @@ func just_released(action_name: String, physics_process := false, ignore_handled
 	if not action.infinite_amount:
 		if action.amount <= 0:
 			return false
-		action.amount -= 1
 	
 	return true
 

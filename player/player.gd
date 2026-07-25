@@ -78,26 +78,35 @@ func _process(delta: float) -> void:
 	lookDir = get_global_mouse_position() - global_position
 	lookDir = lookDir.normalized()
 	spawnThingsDir = lookDir * 4
-	if scm.action_container.just_pressed("teleport action") && !Global.teleportExist:
+	var teleport_action := "teleport action"
+	var explosion_action := "explosion action"
+	var cannon_action := "cannon action"
+	var bow_action := "bow action"
+	
+	if scm.action_container.just_pressed(teleport_action) && !Global.teleportExist:
 		canThrowTele = true
-	if scm.action_container.just_pressed("explosion action") && !Global.explosiveExist:
+	if scm.action_container.just_pressed(explosion_action) && !Global.explosiveExist:
 		canThrowExplosive = true
-	if scm.action_container.just_pressed("cannon action") && !Global.cannonExist:
+	if scm.action_container.just_pressed(cannon_action) && !Global.cannonExist:
+		scm.action_container.use_action_slot(cannon_action)
 		summonCannon()
 	
-	if scm.action_container.just_released("teleport action") && canThrowTele:
+	if scm.action_container.just_released(teleport_action) && canThrowTele:
+		scm.action_container.use_action_slot(teleport_action)
 		throwTeleport()
 		canThrowTele = false
-	if scm.action_container.just_released("explosion action") && canThrowExplosive:
+	if scm.action_container.just_released(explosion_action) && canThrowExplosive:
+		scm.action_container.use_action_slot(explosion_action)
 		throwExplosive()
 		canThrowExplosive = false
-	if scm.action_container.just_released("bow action"):
+	if scm.action_container.just_released(bow_action):
+		scm.action_container.use_action_slot(bow_action)
 		shootBow()
 	
-	if scm.action_container.pressed("explosion action")\
-	 or scm.action_container.pressed("teleport action")\
-	 or scm.action_container.pressed("bow action"):
-		if canThrowTele or canThrowExplosive or scm.action_container.pressed("bow action"):
+	if scm.action_container.pressed(explosion_action)\
+	 or scm.action_container.pressed(teleport_action)\
+	 or scm.action_container.pressed(bow_action):
+		if canThrowTele or canThrowExplosive or scm.action_container.pressed(bow_action):
 			throwForceChargeTimer += delta
 			if throwForceChargeTimer > throwForceChargeTime:
 				throwForceChargeTimer = throwForceChargeTime

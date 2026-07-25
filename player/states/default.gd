@@ -6,6 +6,8 @@ func _integration_state_logic(physics_state: PhysicsDirectBodyState2D) -> void:
 
 
 func _get_transition(_delta: float) -> State:
-	if fsm_owner.scm.action_container.just_pressed("sword action", true):
+	var sword_action := "sword_action"
+	if fsm_owner.scm.action_container.just_pressed(sword_action, true):
+		fsm_owner.scm.action_container.use_action_slot(sword_action)
 		return states.SwordVerticalSlash
 	return null
