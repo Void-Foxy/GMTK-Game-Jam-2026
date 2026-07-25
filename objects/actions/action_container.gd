@@ -35,6 +35,9 @@ func just_pressed(action_name: String, physics_process := false, ignore_handled 
 		if action.amount <= 0:
 			return false
 		action.amount -= 1
+		
+	if Global.level.timerChallenge:
+		Global.player.removeTimeToChallengeTimer(action.timeCost)
 	
 	return true
 
