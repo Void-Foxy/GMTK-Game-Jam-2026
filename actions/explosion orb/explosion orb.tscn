@@ -1,13 +1,8 @@
 [gd_scene format=3 uid="uid://cevdu51ilnjdw"]
 
 [ext_resource type="Script" uid="uid://h5ukxserq267" path="res://actions/explosion orb/explosion_orb.gd" id="1_wjfay"]
+[ext_resource type="Texture2D" uid="uid://b54xbqviao7uk" path="res://sprites/bomb.png" id="2_s0gv0"]
 [ext_resource type="Texture2D" uid="uid://doyt6ia6d13pm" path="res://sprites/red explosive preview circle.png" id="2_u63et"]
-
-[sub_resource type="Gradient" id="Gradient_u63et"]
-colors = PackedColorArray(1, 0, 0, 1, 1, 0.6431373, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_201bv"]
-gradient = SubResource("Gradient_u63et")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6sixj"]
 radius = 8.0
@@ -23,9 +18,9 @@ max_contacts_reported = 5
 script = ExtResource("1_wjfay")
 explosiveForce = 400.0
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1371380084]
-scale = Vector2(0.25, 0.25)
-texture = SubResource("GradientTexture2D_201bv")
+[node name="Bomb" type="Sprite2D" parent="." unique_id=431190035]
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("2_s0gv0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=466925572]
 shape = SubResource("CircleShape2D_6sixj")
