@@ -19,6 +19,8 @@ func _process(_delta: float) -> void:
 	pass
 
 func explode() -> void:
+	Global.level.play_sound($AudioStreamPlayer2D)
+	Global.level.play_particles($GPUParticles2D, 0.1)
 	var intersectingObjs := explosionRad.get_overlapping_bodies()
 	for obj in intersectingObjs:
 		if (obj is RigidBody2D):

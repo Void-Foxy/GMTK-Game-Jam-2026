@@ -12,9 +12,18 @@ var container: HBoxContainer:
 
 @export var action_name: String
 @export var action_icon: Texture2D
+
 var is_just_pressed: bool
 var is_just_pressed_physics: bool
-var handled := false
+
+var is_pressed: bool
+var is_pressed_physics: bool
+
+var is_just_released: bool
+var is_just_released_physics: bool
+
+var pressed_handled := false
+var released_handled := false
 
 @export var disabled := false
 
@@ -53,13 +62,30 @@ func _exit_tree() -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed(action_name):
 		is_just_pressed = true
+		is_pressed = true
 	else:
 		is_just_pressed = false
-		handled = false
+		pressed_handled = false
+	
+	if Input.is_action_just_released(action_name):
+		is_just_released = true
+		is_pressed = false
+	else:
+		is_just_released = false
+		released_handled = false
 
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed(action_name):
 		is_just_pressed_physics = true
+		is_pressed_physics = true
 	else:
 		is_just_pressed_physics = false
-		handled = false
+		pressed_handled = false
+	
+	if Input.is_action_just_released(action_name):
+		is_just_released_physics = true
+		is_pressed_physics = false
+	else:
+		is_just_released_physics = false
+		released_handled = false
+	
