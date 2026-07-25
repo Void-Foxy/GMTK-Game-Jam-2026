@@ -58,9 +58,10 @@ script = ExtResource("2_yw30f")
 process_mode = 3
 script = ExtResource("3_8t03j")
 
-[node name="VictoryState" type="Node" parent="FiniteStateMachine" unique_id=116830716]
+[node name="VictoryState" type="Node" parent="FiniteStateMachine" unique_id=116830716 node_paths=PackedStringArray("text")]
 process_mode = 3
 script = ExtResource("4_ebec5")
+text = NodePath("VictoryScreen/VBoxContainer/Time")
 
 [node name="VictoryScreen" parent="FiniteStateMachine/VictoryState" unique_id=388784050 instance=ExtResource("6_kb6p2")]
 visible = false
@@ -72,6 +73,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_yllr7")
 
 [node name="FailureOrVictoryLabel" parent="FiniteStateMachine/VictoryState/VictoryScreen/VBoxContainer" parent_id_path=PackedInt32Array(388784050, 715430772) index="0" unique_id=674040608]
 text = "[wave amp=50.0 freq=3.0 connected=1]VICTORY![/wave]"
+
+[node name="Time" parent="FiniteStateMachine/VictoryState/VictoryScreen/VBoxContainer" parent_id_path=PackedInt32Array(388784050, 715430772) index="1" unique_id=884068042]
+horizontal_alignment = 1
 
 [node name="FailedState" type="Node" parent="FiniteStateMachine" unique_id=696763401]
 process_mode = 3
