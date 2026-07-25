@@ -16,10 +16,9 @@ func _process(delta: float) -> void:
 	if linear_velocity.y > fallVelocityKill && !killOnGround:
 		killOnGround = true
 	if (rayCast2D.get_collider() != null && killOnGround):
-		died = true
-		print("this enemy is dead")
+		killThisEnemy()
 	pass
 
 func killThisEnemy() -> void:
-	print("enemy exploded")
+	print("enemy died")
 	died = true

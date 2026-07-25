@@ -19,5 +19,5 @@ func _process(delta: float) -> void:
 func shootBow() -> void:
 	var thing : RigidBody2D = arrow.instantiate()
 	Global.throwables.add_child(thing)
-	thing.global_position = global_position + player.lookDir*2
+	thing.global_position = global_position + player.spawnThingsDir
 	thing.apply_impulse(player.lookDir * player.throwForce)

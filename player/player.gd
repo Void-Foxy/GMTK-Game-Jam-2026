@@ -22,6 +22,7 @@ var doFallFast : bool = false
 var explosive := preload("res://actions/explosion orb/explosion orb.tscn") 
 var teleportOrb := preload("res://actions/teleport orb/teleport Orb.tscn") 
 var lookDir : Vector2
+var spawnThingsDir : Vector2
 @export var throwForce : float
 var throwLine : Line2D
 
@@ -61,6 +62,7 @@ func knockback(kb: Vector2) -> void:
 func _process(delta: float) -> void:
 	lookDir = get_global_mouse_position() - global_position
 	lookDir = lookDir.normalized()
+	spawnThingsDir = lookDir * 4
 	if scm.action_container.just_pressed("teleport action") && !Global.teleportExist:
 		throwTeleport()
 	if scm.action_container.just_pressed("explosion action") && !Global.explosiveExist:
@@ -77,7 +79,7 @@ func _process(delta: float) -> void:
 func throwTeleport() -> void:
 	var thing : RigidBody2D = teleportOrb.instantiate()
 	Global.throwables.add_child(thing)
-	thing.global_position = global_position + lookDir*2
+	thing.global_position = global_position + spawnThingsDir
 	thing.apply_impulse(lookDir * throwForce)
 	thing.setPlayer(self)
 	Global.teleportExist = true
@@ -85,7 +87,7 @@ func throwTeleport() -> void:
 func throwExplosive() -> void:
 	var thing : RigidBody2D = explosive.instantiate()
 	Global.throwables.add_child(thing)
-	thing.global_position = global_position + lookDir*2
+	thing.global_position = global_position + spawnThingsDir
 	thing.apply_impulse(lookDir * throwForce)
 	Global.explosiveExist = true
 
@@ -117,7 +119,7 @@ func update_trajectory() -> void:
 	var vel: Vector2 = lookDir
 	vel *= throwForce
 	var tstep := 0.005 #time in each iteration
-	var linePos := global_position + lookDir*2
+	var linePos := global_position + spawnThingsDir
 	var g: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 	throwLine.add_point(linePos)
 	for i in range(1, 1000):

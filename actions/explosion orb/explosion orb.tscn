@@ -16,6 +16,8 @@ radius = 8.0
 radius = 56.0
 
 [node name="explosive" type="RigidBody2D" unique_id=745836869 groups=["teleportable", "things that can go in a cannon"]]
+collision_layer = 2
+collision_mask = 2
 contact_monitor = true
 max_contacts_reported = 5
 script = ExtResource("1_wjfay")
