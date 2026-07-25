@@ -57,7 +57,8 @@ func _enter_tree() -> void:
 		container.add_child(action_slot)
 
 func _exit_tree() -> void:
-	container.remove_child(action_slot)
+	if container:
+		container.remove_child(action_slot)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed(action_name):

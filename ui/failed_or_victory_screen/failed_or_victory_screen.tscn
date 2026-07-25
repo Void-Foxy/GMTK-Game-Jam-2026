@@ -1,34 +1,43 @@
-[gd_scene format=3 uid="uid://doe8n8y83crxx"]
+[gd_scene format=3 uid="uid://crt6dv67igioc"]
 
-[ext_resource type="Script" uid="uid://ddes6d16f1h4o" path="res://ui/victory_screen/victory_screen.gd" id="1_w5gup"]
+[ext_resource type="Script" uid="uid://bk6gvtn8jiirv" path="res://ui/failed_or_victory_screen/failed_or_victory_screen.gd" id="1_km53i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tsgae"]
+bg_color = Color(0.60089374, 0.10080085, 0.060605533, 0.19215687)
 
 [sub_resource type="Theme" id="Theme_w5gup"]
 default_font_size = 52
 
-[node name="VictoryScreen" type="MarginContainer" unique_id=388784050 node_paths=PackedStringArray("restart_button", "next_level_button")]
+[node name="FailedOrVictoryScreen" type="MarginContainer" unique_id=388784050 node_paths=PackedStringArray("restart_button", "main_menu_button", "next_level_button")]
 process_mode = 3
-pause_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 0
-script = ExtResource("1_w5gup")
+script = ExtResource("1_km53i")
 restart_button = NodePath("VBoxContainer/HBoxContainer/Restart")
+main_menu_button = NodePath("VBoxContainer/HBoxContainer/MainMenu")
 next_level_button = NodePath("VBoxContainer/HBoxContainer/NextLevel")
+
+[node name="Panel" type="Panel" parent="." unique_id=448406328]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tsgae")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=715430772]
 layout_mode = 2
 size_flags_vertical = 4
 mouse_filter = 0
 
-[node name="VictoryLabel" type="RichTextLabel" parent="VBoxContainer" unique_id=674040608]
+[node name="FailureOrVictoryLabel" type="RichTextLabel" parent="VBoxContainer" unique_id=674040608]
 layout_mode = 2
 size_flags_vertical = 3
 theme = SubResource("Theme_w5gup")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 bbcode_enabled = true
-text = "[wave amp=50.0 freq=3.0 connected=1]VICTORY![/wave]"
+text = "[shake rate=20.0 level=5 connected=1]FAILURE![/shake]"
 fit_content = true
 horizontal_alignment = 1
 
@@ -50,10 +59,13 @@ theme_override_constants/separation = 50
 layout_mode = 2
 theme = SubResource("Theme_w5gup")
 text = "Restart"
-mouse_filter = 0
 
-[node name="NextLevel" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1088174037]
+[node name="MainMenu" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1088174037]
+layout_mode = 2
+theme = SubResource("Theme_w5gup")
+text = "Main Menu"
+
+[node name="NextLevel" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1657717515]
 layout_mode = 2
 theme = SubResource("Theme_w5gup")
 text = "Next Level"
-mouse_filter = 0

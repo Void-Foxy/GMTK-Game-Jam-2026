@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cj65yjqao2hwr" path="res://ui/level_select/level_select.tscn" id="2_mu8pm"]
 
 [node name="MainMenu" type="Control" unique_id=970228861 node_paths=PackedStringArray("level_select", "exit_game")]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

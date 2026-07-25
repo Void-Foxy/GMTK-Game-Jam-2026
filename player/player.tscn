@@ -6,16 +6,19 @@
 [ext_resource type="Script" uid="uid://5ddb1bavpt1a" path="res://player/states/action_assigning.gd" id="3_8t03j"]
 [ext_resource type="PackedScene" uid="uid://ihplpk4dptfq" path="res://actions/sword/sword.tscn" id="3_g1dw6"]
 [ext_resource type="Script" uid="uid://dp43jpqchpx0o" path="res://player/states/default.gd" id="3_qjkh3"]
-[ext_resource type="Script" uid="uid://b1j0j5yucjh3i" path="res://player/states/victory_state.gd" id="4_ebec5"]
+[ext_resource type="Script" uid="uid://b1j0j5yucjh3i" path="res://player/states/menu_popup_state.gd" id="4_ebec5"]
 [ext_resource type="Script" uid="uid://b2ugbkf5v3ocb" path="res://player/states/sword_vertical_slash.gd" id="4_g6k8r"]
 [ext_resource type="Script" uid="uid://cqphymlcja8f2" path="res://objects/actions/action.gd" id="5_boad6"]
 [ext_resource type="Script" uid="uid://vk0dhc874ksw" path="res://objects/actions/action_container.gd" id="5_rgyib"]
-[ext_resource type="PackedScene" uid="uid://doe8n8y83crxx" path="res://ui/victory_screen/victory_screen.tscn" id="5_yllr7"]
+[ext_resource type="PackedScene" uid="uid://crt6dv67igioc" path="res://ui/failed_or_victory_screen/failed_or_victory_screen.tscn" id="6_kb6p2"]
 [ext_resource type="Texture2D" uid="uid://chp472xr3bi7i" path="res://sprites/cannon barrel.png" id="7_hg6s5"]
 [ext_resource type="PackedScene" uid="uid://cuevyqhlfjkwn" path="res://actions/bow/bow.tscn" id="10_8t03j"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g1dw6"]
 friction = 0.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yllr7"]
+bg_color = Color(0.25290167, 0.3616014, 0.19602844, 0.19215687)
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tsgae"]
 
@@ -36,6 +39,8 @@ collision_mask = 8454145
 physics_material_override = SubResource("PhysicsMaterial_g1dw6")
 lock_rotation = true
 continuous_cd = 2
+contact_monitor = true
+max_contacts_reported = 5
 script = ExtResource("1_oul6g")
 shapeCast2D = NodePath("ShapeCast2D")
 jumpForce = -500.0
@@ -57,7 +62,25 @@ script = ExtResource("3_8t03j")
 process_mode = 3
 script = ExtResource("4_ebec5")
 
-[node name="VictoryScreen" parent="FiniteStateMachine/VictoryState" unique_id=388784050 instance=ExtResource("5_yllr7")]
+[node name="VictoryScreen" parent="FiniteStateMachine/VictoryState" unique_id=388784050 instance=ExtResource("6_kb6p2")]
+visible = false
+offset_top = -134.0
+offset_bottom = 134.0
+
+[node name="Panel" parent="FiniteStateMachine/VictoryState/VictoryScreen" index="0" unique_id=448406328]
+theme_override_styles/panel = SubResource("StyleBoxFlat_yllr7")
+
+[node name="FailureOrVictoryLabel" parent="FiniteStateMachine/VictoryState/VictoryScreen/VBoxContainer" parent_id_path=PackedInt32Array(388784050, 715430772) index="0" unique_id=674040608]
+text = "[wave amp=50.0 freq=3.0 connected=1]VICTORY![/wave]"
+
+[node name="FailedState" type="Node" parent="FiniteStateMachine" unique_id=696763401]
+process_mode = 3
+script = ExtResource("4_ebec5")
+
+[node name="FailedScreen" parent="FiniteStateMachine/FailedState" unique_id=1352710135 instance=ExtResource("6_kb6p2")]
+visible = false
+
+[node name="NextLevel" parent="FiniteStateMachine/FailedState/FailedScreen/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1352710135, 1082218969) index="2" unique_id=1657717515]
 visible = false
 
 [node name="Default" type="Node" parent="FiniteStateMachine" unique_id=1908623282]
@@ -83,10 +106,6 @@ action_name = "explosion action"
 script = ExtResource("5_boad6")
 action_name = "shotgun action"
 infinite_amount = true
-
-[node name="Sword" type="Node" parent="Actions" unique_id=707152325]
-script = ExtResource("5_boad6")
-action_name = "sword action"
 
 [node name="Teleport" type="Node" parent="Actions" unique_id=2057908756]
 script = ExtResource("5_boad6")
@@ -127,3 +146,6 @@ position = Vector2(12, -3)
 [node name="Timer" type="Timer" parent="." unique_id=1582309571]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="FiniteStateMachine/VictoryState/VictoryScreen"]
+[editable path="FiniteStateMachine/FailedState/FailedScreen"]
