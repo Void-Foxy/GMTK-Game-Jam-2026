@@ -185,7 +185,7 @@ func update_trajectory() -> void:
 		throwLine.add_point(linePos)
 		var query := PhysicsRayQueryParameters2D.create(linePos, linePos + vel * tstep)
 		query.exclude = [self]
-		query.collision_mask = query.collision_mask - 2**(24-1)
+		query.collision_mask = Global.trajectoryMask
 		var collision := get_world_2d().direct_space_state.intersect_ray(query)
 		if !collision.is_empty():
 			vel.y += g * tstep

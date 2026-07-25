@@ -50,7 +50,7 @@ func _jump_logic(physics_state: PhysicsDirectBodyState2D) -> void:
 	else:
 		fsm_owner.gravity_scale = 1.0
 	
-	if (fsm_owner.shapeCast2D.is_colliding()):
+	if (fsm_owner.shapeCast2D.is_colliding()) && physics_state.linear_velocity.y >= 0:
 		fsm_owner.isGrounded = true
 		fsm_owner.doFallFast = false
 		fsm_owner.isJumping = false

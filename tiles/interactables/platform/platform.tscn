@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bi5nf34mtva4l"]
+
+[ext_resource type="Script" uid="uid://d8jmf5sqvkt6" path="res://tiles/interactables/platform/platform.gd" id="1_c3tgp"]
+[ext_resource type="Texture2D" uid="uid://6euxnrbtcqpv" path="res://sprites/platform.png" id="2_530nf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6sixj"]
+size = Vector2(32, 32)
+
+[sub_resource type="Gradient" id="Gradient_530nf"]
+colors = PackedColorArray(0.2426705, 0.10461154, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6sixj"]
+gradient = SubResource("Gradient_530nf")
+fill_to = Vector2(0, 1)
+
+[node name="platform" type="StaticBody2D" unique_id=1148566677]
+collision_layer = 65536
+collision_mask = 65536
+script = ExtResource("1_c3tgp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1584758547]
+shape = SubResource("RectangleShape2D_6sixj")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=647667330]
+visible = false
+position = Vector2(0, 4.7683716e-07)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("GradientTexture2D_6sixj")
+
+[node name="Platform" type="Sprite2D" parent="." unique_id=196038325]
+position = Vector2(-1.1324883e-06, 1.1444092e-05)
+scale = Vector2(0.039999995, 0.039999977)
+texture = ExtResource("2_530nf")
