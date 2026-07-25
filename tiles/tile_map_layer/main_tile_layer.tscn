@@ -4,11 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://c78ywnactohs7" path="res://tiles/interactables/door/door.tscn" id="1_vqaso"]
 [ext_resource type="PackedScene" uid="uid://cls8j36bthd3f" path="res://tiles/interactables/lever/lever.tscn" id="2_qa5jg"]
 [ext_resource type="Script" uid="uid://btb4236hoveqf" path="res://tiles/tile_map_layer/main_tile_layer.gd" id="3_k6yqi"]
+[ext_resource type="PackedScene" uid="uid://b15swl3hik831" path="res://tiles/interactables/end_flag/end_flag.tscn" id="3_ydf22"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_uuaxm"]
 resource_name = "Interactables"
 scenes/1/scene = ExtResource("1_vqaso")
 scenes/2/scene = ExtResource("2_qa5jg")
+scenes/3/scene = ExtResource("3_ydf22")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vqaso"]
 texture = ExtResource("1_0ugm7")

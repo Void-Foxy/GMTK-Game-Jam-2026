@@ -2,13 +2,7 @@ extends PlayerState
 
 var all_assigned := false
 
-func _integration_state_logic(physics_state: PhysicsDirectBodyState2D) -> void:
-	_movement_logic(physics_state)
-	_jump_logic(physics_state)
-
 func _get_transition(_delta: float) -> State:
-	print("ASDOIUNAOIWDNAWd")
-	print(all_assigned)
 	if all_assigned:
 		return states.Default
 	return null

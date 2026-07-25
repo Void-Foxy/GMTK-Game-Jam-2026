@@ -2,6 +2,8 @@ extends Node2D
 class_name Level
 
 
+@export var level_id: String
+
 
 @onready var throwables := $Throwables
 @onready var tile_map_layers := $TileMapLayers

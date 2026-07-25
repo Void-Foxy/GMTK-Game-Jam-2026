@@ -2,6 +2,7 @@ extends Node
 
 var player: Player
 
+var level_scene: PackedScene
 var level: Level
 signal level_ready
 

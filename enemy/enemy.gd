@@ -1,4 +1,5 @@
 extends RigidBody2D
+class_name Enemy
 
 @export var rayCast2D: RayCast2D
 @export var fallVelocityKill : float

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b15swl3hik831"]
+
+[ext_resource type="Script" uid="uid://jbu2q5cgxne2" path="res://tiles/interactables/end_flag/end_flag.gd" id="1_3k644"]
+[ext_resource type="Texture2D" uid="uid://bsi4vjds8pjv5" path="res://sprites/flag.png" id="1_8cgn5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8cgn5"]
+radius = 13.0
+height = 36.0
+
+[node name="EndFlag" type="Area2D" unique_id=242727869]
+script = ExtResource("1_3k644")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1216213172]
+shape = SubResource("CapsuleShape2D_8cgn5")
+
+[node name="Flag" type="Sprite2D" parent="." unique_id=1377683234]
+position = Vector2(2, 0)
+scale = Vector2(0.0325, 0.032499995)
+texture = ExtResource("1_8cgn5")

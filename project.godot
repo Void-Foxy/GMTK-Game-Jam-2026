@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+LevelManager="*uid://cutl7322tkb5l"
 Global="*uid://c5xg1i8gaohlb"
 FileLoader="*uid://doua1n6w706ia"
 
@@ -40,6 +41,7 @@ window/stretch/aspect="expand"
 enemy=""
 player=""
 teleportable=""
+end_flag=""
 
 [input]
 

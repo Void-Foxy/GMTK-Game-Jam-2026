@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6sixj"]
 size = Vector2(16, 24)
 
-[node name="Flag" type="Area2D" unique_id=2053115792]
+[node name="Flag" type="Area2D" unique_id=2053115792 groups=["end_flag"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1072066128]
 position = Vector2(0, -12)
