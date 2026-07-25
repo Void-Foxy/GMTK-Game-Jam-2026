@@ -9,6 +9,7 @@ func _ready() -> void:
 	next_level_button.pressed.connect(_on_restart_pressed)
 
 func _on_restart_pressed() -> void:
+	print("Restarte")
 	get_tree().change_scene_to_file(Global.level.scene_file_path)
 
 func _on_next_level_pressed() -> void:

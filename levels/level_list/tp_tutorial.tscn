@@ -16,6 +16,9 @@ texture = ExtResource("2_idh2m")
 [node name="Player" parent="." unique_id=2079557712 instance=ExtResource("3_jxnry")]
 position = Vector2(536, 496)
 
+[node name="VictoryScreen" parent="Player/FiniteStateMachine/VictoryState" parent_id_path=PackedInt32Array(2079557712, 116830716) index="0" unique_id=388784050]
+process_mode = 2
+
 [node name="Explosive" parent="Player/Actions" parent_id_path=PackedInt32Array(2079557712, 766765288) index="0" unique_id=613749430]
 disabled = true
 
