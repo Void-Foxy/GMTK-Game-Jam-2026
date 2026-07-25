@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bo0pgyqd3def5" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="PackedScene" uid="uid://cd0vkjqdtgmdv" path="res://actions/shotgun/shotgun.tscn" id="2_rkbax"]
 [ext_resource type="Script" uid="uid://c75xua7eg44uh" path="res://objects/shared_components/finite_state_machine/finite_state_machine.gd" id="2_yw30f"]
+[ext_resource type="Script" uid="uid://5ddb1bavpt1a" path="res://player/action_assigning.gd" id="3_8t03j"]
 [ext_resource type="PackedScene" uid="uid://ihplpk4dptfq" path="res://actions/sword/sword.tscn" id="3_g1dw6"]
 [ext_resource type="Script" uid="uid://dp43jpqchpx0o" path="res://player/states/default.gd" id="3_qjkh3"]
 [ext_resource type="Script" uid="uid://b2ugbkf5v3ocb" path="res://player/states/sword_vertical_slash.gd" id="4_g6k8r"]
@@ -39,6 +40,10 @@ sword = NodePath("sword")
 
 [node name="FiniteStateMachine" type="Node" parent="." unique_id=1989054244]
 script = ExtResource("2_yw30f")
+
+[node name="ActionAssigning" type="Node" parent="FiniteStateMachine" unique_id=1967568911]
+process_mode = 3
+script = ExtResource("3_8t03j")
 
 [node name="Default" type="Node" parent="FiniteStateMachine" unique_id=1908623282]
 script = ExtResource("3_qjkh3")

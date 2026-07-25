@@ -21,7 +21,6 @@ var handled := false
 @export var infinite_amount := false
 @export var amount: int = 4:
 	set(value):
-		print(value)
 		amount = value
 		action_slot.num_uses = value
 
