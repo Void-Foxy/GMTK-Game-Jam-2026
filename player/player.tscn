@@ -38,7 +38,7 @@ script = ExtResource("1_oul6g")
 shapeCast2D = NodePath("ShapeCast2D")
 jumpForce = -500.0
 knockbackForce = 400.0
-throwForce = 400.0
+throwForce = 700.0
 sword = NodePath("sword")
 
 [node name="FiniteStateMachine" type="Node" parent="." unique_id=1989054244]

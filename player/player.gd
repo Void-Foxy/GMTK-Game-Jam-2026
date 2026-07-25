@@ -59,6 +59,10 @@ func knockback(kb: Vector2) -> void:
 	apply_impulse(kb * knockbackForce)
 	#print("knockback")
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("hard_restart"):
+		get_tree().change_scene_to_file(Global.level.scene_file_path)
+
 func _process(delta: float) -> void:
 	lookDir = get_global_mouse_position() - global_position
 	lookDir = lookDir.normalized()
