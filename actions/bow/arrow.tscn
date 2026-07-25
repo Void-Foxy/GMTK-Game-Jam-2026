@@ -9,7 +9,7 @@ height = 18.0
 
 [node name="arrow" type="RigidBody2D" unique_id=1012338163 groups=["things that can go in a cannon"]]
 collision_layer = 2
-collision_mask = 2
+collision_mask = 98304
 contact_monitor = true
 max_contacts_reported = 5
 script = ExtResource("1_onogy")

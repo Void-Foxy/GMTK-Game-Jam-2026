@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c6p13g3fhqj3t" path="res://actions/shotgun/shotgun.gd" id="1_dqnu3"]
 [ext_resource type="Texture2D" uid="uid://3v0quvtlsseo" path="res://sprites/sniper.png" id="2_2hhet"]
+[ext_resource type="Texture2D" uid="uid://b5x0i4tdq2tvh" path="res://sprites/dotted line.png" id="3_x46e8"]
 
 [node name="Shotgun" type="Node2D" unique_id=93258039 node_paths=PackedStringArray("gunTip")]
 script = ExtResource("1_dqnu3")
@@ -16,3 +17,10 @@ texture = ExtResource("2_2hhet")
 
 [node name="tip" type="Node2D" parent="." unique_id=1834783277]
 position = Vector2(256, 0)
+
+[node name="Line2D" type="Line2D" parent="." unique_id=491607137]
+top_level = true
+texture_repeat = 2
+points = PackedVector2Array(0, 0, 40, -48, 88, -56)
+texture = ExtResource("3_x46e8")
+texture_mode = 1

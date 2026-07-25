@@ -9,6 +9,8 @@ var gunDir : Vector2
 
 var tracer := preload("res://actions/shotgun/bullet tracer.tscn")
 
+@onready var line : Line2D = $Line2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player = get_parent()
@@ -17,6 +19,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	update_trajectory()
 	look_at(get_global_mouse_position())
 	gunDir = gunTip.global_position - global_position
 	gunDir = gunDir.normalized()
@@ -29,7 +32,7 @@ func _process(delta: float) -> void:
 func shoot() -> void:
 	var query := PhysicsRayQueryParameters2D.create(gunTip.global_position, gunTip.global_position + gunDir * 200000)
 	query.exclude = [self]
-	query.collision_mask = query.collision_mask - 2**(24-1)
+	query.collision_mask = Global.trajectoryMask
 	var collision := get_world_2d().direct_space_state.intersect_ray(query)
 	player.knockback(-gunDir)
 	if !collision.is_empty():
@@ -44,3 +47,15 @@ func shoot() -> void:
 				collision.collider.apply_impulse(gunDir * shootingForce)
 				if collision.collider.is_in_group("enemy"):
 					collision.collider.killThisEnemy()
+					
+
+func update_trajectory() -> void:
+	line.clear_points()
+	var query := PhysicsRayQueryParameters2D.create(gunTip.global_position, gunTip.global_position + gunDir * 200000)
+	query.exclude = [self]
+	query.collision_mask = Global.trajectoryMask
+	var collision := get_world_2d().direct_space_state.intersect_ray(query)
+	if !collision.is_empty():
+		line.add_point(gunTip.global_position)
+		line.add_point(collision.position)
+		
