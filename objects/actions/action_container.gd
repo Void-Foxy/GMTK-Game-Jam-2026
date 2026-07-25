@@ -65,7 +65,7 @@ func just_released(action_name: String, physics_process := false, ignore_handled
 	
 	return true
 
-func pressed(action_name: String, physics_process := false, ignore_handled := false) -> bool:
+func pressed(action_name: String, physics_process := false, ignore_handled := true) -> bool:
 	if not string_to_action.has(action_name):
 		return false
 	
