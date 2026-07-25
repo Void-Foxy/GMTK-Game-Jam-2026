@@ -97,11 +97,12 @@ func _process(delta: float) -> void:
 	if scm.action_container.pressed("explosion action")\
 	 or scm.action_container.pressed("teleport action")\
 	 or scm.action_container.pressed("bow action"):
-		throwForceChargeTimer += delta
-		if throwForceChargeTimer > throwForceChargeTime:
-			throwForceChargeTimer = throwForceChargeTime
-		throwForce = lerp(throwForceBase, throwForceUpperLimit, throwForceChargeTimer / throwForceChargeTime)
-		update_trajectory()
+		if canThrowTele or canThrowExplosive:
+			throwForceChargeTimer += delta
+			if throwForceChargeTimer > throwForceChargeTime:
+				throwForceChargeTimer = throwForceChargeTime
+			throwForce = lerp(throwForceBase, throwForceUpperLimit, throwForceChargeTimer / throwForceChargeTime)
+			update_trajectory()
 	else:
 		throwForceChargeTimer = 0.0
 		throwLine.clear_points()
