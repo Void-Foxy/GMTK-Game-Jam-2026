@@ -26,7 +26,7 @@ infinite_amount = true
 [node name="Teleport" parent="Player/Actions" parent_id_path=PackedInt32Array(2079557712, 766765288) index="3" unique_id=2057908756]
 infinite_amount = true
 
-[node name="Cannon" parent="Player/Actions" parent_id_path=PackedInt32Array(2079557712, 766765288) index="4" unique_id=1515054134]
+[node name="Cannon" parent="Player/Actions" parent_id_path=PackedInt32Array(2079557712, 766765288) index="5" unique_id=1515054134]
 action_icon = null
 infinite_amount = true
 

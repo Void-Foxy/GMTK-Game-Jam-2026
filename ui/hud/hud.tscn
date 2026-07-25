@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dtu3ohfn1el7w" path="res://ui/hud/hud.gd" id="1_4d6w6"]
 [ext_resource type="PackedScene" uid="uid://bdxqhu02o51sy" path="res://ui/hud/action_amount_bank_slots/action_amount_bank_slot.tscn" id="2_4d6w6"]
 
-[node name="Hud" type="Control" unique_id=566647011 node_paths=PackedStringArray("action_amount_bank", "action_slots_container", "timer")]
+[node name="Hud" type="Control" unique_id=566647011 node_paths=PackedStringArray("action_amount_bank", "action_slots_container", "timerLabel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,7 +14,7 @@ script = ExtResource("1_4d6w6")
 action_amount_bank_slot_scene = ExtResource("2_4d6w6")
 action_amount_bank = NodePath("MarginContainer/MarginContainer/ActionAmountBank")
 action_slots_container = NodePath("MarginContainer/VBoxContainer/ActionSlotsContainer")
-timer = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Timer")
+timerLabel = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Timer")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1066332098]
 layout_mode = 1

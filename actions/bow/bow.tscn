@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cuevyqhlfjkwn"]
+
+[ext_resource type="Script" uid="uid://dmsbwty2rmae5" path="res://actions/bow/bow.gd" id="1_jf73s"]
+
+[sub_resource type="Gradient" id="Gradient_0hoyg"]
+offsets = PackedFloat32Array(0.4913495, 1)
+colors = PackedColorArray(0.2692718, 0.13323763, 2.4065375e-08, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6sixj"]
+gradient = SubResource("Gradient_0hoyg")
+fill_from = Vector2(1, 1)
+fill_to = Vector2(0, 1)
+
+[node name="Bow" type="Node2D" unique_id=2066854220]
+script = ExtResource("1_jf73s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1093891070]
+position = Vector2(4.7683716e-07, 4.7683716e-07)
+scale = Vector2(0.12500001, 0.375)
+texture = SubResource("GradientTexture2D_6sixj")

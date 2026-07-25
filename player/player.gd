@@ -30,12 +30,25 @@ var cannon := preload("res://actions/cannon/cannon.tscn")
 @export var sword : Area2D
 var swordOffset : float
 
+@onready var timer : Timer = $Timer
+var label : Label
+var timeElapsed := 0
 
 func _ready() -> void:
 	Global.player = self
 	add_to_group("player")
 	swordOffset = sword.position.x
 	throwLine = $Line2D
+	
+	await get_tree().process_frame
+	label = Global.level.hud.timerLabel
+	if !Global.level.timerChallenge:
+		timer.wait_time = 1
+		timer.one_shot = false
+		label.text = "00:00"
+	else:
+		timer.wait_time = Global.level.timerChallengeTime
+	timer.start()
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	scm.fsm.state._integration_state_logic(state)
@@ -55,7 +68,8 @@ func _process(delta: float) -> void:
 	if scm.action_container.just_pressed("cannon action") && !Global.cannonExist:
 		summonCannon()
 	update_trajectory()
-	
+	if Global.level.timerChallenge:
+		updateTimer()
 	pass
 
 
@@ -120,3 +134,22 @@ func update_trajectory() -> void:
 			break
 		
 	
+
+func timeLeft() -> Array:
+	var tl := timer.time_left
+	var minute : int = floor(tl / 60)
+	var seconds : int = int(tl) % 60
+	var miliseconds : int = fmod(tl, 1.0) * 1000
+	return [minute, seconds, miliseconds]
+
+func updateTimer() -> void:
+	label.text = "%02d:%02d:%02d" % timeLeft()
+
+
+func _on_timer_timeout() -> void:
+	if !Global.level.timerChallenge:
+		timeElapsed += 1
+		var minute : int = floor(timeElapsed / 60)
+		var seconds : int = timeElapsed % 60
+		label.text = "%02d:%02d" % [minute, seconds]
+	pass # Replace with function body.

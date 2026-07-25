@@ -12,6 +12,8 @@ class_name Level
 @export var texture: Texture2D
 @export var action_amounts_for_assignment: PackedInt32Array
 
+@export var timerChallenge := false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	assert(main_tile_layer)

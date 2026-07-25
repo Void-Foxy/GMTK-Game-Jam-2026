@@ -5,7 +5,7 @@ class_name Hud
 
 @export var action_amount_bank: HBoxContainer
 @export var action_slots_container: HBoxContainer
-@export var timer : Label 
+@export var timerLabel : Label 
 
 var are_amount_bank_slots_ready := false
 signal amount_bank_slots_readied
