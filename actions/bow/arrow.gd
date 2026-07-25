@@ -8,6 +8,7 @@ var lastFrameDir : float
 func _ready() -> void:
 	sprite = $Arrow
 	body_entered.connect(_on_body_entered)
+	body_exited.connect(_on_body_exited)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,13 +19,12 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	pass
 
 func _on_body_entered(body: Node) -> void:
-	if !body.is_in_group("player"):
-		sprite.rotation = lastFrameDir
-		stuckIn = true
-		call_deferred("set_freeze_enabled", true)
-		$CollisionShape2D.set_deferred("disabled", true)
-		linear_velocity = Vector2.ZERO
-		angular_velocity = 0
-		reparent(body, true)
-		if body.is_in_group("enemy"):
-			body.killThisEnemy()
+	sprite.rotation = lastFrameDir
+	stuckIn = true
+	linear_velocity = Vector2.ZERO
+	angular_velocity = 0
+	if body.is_in_group("enemy"):
+		body.killThisEnemy()
+
+func _on_body_exited(_body: Node) -> void:
+	stuckIn = false
