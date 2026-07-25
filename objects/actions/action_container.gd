@@ -26,7 +26,7 @@ func just_pressed(action_name: String, physics_process := false, ignore_handled 
 	if not just_pressed_var:
 		return false
 		
-	print(action_name)
+	# print(action_name)
 	
 	if not ignore_handled && action.handled:
 		return false

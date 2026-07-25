@@ -29,8 +29,8 @@ func teleport() -> void:
 		player.global_position = global_position
 	else:
 		var tempPos := other.global_position
-		other.position = player.position
-		player.position = tempPos
+		other.global_position = player.global_position
+		player.global_position = tempPos
 	
 	player.linear_velocity = orb_velocity
 	Global.teleportExist = false

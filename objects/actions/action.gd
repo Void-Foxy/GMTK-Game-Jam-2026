@@ -27,7 +27,6 @@ var handled := false
 var keybind: String:
 	get: 
 		var events := InputMap.action_get_events(action_name)
-		print(events)
 		return events[0].as_text()
 	set(value):
 		keybind = value

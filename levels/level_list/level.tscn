@@ -16,6 +16,19 @@ main_tile_layer = NodePath("TileMapLayers/TileMapLayer")
 [node name="Player" parent="." unique_id=2079557712 instance=ExtResource("2_jns8x")]
 position = Vector2(536, 496)
 
+[node name="Explosive" parent="Player/Actions" parent_id_path=PackedInt32Array(2079557712, 766765288) index="0" unique_id=613749430]
+infinite_amount = true
+
+[node name="Sword" parent="Player/Actions" parent_id_path=PackedInt32Array(2079557712, 766765288) index="2" unique_id=707152325]
+infinite_amount = true
+
+[node name="Teleport" parent="Player/Actions" parent_id_path=PackedInt32Array(2079557712, 766765288) index="3" unique_id=2057908756]
+infinite_amount = true
+
+[node name="Cannon" parent="Player/Actions" parent_id_path=PackedInt32Array(2079557712, 766765288) index="4" unique_id=1515054134]
+action_icon = null
+infinite_amount = true
+
 [node name="Throwables" type="Node2D" parent="." unique_id=1680356930]
 
 [node name="TileMapLayers" type="Node2D" parent="." unique_id=959366449]
@@ -50,7 +63,7 @@ position = Vector2(1368, -32)
 position = Vector2(704, 32)
 
 [node name="Enemy8" parent="EnemyGroup" unique_id=225366833 instance=ExtResource("5_dl6gc")]
-position = Vector2(760, 32)
+position = Vector2(752, 32)
 
 [node name="Enemy9" parent="EnemyGroup" unique_id=1622619424 instance=ExtResource("5_dl6gc")]
 position = Vector2(1384, -256)
@@ -64,3 +77,5 @@ position = Vector2(472, -352)
 [node name="Hud" parent="." unique_id=566647011 instance=ExtResource("4_lqoxw")]
 top_level = true
 metadata/_edit_lock_ = true
+
+[editable path="Player"]

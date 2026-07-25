@@ -25,12 +25,13 @@ position = Vector2(0, -12)
 shape = SubResource("CircleShape2D_6sixj")
 
 [node name="CannonBarrel" type="Sprite2D" parent="." unique_id=1210633492]
-position = Vector2(6, -11.999999)
+position = Vector2(0, -12)
 scale = Vector2(0.049999986, 0.050000004)
 texture = ExtResource("3_yd17m")
+offset = Vector2(128.915, 28.98)
 
 [node name="barreltip" type="Node2D" parent="CannonBarrel" unique_id=770859420]
-position = Vector2(280.00006, -1.5974041e-05)
+position = Vector2(400.00012, 3.0994433e-06)
 scale = Vector2(10.769231, 7.692308)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
