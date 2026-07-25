@@ -22,6 +22,9 @@ var explosiveExist := false
 var teleportExist := false
 var cannonExist := false
 
+func _init() -> void:
+	Global.level = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	assert(main_tile_layer)
