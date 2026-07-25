@@ -6,7 +6,7 @@ extends MarginContainer
 
 func _ready() -> void:
 	restart_button.pressed.connect(_on_restart_pressed)
-	next_level_button.pressed.connect(_on_restart_pressed)
+	next_level_button.pressed.connect(_on_next_level_pressed)
 
 func _on_restart_pressed() -> void:
 	print("Restarte")
@@ -15,4 +15,5 @@ func _on_restart_pressed() -> void:
 func _on_next_level_pressed() -> void:
 	var current_level_scene := LevelManager.level_id_to_scene[Global.level.level_id]
 	var next_level_scene := LevelManager.level_to_next_level[current_level_scene]
+	print(current_level_scene, next_level_scene)
 	get_tree().change_scene_to_node(next_level_scene.instantiate())
