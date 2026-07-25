@@ -21,5 +21,5 @@ func _enter_state(_old_state: State) -> void:
 		Global.level.hud.all_actions_assigned.connect(func() -> void: all_assigned = true, CONNECT_ONE_SHOT)
 	pass
 
-func _exit_state(_old_state: State) -> void:
+func _exit_state(_new_state: State) -> void:
 	get_tree().paused = false

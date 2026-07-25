@@ -5,7 +5,9 @@ extends PlayerState
 	#_jump_logic(physics_state)
 
 
-func _get_transition(_delta: float) -> State:
-	if Global.level.cannonExist:
-		return states.Default
-	return null
+
+func _enter_state(_old_state: State) -> void:
+	fsm_owner.linear_velocity = Vector2.ZERO
+
+func _exit_state(_new_state: State) -> void:
+	fsm_owner.set_sleeping(false)

@@ -1,4 +1,5 @@
 extends Area2D
+class_name Cannon
 
 @export var barrel : Node2D
 @export var barrelTip : Node2D

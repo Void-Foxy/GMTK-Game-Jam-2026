@@ -45,8 +45,18 @@ var timeElapsed := 0
 var canThrowTele := false
 var canThrowExplosive := false
 var canShootBow := false
-var settingUpCannon := false
-var cannonInScene : Node2D
+var settingUpCannon := false:
+	#get: return scm.fsm.state != scm.fsm.states.SettingUpCannon
+	set(value): 
+		if settingUpCannon == value:
+			return
+		settingUpCannon = value
+		if value:
+			scm.fsm.queued_state = scm.fsm.states.SettingUpCannon
+		else:
+			print("Defaulting")
+			scm.fsm.queued_state = scm.fsm.states.Default
+var cannonInScene : Cannon
 
 func _ready() -> void:
 	Global.player = self

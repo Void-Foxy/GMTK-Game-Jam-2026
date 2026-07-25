@@ -36,7 +36,6 @@ func _jump_logic(physics_state: PhysicsDirectBodyState2D) -> void:
 	var vertical := Input.get_axis("up", "down")
 	if (fsm_owner.isGrounded && vertical < 0 && !fsm_owner.justJumped && !fsm_owner.playerMovementLocked):
 		physics_state.apply_central_impulse(Vector2(0, fsm_owner.jumpForce))
-		print(Vector2(0, fsm_owner.jumpForce))
 		fsm_owner.isJumping = true
 		fsm_owner.justJumped = true
 	
@@ -50,8 +49,10 @@ func _jump_logic(physics_state: PhysicsDirectBodyState2D) -> void:
 	else:
 		fsm_owner.gravity_scale = 1.0
 	
-	if (fsm_owner.shapeCast2D.is_colliding()) && physics_state.linear_velocity.y >= 0:
-		fsm_owner.isGrounded = true
+	
+	if (fsm_owner.shapeCast2D.is_colliding()):
+		if physics_state.linear_velocity.y >= 0:
+			fsm_owner.isGrounded = true
 		fsm_owner.doFallFast = false
 		fsm_owner.isJumping = false
 	else:
