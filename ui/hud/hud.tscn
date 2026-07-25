@@ -11,7 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4d6w6")
 action_slots_container = NodePath("MarginContainer/VBoxContainer/ActionSlotsContainer")
-timer = NodePath("MarginContainer/VBoxContainer/VBoxContainer/Timer")
+timer = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Timer")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1066332098]
 layout_mode = 1
@@ -24,12 +24,15 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1530901343]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=902234382]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=2121647714]
 layout_mode = 2
-size_flags_horizontal = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=902234382]
+layout_mode = 2
+size_flags_horizontal = 10
 size_flags_vertical = 3
 
-[node name="Timer" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=2017697945]
+[node name="Timer" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=2017697945]
 layout_mode = 2
 text = "asdasdasdasd"
 
