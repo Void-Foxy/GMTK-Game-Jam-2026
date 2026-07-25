@@ -1,13 +1,7 @@
 [gd_scene format=3 uid="uid://diuqrqsbypkbu"]
 
 [ext_resource type="Script" uid="uid://g0m3aepmgjk3" path="res://actions/teleport orb/teleport_orb.gd" id="1_cqi4o"]
-
-[sub_resource type="Gradient" id="Gradient_n1kqn"]
-offsets = PackedFloat32Array(0, 0.9965398)
-colors = PackedColorArray(0.984608, 0.6631137, 0.8543521, 1, 0.48889756, 0.70313084, 0.9270428, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_gh8rv"]
-gradient = SubResource("Gradient_n1kqn")
+[ext_resource type="Texture2D" uid="uid://b737m6u0svhtm" path="res://sprites/teleport orb.png" id="2_gh8rv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cqi4o"]
 radius = 8.0
@@ -23,10 +17,10 @@ max_contacts_reported = 5
 script = ExtResource("1_cqi4o")
 area2D = NodePath("Area2D")
 
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=58297398]
-position = Vector2(4.7683716e-07, -4.7683716e-07)
-scale = Vector2(0.24999999, 0.24999999)
-texture = SubResource("GradientTexture2D_gh8rv")
+[node name="TeleportOrb" type="Sprite2D" parent="." unique_id=213403820]
+position = Vector2(2.3841858e-07, -2.3841858e-07)
+scale = Vector2(0.020000001, 0.020000001)
+texture = ExtResource("2_gh8rv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1415074164]
 shape = SubResource("CircleShape2D_cqi4o")
