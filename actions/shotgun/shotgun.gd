@@ -29,6 +29,7 @@ func _process(delta: float) -> void:
 func shoot() -> void:
 	var query := PhysicsRayQueryParameters2D.create(gunTip.global_position, gunTip.global_position + gunDir * 200000)
 	query.exclude = [self]
+	query.collision_mask = query.collision_mask - 2**(24-1)
 	var collision := get_world_2d().direct_space_state.intersect_ray(query)
 	player.knockback(-gunDir)
 	if !collision.is_empty():

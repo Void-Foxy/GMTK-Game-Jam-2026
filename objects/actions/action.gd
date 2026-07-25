@@ -37,7 +37,7 @@ var released_handled := false
 var keybind: String:
 	get: 
 		var events := InputMap.action_get_events(action_name)
-		return events[0].as_text()
+		return events[0].as_text().trim_suffix(" - Physical")
 	set(value):
 		keybind = value
 		action_slot.keybind = value
