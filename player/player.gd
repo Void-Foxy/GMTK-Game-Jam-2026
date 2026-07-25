@@ -45,6 +45,8 @@ var timeElapsed := 0
 var canThrowTele := false
 var canThrowExplosive := false
 var canShootBow := false
+var settingUpCannon := false
+var cannonInScene : Node2D
 
 func _ready() -> void:
 	Global.player = self
@@ -85,13 +87,19 @@ func _process(delta: float) -> void:
 	var cannon_action := "cannon action"
 	var bow_action := "bow action"
 	
-	if scm.action_container.just_pressed(teleport_action) && !Global.teleportExist:
-		canThrowTele = true
-	if scm.action_container.just_pressed(explosion_action) && !Global.explosiveExist:
-		canThrowExplosive = true
+	if !settingUpCannon:
+		if scm.action_container.just_pressed(teleport_action) && !Global.teleportExist:
+			canThrowTele = true
+		if scm.action_container.just_pressed(explosion_action) && !Global.explosiveExist:
+			canThrowExplosive = true
 	if scm.action_container.just_pressed(cannon_action) && !Global.cannonExist:
 		scm.action_container.use_action_slot(cannon_action)
+		settingUpCannon = true
 		summonCannon()
+	if scm.action_container.pressed(cannon_action) && settingUpCannon:
+		cannonInScene.setUpCannon()
+	else:
+		settingUpCannon = false
 	
 	if scm.action_container.just_released(teleport_action) && canThrowTele:
 		scm.action_container.use_action_slot(teleport_action)
@@ -149,10 +157,10 @@ func shootBow() -> void:
 	thing.apply_impulse(lookDir * throwForce)
 
 func summonCannon() -> void:
-	var thing : Area2D = cannon.instantiate()
-	Global.throwables.add_child(thing)
-	thing.global_position = global_position - Vector2 (0,-16)
-	thing.setUpCannon()
+	cannonInScene = cannon.instantiate()
+	Global.throwables.add_child(cannonInScene)
+	cannonInScene.global_position = global_position - Vector2 (0,-16)
+	cannonInScene.setUpCannon()
 	Global.cannonExist = true
 
 func getFaceDir() -> float:

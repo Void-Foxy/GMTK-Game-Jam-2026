@@ -1,6 +1,6 @@
 extends Node
 
-var player: Player
+var player : Player
 
 var level_scene: PackedScene
 var level: Level

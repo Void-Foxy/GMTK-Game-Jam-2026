@@ -24,7 +24,6 @@ func _process(delta: float) -> void:
 		hasSomething = false
 	pass
 
-
 func setUpCannon() -> void:
 	barrel.look_at(get_global_mouse_position())
 	dir = barrelTip.global_position - barrel.global_position
