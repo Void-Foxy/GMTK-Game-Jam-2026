@@ -45,4 +45,6 @@ func play_particles(particles_node: GPUParticles2D, duration: float) -> void:
 	await particles_node.finished
 	particles_node.queue_free()
 	
-	
+
+func restart() -> void:
+	get_tree().change_scene_to_file(Global.level.scene_file_path)
