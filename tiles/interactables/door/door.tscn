@@ -36,6 +36,8 @@ animations = [{
 size = Vector2(32, 32)
 
 [node name="Door" type="StaticBody2D" unique_id=1866437962]
+collision_layer = 32771
+collision_mask = 32771
 script = ExtResource("1_5orni")
 
 [node name="DoorFrames" type="AnimatedSprite2D" parent="." unique_id=55098278]

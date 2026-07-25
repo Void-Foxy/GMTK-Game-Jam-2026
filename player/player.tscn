@@ -39,6 +39,9 @@ shapeCast2D = NodePath("ShapeCast2D")
 jumpForce = -500.0
 knockbackForce = 400.0
 throwForce = 700.0
+throwForceBase = 400.0
+throwForceUpperLimit = 700.0
+throwForceChargeTime = 1.0
 sword = NodePath("sword")
 
 [node name="FiniteStateMachine" type="Node" parent="." unique_id=1989054244]

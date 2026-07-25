@@ -13,6 +13,7 @@ script = ExtResource("1_i1hxs")
 level_id = "Level1"
 main_tile_layer = NodePath("TileMapLayers/TileMapLayer")
 texture = ExtResource("2_t1ksi")
+action_amounts_for_assignment = PackedInt32Array(4)
 
 [node name="Player" parent="." unique_id=2079557712 instance=ExtResource("3_yosa5")]
 position = Vector2(536, 496)

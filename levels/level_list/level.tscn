@@ -14,13 +14,9 @@ level_id = "DebugLevel"
 main_tile_layer = NodePath("TileMapLayers/TileMapLayer")
 texture = ExtResource("2_lqoxw")
 timerChallenge = true
-timerChallengeTime = 120.0
 
 [node name="Player" parent="." unique_id=2079557712 instance=ExtResource("2_jns8x")]
 position = Vector2(536, 496)
-throwForceBase = 400.0
-throwForceUpperLimit = 700.0
-throwForceChargeTime = 2.0
 
 [node name="Explosive" parent="Player/Actions" parent_id_path=PackedInt32Array(2079557712, 766765288) index="0" unique_id=613749430]
 infinite_amount = true
