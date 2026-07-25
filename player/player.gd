@@ -24,6 +24,10 @@ var teleportOrb := preload("res://actions/teleport orb/teleport Orb.tscn")
 var lookDir : Vector2
 var spawnThingsDir : Vector2
 @export var throwForce : float
+@export var throwForceBase : float
+@export var throwForceUpperLimit : float
+@export var throwForceChargeTime : float
+var throwForceChargeTimer := 0.0
 var throwLine : Line2D
 
 var cannon := preload("res://actions/cannon/cannon.tscn") 
@@ -34,6 +38,8 @@ var swordOffset : float
 @onready var timer : Timer = $Timer
 var label : Label
 var timeElapsed := 0
+
+var holdState := false
 
 func _ready() -> void:
 	Global.player = self
@@ -73,12 +79,25 @@ func _process(delta: float) -> void:
 		throwExplosive()
 	if scm.action_container.just_pressed("cannon action") && !Global.cannonExist:
 		summonCannon()
-	update_trajectory()
+	
+	if Input.is_key_pressed(KEY_L):
+		throwForceChargeTimer += delta
+		if throwForceChargeTimer > throwForceChargeTime:
+			throwForceChargeTimer = throwForceChargeTime
+		throwForce = lerp(throwForceBase, throwForceUpperLimit, throwForceChargeTimer / throwForceChargeTime)
+		update_trajectory()
+	else:
+		throwForceChargeTimer = 0.0
+		throwLine.clear_points()
+	
 	if Global.level.timerChallenge:
 		updateTimer()
 	pass
 
 
+
+func removeTimeToChallengeTimer(time : float) -> void:
+	timer.start(timer.time_left - time)
 
 func throwTeleport() -> void:
 	var thing : RigidBody2D = teleportOrb.instantiate()

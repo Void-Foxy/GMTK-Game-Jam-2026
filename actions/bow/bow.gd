@@ -2,6 +2,7 @@ extends Node2D
 
 var arrow := preload("res://actions/bow/arrow.tscn") 
 var player : Player
+@export var actionTimeCost : float
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -23,6 +23,7 @@ var handled := false
 	set(value):
 		amount = value
 		action_slot.num_uses = value
+@export var timeCost : float = 0.0
 
 var keybind: String:
 	get: 
