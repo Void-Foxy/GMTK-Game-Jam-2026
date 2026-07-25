@@ -34,7 +34,6 @@ offsets = PackedFloat32Array(0, 0.22456141, 0.44912282, 0.6421053, 0.83157897, 1
 colors = PackedColorArray(1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1)
 
 [node name="Player" type="RigidBody2D" unique_id=2079557712 node_paths=PackedStringArray("shapeCast2D", "sword")]
-collision_layer = 8388609
 collision_mask = 8388609
 physics_material_override = SubResource("PhysicsMaterial_g1dw6")
 lock_rotation = true
