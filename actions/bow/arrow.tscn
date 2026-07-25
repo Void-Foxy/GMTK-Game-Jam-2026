@@ -1,16 +1,11 @@
 [gd_scene format=3 uid="uid://bm6gafs5q7kcq"]
 
 [ext_resource type="Script" uid="uid://catlqt4msu1xy" path="res://actions/bow/arrow.gd" id="1_onogy"]
+[ext_resource type="Texture2D" uid="uid://c7yqjoa2vjyts" path="res://sprites/arrow.png" id="2_pg14w"]
 
-[sub_resource type="Gradient" id="Gradient_ewacf"]
-offsets = PackedFloat32Array(0, 0.42560554, 0.8858132, 1)
-colors = PackedColorArray(0.83391005, 0.83391005, 0.83391005, 1, 0.24477637, 0.2447764, 0.24477637, 1, 0.36818185, 0.36818185, 0.36818185, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_6sixj"]
-gradient = SubResource("Gradient_ewacf")
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_yi0h0"]
-radius = 8.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lqoxw"]
+radius = 3.0
+height = 18.0
 
 [node name="arrow" type="RigidBody2D" unique_id=1012338163 groups=["things that can go in a cannon"]]
 collision_layer = 2
@@ -19,10 +14,11 @@ contact_monitor = true
 max_contacts_reported = 5
 script = ExtResource("1_onogy")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1294320927]
-position = Vector2(-4.172325e-07, -1.7881393e-07)
-scale = Vector2(0.25, 0.125)
-texture = SubResource("GradientTexture2D_6sixj")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=569908224]
-shape = SubResource("CircleShape2D_yi0h0")
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_lqoxw")
+
+[node name="Arrow" type="Sprite2D" parent="." unique_id=855602023]
+position = Vector2(0.5000013, 0.8124991)
+scale = Vector2(0.023749992, 0.023249997)
+texture = ExtResource("2_pg14w")

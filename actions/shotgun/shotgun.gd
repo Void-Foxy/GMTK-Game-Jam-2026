@@ -37,6 +37,8 @@ func shoot() -> void:
 		thing.global_position = gunTip.global_position
 		thing.rotation = rotation
 		if collision.collider != null:
+			if collision.collider is RigidBody2D:
+				collision.collider.apply_impulse(gunDir * shootingForce)
 			if collision.collider.is_in_group("enemy"):
 				var enemy : RigidBody2D = collision.collider
 				enemy.apply_impulse(gunDir * shootingForce)

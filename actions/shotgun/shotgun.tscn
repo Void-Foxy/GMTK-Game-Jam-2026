@@ -1,21 +1,18 @@
 [gd_scene format=3 uid="uid://cd0vkjqdtgmdv"]
 
 [ext_resource type="Script" uid="uid://c6p13g3fhqj3t" path="res://actions/shotgun/shotgun.gd" id="1_dqnu3"]
-
-[sub_resource type="Gradient" id="Gradient_dqnu3"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_pxgy3"]
-gradient = SubResource("Gradient_dqnu3")
+[ext_resource type="Texture2D" uid="uid://3v0quvtlsseo" path="res://sprites/sniper.png" id="2_2hhet"]
 
 [node name="Shotgun" type="Node2D" unique_id=93258039 node_paths=PackedStringArray("gunTip")]
 script = ExtResource("1_dqnu3")
 gunTip = NodePath("tip")
 shootingForce = 400.0
 
-[node name="gun" type="Sprite2D" parent="." unique_id=1672683903]
-position = Vector2(111.99999, 0)
-scale = Vector2(4.4999995, 1)
-texture = SubResource("GradientTexture2D_pxgy3")
+[node name="Sniper" type="Sprite2D" parent="." unique_id=76995149]
+z_index = 1
+position = Vector2(112, 5)
+scale = Vector2(0.33333328, 0.3333333)
+texture = ExtResource("2_2hhet")
 
 [node name="tip" type="Node2D" parent="." unique_id=1834783277]
 position = Vector2(256, 0)

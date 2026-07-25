@@ -10,7 +10,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	if !stuckIn:
-		look_at(position + linear_velocity)
+		look_at(global_position + linear_velocity)
 	pass
 
 func _on_body_entered(body: Node) -> void:
