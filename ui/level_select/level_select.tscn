@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c78c4214r3xv1" path="res://ui/level_select/level_select_item/level_select_item.tscn" id="2_r5cd4"]
 
 [node name="LevelSelect" type="Control" unique_id=1430696741]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

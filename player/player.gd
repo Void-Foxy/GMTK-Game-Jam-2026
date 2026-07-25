@@ -52,6 +52,8 @@ func _ready() -> void:
 	swordOffset = sword.position.x
 	throwLine = $Line2D
 	
+	body_entered.connect(_on_body_entered)
+	
 	await get_tree().process_frame
 	label = Global.level.hud.timerLabel
 	if !Global.level.timerChallenge:
@@ -205,6 +207,8 @@ func timeLeft() -> Array:
 func updateTimer() -> void:
 	label.text = "%02d:%02d:%02d" % timeLeft()
 
+func kill_player() -> void:
+	scm.fsm.queued_state = scm.fsm.states.FailedState
 
 func _on_timer_timeout() -> void:
 	if !Global.level.timerChallenge:
@@ -213,3 +217,8 @@ func _on_timer_timeout() -> void:
 		var seconds : int = timeElapsed % 60
 		label.text = "%02d:%02d" % [minute, seconds]
 	pass # Replace with function body.
+
+
+func _on_body_entered(body: Node) -> void:
+	if body.is_in_group("enemy"):
+		kill_player()
