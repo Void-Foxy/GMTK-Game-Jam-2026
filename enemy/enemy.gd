@@ -23,3 +23,4 @@ func _process(delta: float) -> void:
 func killThisEnemy() -> void:
 	print("enemy died")
 	died = true
+	queue_free()

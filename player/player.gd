@@ -121,10 +121,12 @@ func update_trajectory() -> void:
 	var tstep := 0.005 #time in each iteration
 	var linePos := global_position + spawnThingsDir
 	var g: float = ProjectSettings.get_setting("physics/2d/default_gravity")
+	var drag : float = ProjectSettings.get_setting("physics/2d/default_linear_damp")
 	throwLine.add_point(linePos)
 	for i in range(1, 1000):
 		vel.y += g * tstep
 		linePos += vel * tstep
+		vel *= clampf(1.0 - drag * tstep, 0, 1)
 		throwLine.add_point(linePos)
 		var query := PhysicsRayQueryParameters2D.create(linePos, linePos + vel * tstep)
 		query.exclude = [self]
