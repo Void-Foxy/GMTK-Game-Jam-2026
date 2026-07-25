@@ -17,6 +17,11 @@ class_name Level
 @export var timerChallenge := false
 @export var timerChallengeTime : float = 300
 
+
+var explosiveExist := false
+var teleportExist := false
+var cannonExist := false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	assert(main_tile_layer)

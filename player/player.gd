@@ -97,7 +97,7 @@ func _process(delta: float) -> void:
 	if scm.action_container.pressed("explosion action")\
 	 or scm.action_container.pressed("teleport action")\
 	 or scm.action_container.pressed("bow action"):
-		if canThrowTele or canThrowExplosive:
+		if canThrowTele or canThrowExplosive or scm.action_container.pressed("bow action"):
 			throwForceChargeTimer += delta
 			if throwForceChargeTimer > throwForceChargeTime:
 				throwForceChargeTimer = throwForceChargeTime
