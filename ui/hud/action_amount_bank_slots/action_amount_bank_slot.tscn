@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bdxqhu02o51sy"]
+
+[ext_resource type="Script" uid="uid://cmwidnb62v4qx" path="res://ui/hud/action_amount_bank_slots/action_amount_bank_slot.gd" id="1_ep21e"]
+
+[node name="ActionAmount" type="PanelContainer" unique_id=50054968 node_paths=PackedStringArray("amount_label")]
+custom_minimum_size = Vector2(50, 50)
+script = ExtResource("1_ep21e")
+amount_label = NodePath("Amount")
+
+[node name="Amount" type="Label" parent="." unique_id=1890631632]
+layout_mode = 2
+text = "99"
+horizontal_alignment = 1

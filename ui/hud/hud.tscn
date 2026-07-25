@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://dknnqhpjetyj6"]
 
 [ext_resource type="Script" uid="uid://dtu3ohfn1el7w" path="res://ui/hud/hud.gd" id="1_4d6w6"]
+[ext_resource type="PackedScene" uid="uid://bdxqhu02o51sy" path="res://ui/hud/action_amount_bank_slots/action_amount_bank_slot.tscn" id="2_4d6w6"]
 
-[node name="Hud" type="Control" unique_id=566647011 node_paths=PackedStringArray("action_slots_container", "timer")]
+[node name="Hud" type="Control" unique_id=566647011 node_paths=PackedStringArray("action_amount_bank", "action_slots_container", "timer")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,6 +11,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4d6w6")
+action_amount_bank_slot_scene = ExtResource("2_4d6w6")
+action_amount_bank = NodePath("MarginContainer/MarginContainer/ActionAmountBank")
 action_slots_container = NodePath("MarginContainer/VBoxContainer/ActionSlotsContainer")
 timer = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Timer")
 
@@ -39,4 +42,14 @@ text = "asdasdasdasd"
 [node name="ActionSlotsContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=127104466]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 8
+size_flags_vertical = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer" unique_id=854587938]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 101
+
+[node name="ActionAmountBank" type="HBoxContainer" parent="MarginContainer/MarginContainer" unique_id=1988006909]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0

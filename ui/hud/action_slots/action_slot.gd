@@ -21,3 +21,12 @@ var keybind: String:
 
 func set_texture(texture: Texture2D) -> void:
 	texture_rect.texture = texture
+
+func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
+	return "amount" in data
+
+func _drop_data(_at_position: Vector2, data: Variant) -> void:
+	action.infinite_amount = false
+	action.amount = data.amount
+	
+	data.obj.disable()
