@@ -23,3 +23,20 @@ func _ready() -> void:
 	Global.emit_level_ready()
 	
 	hud.create_amount_bank_slots(action_amounts_for_assignment)
+
+func play_sound(audio_stream_player: AudioStreamPlayer2D) -> void:
+	audio_stream_player.reparent(self)
+	audio_stream_player.play()
+	var tween := get_tree().create_tween()
+	tween.tween_await(audio_stream_player.finished)
+	tween.tween_callback(audio_stream_player.queue_free)
+
+func play_particles(particles_node: GPUParticles2D, duration: float) -> void:
+	particles_node.reparent(self)
+	particles_node.emitting = true
+	await get_tree().create_timer(duration).timeout
+	particles_node.emitting = false
+	await particles_node.finished
+	particles_node.queue_free()
+	
+	

@@ -11,6 +11,45 @@ radius = 8.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_he0qb"]
 radius = 56.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_qe12f"]
+random_pitch = 1.0594631
+random_volume_offset_db = 1.0
+streams_count = 1
+stream_0/stream = ExtResource("4_qe12f")
+
+[sub_resource type="Gradient" id="Gradient_qe12f"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_13fg5"]
+gradient = SubResource("Gradient_qe12f")
+
+[sub_resource type="Gradient" id="Gradient_fmf8v"]
+offsets = PackedFloat32Array(0, 0.15037593, 0.2857143, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.99215686, 0.54901963, 0.28235295, 1, 0.79654884, 0.30897442, 0.21060288, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5hfvn"]
+gradient = SubResource("Gradient_fmf8v")
+
+[sub_resource type="Curve" id="Curve_ct2ef"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.6335617, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_n3xc1"]
+curve = SubResource("Curve_ct2ef")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xxewf"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 56.44
+radial_velocity_min = 60.609978
+radial_velocity_max = 406.05997
+gravity = Vector3(0, 98, 0)
+scale_min = 0.099999994
+scale_max = 0.19999999
+scale_curve = SubResource("CurveTexture_n3xc1")
+color_ramp = SubResource("GradientTexture1D_5hfvn")
+
 [node name="explosive" type="RigidBody2D" unique_id=745836869 groups=["teleportable", "things that can go in a cannon"]]
 collision_layer = 2
 collision_mask = 2
@@ -39,4 +78,13 @@ scale = Vector2(0.13999999, 0.14000002)
 texture = ExtResource("2_u63et")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=900487773]
-stream = ExtResource("4_qe12f")
+stream = SubResource("AudioStreamRandomizer_qe12f")
+bus = &"Sound"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=887591228]
+emitting = false
+amount = 40
+texture = SubResource("GradientTexture2D_13fg5")
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_xxewf")
