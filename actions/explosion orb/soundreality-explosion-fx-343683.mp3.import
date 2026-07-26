@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bwtqof0q8sf4c"
+path="res://.godot/imported/soundreality-explosion-fx-343683.mp3-9cdb4acdbd427d55bb1acf0dd09e7ab0.mp3str"
+
+[deps]
+
+source_file="res://actions/explosion orb/soundreality-explosion-fx-343683.mp3"
+dest_files=["res://.godot/imported/soundreality-explosion-fx-343683.mp3-9cdb4acdbd427d55bb1acf0dd09e7ab0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

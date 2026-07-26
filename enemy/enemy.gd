@@ -21,6 +21,6 @@ func _process(delta: float) -> void:
 	pass
 
 func killThisEnemy() -> void:
-	print("enemy died")
+	Global.level.play_sound($AudioStreamPlayer2D)
 	died = true
 	queue_free()
