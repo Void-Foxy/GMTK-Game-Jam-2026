@@ -4,3 +4,4 @@ Sounds:
 	Sniper - https://pixabay.com/sound-effects/film-special-effects-sniper-rifle-firing-shot-1-39789/
 	Cannon - https://pixabay.com/sound-effects/film-special-effects-cannon-shot-326182/
 	Teleport - https://pixabay.com/sound-effects/film-special-effects-game-teleport-90735/
+	Explosion - https://pixabay.com/sound-effects/film-special-effects-explosion-fx-343683/
