@@ -40,14 +40,18 @@ func teleport() -> void:
 
 
 func _on_body_entered(body: Node) -> void:
-	if !body.is_in_group("player"):
-		call_deferred("set_freeze_enabled", true)
-		if body.is_in_group("teleportable"):
-			$CollisionShape2D.set_deferred("disabled", true)
-			other = body
-			linear_velocity = Vector2.ZERO
-			angular_velocity = 0
-			reparent(other, true)
-			if other is ExplosiveOrb:
-				other.attachTeleport(self)
+	if body == self:
+		return
+	if body.is_in_group("player"):
+		return
+	print("Body: ", body)
+	call_deferred("set_freeze_enabled", true)
+	if body.is_in_group("teleportable"):
+		$CollisionShape2D.set_deferred("disabled", true)
+		other = body
+		linear_velocity = Vector2.ZERO
+		angular_velocity = 0
+		reparent(other, true)
+		if other is ExplosiveOrb:
+			other.attachTeleport(self)
 	pass # Replace with function body.
