@@ -45,7 +45,7 @@ contact_monitor = true
 max_contacts_reported = 5
 script = ExtResource("1_oul6g")
 shapeCast2D = NodePath("ShapeCast2D")
-jumpForce = -500.0
+jumpForce = -550.0
 knockbackForce = 400.0
 throwForce = 700.0
 throwForceBase = 400.0
@@ -110,25 +110,30 @@ script = ExtResource("5_rgyib")
 [node name="Explosive" type="Node" parent="Actions" unique_id=613749430]
 script = ExtResource("5_boad6")
 action_name = "explosion action"
+timeCost = 4.0
 
 [node name="Shotgun" type="Node" parent="Actions" unique_id=1273445609]
 script = ExtResource("5_boad6")
 action_name = "shotgun action"
 infinite_amount = true
+timeCost = 1.0
 
 [node name="Teleport" type="Node" parent="Actions" unique_id=2057908756]
 script = ExtResource("5_boad6")
 action_name = "teleport action"
+timeCost = 1.5
 
 [node name="Bow" type="Node" parent="Actions" unique_id=1805242496]
 script = ExtResource("5_boad6")
 action_name = "bow action"
 infinite_amount = true
+timeCost = 1.0
 
 [node name="Cannon" type="Node" parent="Actions" unique_id=1515054134]
 script = ExtResource("5_boad6")
 action_name = "cannon action"
 action_icon = ExtResource("7_hg6s5")
+timeCost = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1182789671]
 shape = SubResource("CapsuleShape2D_tsgae")
