@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://c14yditg023l5"]
 
 [ext_resource type="Script" uid="uid://b7s8tok4nt8fy" path="res://levels/level.gd" id="1_ou52i"]
-[ext_resource type="Texture2D" uid="uid://gg5rua1yrnf4" path="res://icon.svg" id="2_idh2m"]
+[ext_resource type="Texture2D" uid="uid://c1suewngwp3jf" path="res://sprites/misc icon.png" id="2_i31e0"]
 [ext_resource type="PackedScene" uid="uid://1ucbm3ov5krm" path="res://player/player.tscn" id="3_jxnry"]
 [ext_resource type="PackedScene" uid="uid://brfn3mn1bhknf" path="res://tiles/tile_map_layer/main_tile_layer.tscn" id="4_wvtsl"]
 [ext_resource type="PackedScene" uid="uid://crejd55phygjg" path="res://tiles/tile_map_layer/wiring.tscn" id="5_ou52i"]
@@ -12,7 +12,7 @@
 script = ExtResource("1_ou52i")
 level_id = "TPTutorial"
 main_tile_layer = NodePath("TileMapLayers/TileMapLayer")
-texture = ExtResource("2_idh2m")
+texture = ExtResource("2_i31e0")
 
 [node name="Player" parent="." unique_id=2079557712 instance=ExtResource("3_jxnry")]
 position = Vector2(536, 496)
@@ -21,16 +21,13 @@ position = Vector2(536, 496)
 process_mode = 2
 mouse_filter = 2
 
-[node name="Explosive" parent="Player/Actions" parent_id_path=PackedInt32Array(2079557712, 766765288) index="0" unique_id=613749430]
-disabled = true
-
-[node name="Sword" parent="Player/Actions" parent_id_path=PackedInt32Array(2079557712, 766765288) index="2" unique_id=707152325]
-disabled = true
-
-[node name="Teleport" parent="Player/Actions" parent_id_path=PackedInt32Array(2079557712, 766765288) index="3" unique_id=2057908756]
+[node name="Teleport" parent="Player/Actions" parent_id_path=PackedInt32Array(2079557712, 766765288) index="2" unique_id=2057908756]
 infinite_amount = true
 
-[node name="Cannon" parent="Player/Actions" parent_id_path=PackedInt32Array(2079557712, 766765288) index="5" unique_id=1515054134]
+[node name="Explosive" parent="Player/Actions" parent_id_path=PackedInt32Array(2079557712, 766765288) index="3" unique_id=613749430]
+disabled = true
+
+[node name="Cannon" parent="Player/Actions" parent_id_path=PackedInt32Array(2079557712, 766765288) index="4" unique_id=1515054134]
 disabled = true
 
 [node name="Throwables" type="Node2D" parent="." unique_id=1680356930]
@@ -54,3 +51,5 @@ top_level = true
 metadata/_edit_lock_ = true
 
 [editable path="Player"]
+[editable path="Player/FiniteStateMachine/VictoryState/VictoryScreen"]
+[editable path="Player/FiniteStateMachine/FailedState/FailedScreen"]

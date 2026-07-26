@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://4spwlfbvmcry"]
 
 [ext_resource type="Script" uid="uid://b7s8tok4nt8fy" path="res://levels/level.gd" id="1_jxyss"]
-[ext_resource type="Texture2D" uid="uid://gg5rua1yrnf4" path="res://icon.svg" id="2_gfh42"]
+[ext_resource type="Texture2D" uid="uid://c1suewngwp3jf" path="res://sprites/misc icon.png" id="2_jxyss"]
 [ext_resource type="PackedScene" uid="uid://1ucbm3ov5krm" path="res://player/player.tscn" id="3_n27lc"]
 [ext_resource type="PackedScene" uid="uid://brfn3mn1bhknf" path="res://tiles/tile_map_layer/main_tile_layer.tscn" id="4_uw4co"]
 [ext_resource type="PackedScene" uid="uid://crejd55phygjg" path="res://tiles/tile_map_layer/wiring.tscn" id="5_0f2t0"]
@@ -11,7 +11,7 @@
 script = ExtResource("1_jxyss")
 level_id = "fireworks!"
 main_tile_layer = NodePath("TileMapLayers/TileMapLayer")
-texture = ExtResource("2_gfh42")
+texture = ExtResource("2_jxyss")
 timerChallenge = true
 timerChallengeTime = 180.0
 

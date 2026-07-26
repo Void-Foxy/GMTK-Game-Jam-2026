@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://cogayjeoj8cqo"]
 
 [ext_resource type="Script" uid="uid://b7s8tok4nt8fy" path="res://levels/level.gd" id="1_l2ccs"]
-[ext_resource type="Texture2D" uid="uid://gg5rua1yrnf4" path="res://icon.svg" id="2_425qf"]
+[ext_resource type="Texture2D" uid="uid://0tvqh54p4ybd" path="res://sprites/speedrun icon.png" id="2_iinao"]
 [ext_resource type="PackedScene" uid="uid://1ucbm3ov5krm" path="res://player/player.tscn" id="3_ekc2f"]
 [ext_resource type="PackedScene" uid="uid://brfn3mn1bhknf" path="res://tiles/tile_map_layer/main_tile_layer.tscn" id="4_cbdvi"]
 [ext_resource type="PackedScene" uid="uid://crejd55phygjg" path="res://tiles/tile_map_layer/wiring.tscn" id="5_mqsyt"]
@@ -11,7 +11,7 @@
 script = ExtResource("1_l2ccs")
 level_id = "timer challenge 1"
 main_tile_layer = NodePath("TileMapLayers/TileMapLayer")
-texture = ExtResource("2_425qf")
+texture = ExtResource("2_iinao")
 timerChallenge = true
 timerChallengeTime = 180.0
 
@@ -22,10 +22,10 @@ position = Vector2(122, 746)
 process_mode = 2
 mouse_filter = 2
 
-[node name="Explosive" parent="Player/Actions" parent_id_path=PackedInt32Array(2079557712, 766765288) index="0" unique_id=613749430]
+[node name="Teleport" parent="Player/Actions" parent_id_path=PackedInt32Array(2079557712, 766765288) index="2" unique_id=2057908756]
 infinite_amount = true
 
-[node name="Teleport" parent="Player/Actions" parent_id_path=PackedInt32Array(2079557712, 766765288) index="2" unique_id=2057908756]
+[node name="Explosive" parent="Player/Actions" parent_id_path=PackedInt32Array(2079557712, 766765288) index="3" unique_id=613749430]
 infinite_amount = true
 
 [node name="Cannon" parent="Player/Actions" parent_id_path=PackedInt32Array(2079557712, 766765288) index="4" unique_id=1515054134]
