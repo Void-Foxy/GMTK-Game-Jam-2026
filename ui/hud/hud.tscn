@@ -3,7 +3,10 @@
 [ext_resource type="Script" uid="uid://dtu3ohfn1el7w" path="res://ui/hud/hud.gd" id="1_4d6w6"]
 [ext_resource type="PackedScene" uid="uid://bdxqhu02o51sy" path="res://ui/hud/action_amount_bank_slots/action_amount_bank_slot.tscn" id="2_4d6w6"]
 
-[node name="Hud" type="Control" unique_id=566647011 node_paths=PackedStringArray("action_amount_bank", "action_slots_container", "timerLabel")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pxgy3"]
+bg_color = Color(0.30588236, 0.4117647, 0.38431373, 0.87058824)
+
+[node name="Hud" type="Control" unique_id=566647011 node_paths=PackedStringArray("action_amount_bank_main_container", "action_amount_bank", "action_slots_container", "timerLabel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,7 +16,8 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_4d6w6")
 action_amount_bank_slot_scene = ExtResource("2_4d6w6")
-action_amount_bank = NodePath("MarginContainer/MarginContainer/ActionAmountBank")
+action_amount_bank_main_container = NodePath("MarginContainer/VBoxContainer/PanelContainer")
+action_amount_bank = NodePath("MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/ActionAmountBank")
 action_slots_container = NodePath("MarginContainer/VBoxContainer/ActionSlotsContainer")
 timerLabel = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Timer")
 
@@ -32,6 +36,7 @@ mouse_filter = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=2121647714]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=902234382]
 layout_mode = 2
@@ -42,18 +47,29 @@ size_flags_vertical = 3
 layout_mode = 2
 text = "asdasdasdasd"
 
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=1991202716]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+size_flags_stretch_ratio = 4.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pxgy3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer" unique_id=1603953670]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/VBoxContainer" unique_id=758973873]
+layout_mode = 2
+text = "Drag and drop to set number of uses per action"
+
+[node name="ActionAmountBank" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer/VBoxContainer" unique_id=1988006909]
+process_mode = 2
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+size_flags_stretch_ratio = 3.04
+
 [node name="ActionSlotsContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=127104466]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 10
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer" unique_id=854587938]
-layout_mode = 2
-mouse_filter = 2
-theme_override_constants/margin_top = 101
-
-[node name="ActionAmountBank" type="HBoxContainer" parent="MarginContainer/MarginContainer" unique_id=1988006909]
-process_mode = 2
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
