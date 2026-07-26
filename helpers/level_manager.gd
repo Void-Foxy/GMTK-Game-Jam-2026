@@ -17,8 +17,8 @@ var pack_levels: Dictionary[String, PackedStringArray] = {
 		"res://levels/level_list/puzzle/3bomb_tut2.tscn",
 		"res://levels/level_list/puzzle/4cannon_tut.tscn",
 		"res://levels/level_list/puzzle/level_1.tscn",
-		"res://levels/level_list/puzzle/level_2.tscn",
-		"res://levels/level_list/puzzle/level_3.tscn",
+		"res://levels/level_list/puzzle/level_1_b.tscn",
+		"res://levels/level_list/puzzle/level_1_c.tscn",
 	],
 	"speedrun": [
 		"res://levels/level_list/speedrun/speedrun_1.tscn",

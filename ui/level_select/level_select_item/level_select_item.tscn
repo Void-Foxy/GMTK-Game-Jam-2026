@@ -21,9 +21,11 @@ label = NodePath("VBoxContainer/Label")
 layout_mode = 2
 
 [node name="TextureButton" type="TextureButton" parent="VBoxContainer" unique_id=1745182070]
+custom_maximum_size = Vector2(128, 128)
 layout_mode = 2
 texture_normal = ExtResource("2_e85x0")
 texture_focused = SubResource("GradientTexture2D_e85x0")
+stretch_mode = 0
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=1144725299]
 layout_mode = 2

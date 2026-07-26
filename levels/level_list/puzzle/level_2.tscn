@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://dsrq6k0hp7pk5"]
+[gd_scene format=4 uid="uid://b3si07yg23wbw"]
 
 [ext_resource type="Script" uid="uid://b7s8tok4nt8fy" path="res://levels/level.gd" id="1_76b8m"]
 [ext_resource type="Texture2D" uid="uid://5kmwelvg31t8" path="res://sprites/puzzle icon.png" id="2_nqiqb"]
