@@ -120,6 +120,7 @@ hard_restart={
 
 2d_physics/layer_2="Teleport Orb RigidBody"
 2d_physics/layer_16="Walls"
+2d_physics/layer_17="platform"
 2d_physics/layer_24="Player"
 
 [physics]
