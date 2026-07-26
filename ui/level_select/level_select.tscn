@@ -1,7 +1,18 @@
 [gd_scene format=3 uid="uid://cj65yjqao2hwr"]
 
 [ext_resource type="Script" uid="uid://b7b8urdf0frff" path="res://ui/level_select/level_item_container.gd" id="1_pjhtp"]
+[ext_resource type="Script" uid="uid://137b7axr2i1y" path="res://ui/level_select/level_select.gd" id="1_w8mlk"]
 [ext_resource type="PackedScene" uid="uid://c78c4214r3xv1" path="res://ui/level_select/level_select_item/level_select_item.tscn" id="2_r5cd4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r5cd4"]
+content_margin_left = 40.0
+content_margin_right = 40.0
+bg_color = Color(0.26752487, 0.2681321, 0.32478863, 1)
+border_blend = true
+corner_radius_top_left = 9
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_offset = Vector2(7.69, 0)
 
 [node name="LevelSelect" type="Control" unique_id=1430696741]
 process_mode = 3
@@ -11,6 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_w8mlk")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=64173374]
 layout_mode = 1
@@ -20,12 +32,27 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer" unique_id=753733345]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1745641199]
 layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=593862025]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.16
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_r5cd4")
+text = "Back to Level Pack"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer" unique_id=753733345]
+layout_mode = 2
+size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="LevelItemContainer" type="HFlowContainer" parent="MarginContainer/ScrollContainer" unique_id=2124935636]
+[node name="LevelItemContainer" type="HFlowContainer" parent="MarginContainer/VBoxContainer/ScrollContainer" unique_id=2124935636]
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("1_pjhtp")
 level_select_item_scene = ExtResource("2_r5cd4")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
