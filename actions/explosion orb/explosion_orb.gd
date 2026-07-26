@@ -16,7 +16,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	var explosion_action := "explosion action"
 	if Global.player.scm.action_container.just_pressed(explosion_action):
-		Global.player.scm.action_container.use_action_slot(explosion_action)
+		#Global.player.scm.action_container.use_action_slot(explosion_action)
 		explode()
 	pass
 
