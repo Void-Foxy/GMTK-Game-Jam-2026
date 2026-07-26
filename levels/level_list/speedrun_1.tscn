@@ -9,7 +9,7 @@
 
 [node name="Level1" type="Node2D" unique_id=859746014 node_paths=PackedStringArray("main_tile_layer")]
 script = ExtResource("1_l2ccs")
-level_id = "i made it the fuck up"
+level_id = "timer challenge 1"
 main_tile_layer = NodePath("TileMapLayers/TileMapLayer")
 texture = ExtResource("2_425qf")
 timerChallenge = true
