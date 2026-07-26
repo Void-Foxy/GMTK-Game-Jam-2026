@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://doyt6ia6d13pm" path="res://sprites/red explosive preview circle.png" id="2_u63et"]
 [ext_resource type="AudioStream" uid="uid://behmvx2csxj5y" path="res://actions/explosion orb/explosion.wav" id="4_qe12f"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ykgs5"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_6sixj"]
 radius = 8.0
 
@@ -53,6 +55,7 @@ color_ramp = SubResource("GradientTexture1D_5hfvn")
 [node name="explosive" type="RigidBody2D" unique_id=745836869 groups=["teleportable", "things that can go in a cannon"]]
 collision_layer = 2
 collision_mask = 65538
+physics_material_override = SubResource("PhysicsMaterial_ykgs5")
 contact_monitor = true
 max_contacts_reported = 5
 script = ExtResource("1_wjfay")

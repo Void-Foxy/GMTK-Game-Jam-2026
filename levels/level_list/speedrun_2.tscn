@@ -9,7 +9,7 @@
 
 [node name="Level1" type="Node2D" unique_id=859746014 node_paths=PackedStringArray("main_tile_layer")]
 script = ExtResource("1_exfpu")
-level_id = "i made it the fuck up"
+level_id = "wahoo"
 main_tile_layer = NodePath("TileMapLayers/TileMapLayer")
 texture = ExtResource("2_ob8cb")
 timerChallenge = true
@@ -25,7 +25,13 @@ mouse_filter = 2
 [node name="Explosive" parent="Player/Actions" parent_id_path=PackedInt32Array(2079557712, 766765288) index="0" unique_id=613749430]
 infinite_amount = true
 
+[node name="Shotgun" parent="Player/Actions" parent_id_path=PackedInt32Array(2079557712, 766765288) index="1" unique_id=1273445609]
+infinite_amount = true
+
 [node name="Teleport" parent="Player/Actions" parent_id_path=PackedInt32Array(2079557712, 766765288) index="2" unique_id=2057908756]
+infinite_amount = true
+
+[node name="Bow" parent="Player/Actions" parent_id_path=PackedInt32Array(2079557712, 766765288) index="3" unique_id=1805242496]
 infinite_amount = true
 
 [node name="Cannon" parent="Player/Actions" parent_id_path=PackedInt32Array(2079557712, 766765288) index="4" unique_id=1515054134]
