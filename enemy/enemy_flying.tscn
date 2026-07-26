@@ -1,12 +1,7 @@
 [gd_scene format=3 uid="uid://cml80c5wf4tbs"]
 
 [ext_resource type="Script" uid="uid://dgtyg8ddraj6d" path="res://enemy/enemy.gd" id="1_o87d1"]
-
-[sub_resource type="Gradient" id="Gradient_scxef"]
-colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_5fla4"]
-gradient = SubResource("Gradient_scxef")
+[ext_resource type="Texture2D" uid="uid://b5vqt2bdc5amd" path="res://sprites/enemies floating.png" id="2_vx75v"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_he0qb"]
 radius = 8.0
@@ -21,10 +16,10 @@ script = ExtResource("1_o87d1")
 rayCast2D = NodePath("RayCast2D")
 fallVelocityKill = 10000000000.0
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1539332550]
-position = Vector2(4.172325e-07, 0)
-scale = Vector2(0.06250001, 32.000004)
-texture = SubResource("GradientTexture1D_5fla4")
+[node name="EnemiesFloating" type="Sprite2D" parent="." unique_id=1609465576]
+position = Vector2(5.9604645e-07, 0)
+scale = Vector2(0.040000003, 0.040000003)
+texture = ExtResource("2_vx75v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1132228702]
 shape = SubResource("CapsuleShape2D_he0qb")
