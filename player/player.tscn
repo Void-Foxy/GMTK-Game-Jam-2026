@@ -88,9 +88,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_yllr7")
 [node name="FailureOrVictoryLabel" parent="FiniteStateMachine/VictoryState/VictoryScreen/VBoxContainer" parent_id_path=PackedInt32Array(388784050, 715430772) index="0" unique_id=674040608]
 text = "[wave amp=50.0 freq=3.0 connected=1]VICTORY![/wave]"
 
-[node name="Time" parent="FiniteStateMachine/VictoryState/VictoryScreen/VBoxContainer" parent_id_path=PackedInt32Array(388784050, 715430772) index="1" unique_id=884068042]
-horizontal_alignment = 1
-
 [node name="FailedState" type="Node" parent="FiniteStateMachine" unique_id=696763401 node_paths=PackedStringArray("finalTime")]
 process_mode = 3
 script = ExtResource("4_ebec5")
