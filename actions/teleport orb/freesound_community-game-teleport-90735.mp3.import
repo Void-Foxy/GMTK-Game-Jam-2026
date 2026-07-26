@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c3pabmat5rrvf"
+path="res://.godot/imported/freesound_community-game-teleport-90735.mp3-aca33c9fd45cfa1142abf26e81f74f78.mp3str"
+
+[deps]
+
+source_file="res://actions/teleport orb/freesound_community-game-teleport-90735.mp3"
+dest_files=["res://.godot/imported/freesound_community-game-teleport-90735.mp3-aca33c9fd45cfa1142abf26e81f74f78.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

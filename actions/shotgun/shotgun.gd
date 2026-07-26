@@ -31,6 +31,7 @@ func _process(delta: float) -> void:
 	pass
 
 func shoot() -> void:
+	$AudioStreamPlayer2D.play()
 	var query := PhysicsRayQueryParameters2D.create(gunTip.global_position, gunTip.global_position + gunDir * 200000)
 	query.exclude = [self]
 	query.collision_mask = Global.trajectoryMask

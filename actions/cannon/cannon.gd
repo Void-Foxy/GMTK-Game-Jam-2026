@@ -33,7 +33,7 @@ func setUpCannon() -> void:
 	update_trajectory()
 
 func fire() -> void:
-	print("firing")
+	$AudioStreamPlayer2D.play()
 	thingInCannon.freeze = false
 	await get_tree().process_frame
 	thingInCannon.apply_impulse(dir * shootingForce)

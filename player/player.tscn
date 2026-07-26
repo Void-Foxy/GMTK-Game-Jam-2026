@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://3v0quvtlsseo" path="res://sprites/sniper.png" id="12_c35mf"]
 [ext_resource type="Texture2D" uid="uid://b737m6u0svhtm" path="res://sprites/teleport orb.png" id="13_65viv"]
 [ext_resource type="Texture2D" uid="uid://hq7otk7xnans" path="res://sprites/bow.png" id="14_x7c3f"]
+[ext_resource type="AudioStream" uid="uid://cvj0gx561de0t" path="res://actions/bow/freesound_community-bow-release-bow-and-arrow-4-101936.mp3" id="20_65viv"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g1dw6"]
 friction = 0.0
@@ -36,6 +37,11 @@ radius = 4.0
 [sub_resource type="Gradient" id="Gradient_6sixj"]
 offsets = PackedFloat32Array(0, 0.22456141, 0.44912282, 0.6421053, 0.83157897, 1)
 colors = PackedColorArray(1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_x7c3f"]
+random_pitch = 1.0594631
+streams_count = 1
+stream_0/stream = ExtResource("20_65viv")
 
 [node name="Player" type="RigidBody2D" unique_id=2079557712 node_paths=PackedStringArray("shapeCast2D", "sword")]
 collision_layer = 8388609
@@ -167,6 +173,10 @@ scale = Vector2(0.075, 0.075)
 position = Vector2(12, -3)
 
 [node name="Bow" parent="." unique_id=2066854220 instance=ExtResource("10_8t03j")]
+
+[node name="BowSound" type="AudioStreamPlayer2D" parent="Bow" unique_id=1599600373]
+stream = SubResource("AudioStreamRandomizer_x7c3f")
+bus = &"Sound"
 
 [node name="Timer" type="Timer" parent="." unique_id=1582309571]
 

@@ -25,6 +25,7 @@ func setPlayer(p : RigidBody2D) -> void:
 	player = p
 
 func teleport() -> void:
+	Global.level.play_sound($AudioStreamPlayer2D)
 	var orb_velocity := linear_velocity
 	
 	$CollisionShape2D.set_deferred("disabled", true)

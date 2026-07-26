@@ -3,9 +3,15 @@
 [ext_resource type="Texture2D" uid="uid://d2dj5te2gih0i" path="res://sprites/wheel.png" id="1_f5qg7"]
 [ext_resource type="Script" uid="uid://hnjygsgoi7u7" path="res://actions/cannon/cannon.gd" id="1_on40s"]
 [ext_resource type="Texture2D" uid="uid://chp472xr3bi7i" path="res://sprites/cannon barrel.png" id="3_yd17m"]
+[ext_resource type="AudioStream" uid="uid://bkr0rcydwwi1y" path="res://actions/cannon/universfield-cannon-shot-326182.mp3" id="4_kfp16"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6sixj"]
 radius = 12.0415945
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_tsgae"]
+random_pitch = 1.0594631
+streams_count = 1
+stream_0/stream = ExtResource("4_kfp16")
 
 [node name="cannon" type="Area2D" unique_id=1555445549 node_paths=PackedStringArray("barrel", "barrelTip", "fireLine")]
 collision_layer = 3
@@ -40,5 +46,8 @@ top_level = true
 points = PackedVector2Array(20, -12, 50, -12)
 width = 1.0
 default_color = Color(1, 0.58381015, 0.9966522, 1)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1724587346]
+stream = SubResource("AudioStreamRandomizer_tsgae")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

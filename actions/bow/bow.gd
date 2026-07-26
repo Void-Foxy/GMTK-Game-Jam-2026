@@ -16,6 +16,7 @@ func _process(delta: float) -> void:
 	pass
 
 func shootBow() -> void:
+	Global.level.play_sound($AudioStreamPlayer2D)
 	var thing : RigidBody2D = arrow.instantiate()
 	Global.throwables.add_child(thing)
 	thing.global_position = global_position + player.spawnThingsDir

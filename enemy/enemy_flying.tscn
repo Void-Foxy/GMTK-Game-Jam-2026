@@ -7,6 +7,42 @@
 radius = 8.0
 height = 32.0
 
+[sub_resource type="Gradient" id="Gradient_ofsxj"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_k7vip"]
+gradient = SubResource("Gradient_ofsxj")
+width = 1
+height = 1
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k7vip"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(8.125, 15.27, 1)
+spread = 180.0
+initial_velocity_max = 6.0
+gravity = Vector3(0, -9, 0)
+
+[sub_resource type="Gradient" id="Gradient_vx75v"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.81179255, 0.33130008, 0.07423601, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_11v7p"]
+gradient = SubResource("Gradient_vx75v")
+width = 1
+height = 1
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_11v7p"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, 15.13, 0)
+emission_shape = 3
+emission_box_extents = Vector3(8.125, 1, 1)
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 47.25
+initial_velocity_max = 47.25
+gravity = Vector3(0, -9, 0)
+
 [node name="EnemyFlying" type="RigidBody2D" unique_id=1439044223 node_paths=PackedStringArray("rayCast2D") groups=["enemy", "teleportable"]]
 collision_layer = 3
 collision_mask = 3
@@ -17,6 +53,7 @@ rayCast2D = NodePath("RayCast2D")
 fallVelocityKill = 10000000000.0
 
 [node name="EnemiesFloating" type="Sprite2D" parent="." unique_id=1609465576]
+modulate = Color(1, 0, 0, 1)
 position = Vector2(5.9604645e-07, 0)
 scale = Vector2(0.040000003, 0.040000003)
 texture = ExtResource("2_vx75v")
@@ -26,3 +63,13 @@ shape = SubResource("CapsuleShape2D_he0qb")
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1352438021]
 target_position = Vector2(0, 17)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1666551149]
+amount = 37
+texture = SubResource("GradientTexture2D_k7vip")
+process_material = SubResource("ParticleProcessMaterial_k7vip")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="." unique_id=954786200]
+amount = 37
+texture = SubResource("GradientTexture2D_11v7p")
+process_material = SubResource("ParticleProcessMaterial_11v7p")

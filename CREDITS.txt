@@ -1,1 +1,6 @@
 Tileset - https://pixelfrog-assets.itch.io/kings-and-pigs
+Sounds:
+	Bow - https://pixabay.com/sound-effects/film-special-effects-bow-release-bow-and-arrow-4-101936/
+	Sniper - https://pixabay.com/sound-effects/film-special-effects-sniper-rifle-firing-shot-1-39789/
+	Cannon - https://pixabay.com/sound-effects/film-special-effects-cannon-shot-326182/
+	Teleport - https://pixabay.com/sound-effects/film-special-effects-game-teleport-90735/
