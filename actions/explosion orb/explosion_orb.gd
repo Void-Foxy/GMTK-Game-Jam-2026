@@ -31,6 +31,8 @@ func explode() -> void:
 			obj.apply_impulse(explosionForceDir * explosiveForce)
 			if obj.is_in_group("enemy"):
 				obj.killThisEnemy()
+		if obj is BreakableWall:
+			obj.queue_free()
 	if (teleportOrb != null):
 		var explosionForceDir := teleportOrb.global_position - global_position
 		explosionForceDir = explosionForceDir.normalized()
