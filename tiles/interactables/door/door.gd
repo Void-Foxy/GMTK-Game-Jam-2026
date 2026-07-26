@@ -11,12 +11,12 @@ func _ready() -> void:
 	#open()
 
 func open() -> void:
-	if door_sprite.frame == 0:
+	if door_sprite.frame != 3:
 		$DoorFrames.play()
 	$CollisionShape2D.call_deferred("set", "disabled", true)
 
 func close() -> void:
-	if door_sprite.frame == 2:
+	if door_sprite.frame != 0:
 		$DoorFrames.play_backwards()
 	$CollisionShape2D.call_deferred("set", "disabled", false)
 

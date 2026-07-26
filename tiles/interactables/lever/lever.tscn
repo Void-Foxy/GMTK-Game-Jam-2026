@@ -1,19 +1,25 @@
 [gd_scene format=3 uid="uid://cls8j36bthd3f"]
 
 [ext_resource type="Script" uid="uid://cwsgf7pqy8px5" path="res://tiles/interactables/lever/lever.gd" id="1_iygol"]
+[ext_resource type="Texture2D" uid="uid://bfqxx40leslhh" path="res://sprites/lever off.png" id="2_6divd"]
+[ext_resource type="Texture2D" uid="uid://beht8gi6pa5uo" path="res://sprites/lever on.png" id="3_cagy6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ago6c"]
 size = Vector2(32, 32)
 
-[sub_resource type="Gradient" id="Gradient_ago6c"]
-offsets = PackedFloat32Array(0.23225807, 0.5, 0.716129)
-colors = PackedColorArray(1, 1, 1, 1, 0.17732674, 0.0685408, 0.022897657, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_tsgae"]
-gradient = SubResource("Gradient_ago6c")
-width = 32
-height = 32
-fill_from = Vector2(0, 0.94017094)
+[sub_resource type="SpriteFrames" id="SpriteFrames_tsgae"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6divd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_cagy6")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Lever" type="Area2D" unique_id=182957238]
 collision_layer = 3
@@ -23,5 +29,6 @@ script = ExtResource("1_iygol")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1736163011]
 shape = SubResource("RectangleShape2D_ago6c")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1575374960]
-texture = SubResource("GradientTexture2D_tsgae")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1521281210]
+scale = Vector2(0.04, 0.04)
+sprite_frames = SubResource("SpriteFrames_tsgae")
