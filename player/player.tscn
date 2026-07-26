@@ -111,17 +111,17 @@ texture = ExtResource("9_c35mf")
 [node name="Actions" type="Node" parent="." unique_id=766765288]
 script = ExtResource("5_rgyib")
 
-[node name="Explosive" type="Node" parent="Actions" unique_id=613749430]
-script = ExtResource("5_boad6")
-action_name = "explosion action"
-action_icon = ExtResource("11_e7oew")
-amount = 0
-timeCost = 4.0
-
 [node name="Shotgun" type="Node" parent="Actions" unique_id=1273445609]
 script = ExtResource("5_boad6")
 action_name = "shotgun action"
 action_icon = ExtResource("12_c35mf")
+amount = 0
+timeCost = 1.0
+
+[node name="Bow" type="Node" parent="Actions" unique_id=1805242496]
+script = ExtResource("5_boad6")
+action_name = "bow action"
+action_icon = ExtResource("14_x7c3f")
 amount = 0
 timeCost = 1.0
 
@@ -132,12 +132,12 @@ action_icon = ExtResource("13_65viv")
 amount = 0
 timeCost = 1.5
 
-[node name="Bow" type="Node" parent="Actions" unique_id=1805242496]
+[node name="Explosive" type="Node" parent="Actions" unique_id=613749430]
 script = ExtResource("5_boad6")
-action_name = "bow action"
-action_icon = ExtResource("14_x7c3f")
+action_name = "explosion action"
+action_icon = ExtResource("11_e7oew")
 amount = 0
-timeCost = 1.0
+timeCost = 4.0
 
 [node name="Cannon" type="Node" parent="Actions" unique_id=1515054134]
 script = ExtResource("5_boad6")
