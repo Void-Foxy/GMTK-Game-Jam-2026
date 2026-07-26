@@ -12,7 +12,6 @@ script = ExtResource("1_wbytt")
 level_id = "6 7"
 main_tile_layer = NodePath("TileMapLayers/TileMapLayer")
 texture = ExtResource("2_wpwnq")
-timerChallenge = true
 timerChallengeTime = 180.0
 
 [node name="Player" parent="." unique_id=2079557712 instance=ExtResource("3_8tpyc")]
