@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://crejd55phygjg" path="res://tiles/tile_map_layer/wiring.tscn" id="5_qg0ro"]
 [ext_resource type="PackedScene" uid="uid://dknnqhpjetyj6" path="res://ui/hud/hud.tscn" id="6_v67hv"]
 
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tsgae"]
+
 [node name="TP Tutorial" type="Node2D" unique_id=859746014 node_paths=PackedStringArray("main_tile_layer")]
 script = ExtResource("1_lf4ed")
 level_id = "Teleporter Tutorial"
@@ -30,6 +32,11 @@ position = Vector2(311, 363)
 [node name="VictoryScreen" parent="Player/FiniteStateMachine/VictoryState" parent_id_path=PackedInt32Array(2079557712, 116830716) index="0" unique_id=388784050]
 process_mode = 2
 mouse_filter = 2
+
+[node name="Sprite2D" parent="Player" index="1" unique_id=1102253999]
+position = Vector2(1.1920929e-07, 0)
+scale = Vector2(0.03125, 0.06250001)
+texture = SubResource("NoiseTexture2D_tsgae")
 
 [node name="Shotgun" parent="Player/Actions" parent_id_path=PackedInt32Array(2079557712, 766765288) index="0" unique_id=1273445609]
 disabled = true
