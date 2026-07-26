@@ -10,7 +10,7 @@
 
 [node name="Level2" type="Node2D" unique_id=859746014 node_paths=PackedStringArray("main_tile_layer")]
 script = ExtResource("1_76b8m")
-level_id = "Level 2 B"
+level_id = "Level 3 B"
 main_tile_layer = NodePath("TileMapLayers/TileMapLayer")
 texture = ExtResource("2_21xiw")
 action_amounts_for_assignment = PackedInt32Array(2, 1, 1)
