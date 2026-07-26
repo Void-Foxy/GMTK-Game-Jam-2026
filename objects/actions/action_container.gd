@@ -25,7 +25,7 @@ func use_action_slot(action_name: String) -> void:
 		Global.player.removeTimeToChallengeTimer(action.timeCost)
 
 
-func just_pressed(action_name: String, physics_process := false, ignore_handled := false) -> bool:
+func just_pressed(action_name: String, physics_process := false, skip_if_0 := true, ignore_handled := false) -> bool:
 	if not string_to_action.has(action_name):
 		return false
 	
@@ -46,7 +46,7 @@ func just_pressed(action_name: String, physics_process := false, ignore_handled 
 	action.pressed_handled = true
 	
 	if not action.infinite_amount:
-		if action.amount <= 0:
+		if action.amount <= 0 && skip_if_0:
 			return false
 	
 	return true
