@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://u3wfqyj7fvky" path="res://enemy/enemy.tscn" id="4_ydrot"]
 [ext_resource type="PackedScene" uid="uid://cml80c5wf4tbs" path="res://enemy/enemy_flying.tscn" id="5_o3v3n"]
 [ext_resource type="PackedScene" uid="uid://bi5nf34mtva4l" path="res://tiles/interactables/platform/platform.tscn" id="6_rco30"]
+[ext_resource type="PackedScene" uid="uid://cdqmuipj1a7lh" path="res://tiles/interactables/breakable wall/breakableWall.tscn" id="7_6itw8"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_uuaxm"]
 resource_name = "Interactables"
@@ -18,6 +19,7 @@ scenes/3/scene = ExtResource("3_ydf22")
 scenes/4/scene = ExtResource("4_ydrot")
 scenes/5/scene = ExtResource("5_o3v3n")
 scenes/6/scene = ExtResource("6_rco30")
+scenes/7/scene = ExtResource("7_6itw8")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ydrot"]
 texture = ExtResource("4_k6cfa")

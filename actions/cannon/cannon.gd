@@ -23,6 +23,7 @@ func _process(delta: float) -> void:
 		fire()
 	if thingInCannon == null && hasSomething:
 		hasSomething = false
+	update_trajectory()
 	pass
 
 func setUpCannon() -> void:

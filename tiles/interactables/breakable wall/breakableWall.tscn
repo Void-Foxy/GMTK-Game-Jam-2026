@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cdqmuipj1a7lh"]
+
+[ext_resource type="Script" uid="uid://b061q4qtbrglb" path="res://tiles/interactables/breakable wall/breakable_wall.gd" id="1_wnq2d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6sixj"]
+size = Vector2(32, 32)
+
+[sub_resource type="Gradient" id="Gradient_wp12u"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6sixj"]
+gradient = SubResource("Gradient_wp12u")
+fill_from = Vector2(0, 1)
+
+[node name="breakable wall" type="StaticBody2D" unique_id=1477468119]
+collision_layer = 32771
+collision_mask = 32771
+script = ExtResource("1_wnq2d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1983623517]
+shape = SubResource("RectangleShape2D_6sixj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1253666597]
+position = Vector2(4.7683716e-07, 4.7683716e-07)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("GradientTexture2D_6sixj")
