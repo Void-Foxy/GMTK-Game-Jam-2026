@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://crt6dv67igioc" path="res://ui/failed_or_victory_screen/failed_or_victory_screen.tscn" id="6_kb6p2"]
 [ext_resource type="Texture2D" uid="uid://chp472xr3bi7i" path="res://sprites/cannon barrel.png" id="7_hg6s5"]
 [ext_resource type="Script" uid="uid://sv3bf5qr03r1" path="res://player/states/setting_up_cannon.gd" id="7_kb6p2"]
+[ext_resource type="Texture2D" uid="uid://sbbsvu2nl77s" path="res://sprites/player.png" id="9_c35mf"]
 [ext_resource type="PackedScene" uid="uid://cuevyqhlfjkwn" path="res://actions/bow/bow.tscn" id="10_8t03j"]
 [ext_resource type="Texture2D" uid="uid://b54xbqviao7uk" path="res://sprites/bomb.png" id="11_e7oew"]
 [ext_resource type="Texture2D" uid="uid://3v0quvtlsseo" path="res://sprites/sniper.png" id="12_c35mf"]
@@ -24,8 +25,6 @@ friction = 0.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yllr7"]
 bg_color = Color(0.25290167, 0.3616014, 0.19602844, 0.19215687)
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tsgae"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tsgae"]
 radius = 8.0
@@ -104,10 +103,10 @@ script = ExtResource("7_kb6p2")
 script = ExtResource("4_g6k8r")
 sword = NodePath("../../sword")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1102253999]
-position = Vector2(1.1920929e-07, 0)
-scale = Vector2(0.03125, 0.06250001)
-texture = SubResource("NoiseTexture2D_tsgae")
+[node name="Player" type="Sprite2D" parent="." unique_id=1778366715]
+position = Vector2(-0.4999993, 0)
+scale = Vector2(0.047500003, 0.04)
+texture = ExtResource("9_c35mf")
 
 [node name="Actions" type="Node" parent="." unique_id=766765288]
 script = ExtResource("5_rgyib")

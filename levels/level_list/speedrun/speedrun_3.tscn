@@ -13,7 +13,6 @@ level_id = "timer challenge 3"
 main_tile_layer = NodePath("TileMapLayers/TileMapLayer")
 texture = ExtResource("2_722ae")
 timerChallenge = true
-timerChallengeTime = 180.0
 
 [node name="Player" parent="." unique_id=2079557712 instance=ExtResource("3_8iyr6")]
 position = Vector2(1455, 736)

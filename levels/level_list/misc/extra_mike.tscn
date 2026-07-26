@@ -23,10 +23,10 @@ process_mode = 2
 mouse_filter = 2
 
 [node name="Explosive" parent="Player/Actions" parent_id_path=PackedInt32Array(2079557712, 766765288) index="0" unique_id=613749430]
-infinite_amount = true
+amount = 1
 
 [node name="Bow" parent="Player/Actions" parent_id_path=PackedInt32Array(2079557712, 766765288) index="3" unique_id=1805242496]
-infinite_amount = true
+amount = 1
 
 [node name="Throwables" type="Node2D" parent="." unique_id=1680356930]
 
