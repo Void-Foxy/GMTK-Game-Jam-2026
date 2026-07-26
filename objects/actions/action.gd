@@ -31,6 +31,8 @@ var released_handled := false
 @export var amount: int = 4:
 	set(value):
 		amount = value
+		if not action_slot:
+			return
 		action_slot.num_uses = value
 @export var timeCost : float = 0.0
 

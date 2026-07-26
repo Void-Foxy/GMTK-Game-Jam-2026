@@ -29,7 +29,8 @@ mouse_filter = 2
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/PanelContainer" unique_id=1448374074]
 layout_mode = 2
 mouse_filter = 2
-expand_mode = 4
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Keybind" type="Label" parent="MarginContainer/VBoxContainer" unique_id=295936863]
 layout_mode = 2
