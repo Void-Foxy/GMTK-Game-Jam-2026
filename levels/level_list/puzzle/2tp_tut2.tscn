@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://bajxttm51m2xv"]
 
 [ext_resource type="Script" uid="uid://b7s8tok4nt8fy" path="res://levels/level.gd" id="1_tjhjs"]
-[ext_resource type="Texture2D" uid="uid://gg5rua1yrnf4" path="res://icon.svg" id="2_utf6f"]
+[ext_resource type="Texture2D" uid="uid://5kmwelvg31t8" path="res://sprites/puzzle icon.png" id="2_tjhjs"]
 [ext_resource type="PackedScene" uid="uid://b6so8lvnkc0ln" path="res://tiles/tile_map_layer/background_layer.tscn" id="3_oqfvb"]
 [ext_resource type="PackedScene" uid="uid://brfn3mn1bhknf" path="res://tiles/tile_map_layer/main_tile_layer.tscn" id="4_w3u3q"]
 [ext_resource type="PackedScene" uid="uid://crejd55phygjg" path="res://tiles/tile_map_layer/wiring.tscn" id="5_ywpqp"]
@@ -12,7 +12,7 @@
 script = ExtResource("1_tjhjs")
 level_id = "Teleporter Tutorial 2"
 main_tile_layer = NodePath("TileMapLayers/TileMapLayer")
-texture = ExtResource("2_utf6f")
+texture = ExtResource("2_tjhjs")
 
 [node name="TileMapLayers" type="Node2D" parent="." unique_id=959366449]
 

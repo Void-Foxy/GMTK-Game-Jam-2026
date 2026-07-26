@@ -4,12 +4,6 @@ extends StaticBody2D
 
 
 
-func _ready() -> void:
-	print(position)
-	#open()
-	#await get_tree().create_timer(1.).timeout
-	#open()
-
 func open() -> void:
 	if door_sprite.frame != 3:
 		$DoorFrames.play()

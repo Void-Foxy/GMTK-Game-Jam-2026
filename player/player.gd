@@ -102,7 +102,7 @@ func _process(delta: float) -> void:
 			canThrowTele = true
 		if scm.action_container.just_pressed(explosion_action) && !Global.explosiveExist:
 			canThrowExplosive = true
-	if scm.action_container.just_pressed(cannon_action) && !Global.cannonExist:
+	if scm.action_container.just_pressed(cannon_action) && !Global.cannonExist && isGrounded:
 		#scm.action_container.use_action_slot(cannon_action)
 		settingUpCannon = true
 		summonCannon()

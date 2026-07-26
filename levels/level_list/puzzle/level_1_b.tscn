@@ -1,7 +1,7 @@
-[gd_scene format=4 uid="uid://bru8xlugyt2vv"]
+[gd_scene format=4 uid="uid://dsrq6k0hp7pk5"]
 
 [ext_resource type="Script" uid="uid://b7s8tok4nt8fy" path="res://levels/level.gd" id="1_76b8m"]
-[ext_resource type="Texture2D" uid="uid://gg5rua1yrnf4" path="res://icon.svg" id="2_x2psk"]
+[ext_resource type="Texture2D" uid="uid://5kmwelvg31t8" path="res://sprites/puzzle icon.png" id="2_21xiw"]
 [ext_resource type="PackedScene" uid="uid://1ucbm3ov5krm" path="res://player/player.tscn" id="3_14hpq"]
 [ext_resource type="PackedScene" uid="uid://b6so8lvnkc0ln" path="res://tiles/tile_map_layer/background_layer.tscn" id="3_qgcv0"]
 [ext_resource type="PackedScene" uid="uid://brfn3mn1bhknf" path="res://tiles/tile_map_layer/main_tile_layer.tscn" id="4_afbcf"]
@@ -10,9 +10,9 @@
 
 [node name="Level2" type="Node2D" unique_id=859746014 node_paths=PackedStringArray("main_tile_layer")]
 script = ExtResource("1_76b8m")
-level_id = "Level 1 B"
+level_id = "Level 2 B"
 main_tile_layer = NodePath("TileMapLayers/TileMapLayer")
-texture = ExtResource("2_x2psk")
+texture = ExtResource("2_21xiw")
 action_amounts_for_assignment = PackedInt32Array(2, 1, 1)
 
 [node name="TileMapLayers" type="Node2D" parent="." unique_id=959366449]

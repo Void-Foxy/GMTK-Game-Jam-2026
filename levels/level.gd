@@ -34,6 +34,8 @@ func _ready() -> void:
 	hud.create_amount_bank_slots(action_amounts_for_assignment)
 
 func play_sound(audio_stream_player: AudioStreamPlayer2D) -> void:
+	if not audio_stream_player:
+		return
 	audio_stream_player.reparent(self)
 	audio_stream_player.play()
 	var tween := get_tree().create_tween()

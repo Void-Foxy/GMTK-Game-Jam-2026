@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://4vsbws02uqhu"]
 
 [ext_resource type="Script" uid="uid://b7s8tok4nt8fy" path="res://levels/level.gd" id="1_j5klf"]
-[ext_resource type="Texture2D" uid="uid://gg5rua1yrnf4" path="res://icon.svg" id="2_8f6ha"]
+[ext_resource type="Texture2D" uid="uid://5kmwelvg31t8" path="res://sprites/puzzle icon.png" id="2_8f6ha"]
 [ext_resource type="PackedScene" uid="uid://b6so8lvnkc0ln" path="res://tiles/tile_map_layer/background_layer.tscn" id="3_8f6ha"]
 [ext_resource type="PackedScene" uid="uid://1ucbm3ov5krm" path="res://player/player.tscn" id="3_b1chs"]
 [ext_resource type="PackedScene" uid="uid://brfn3mn1bhknf" path="res://tiles/tile_map_layer/main_tile_layer.tscn" id="4_jlnk7"]

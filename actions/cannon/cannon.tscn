@@ -45,7 +45,7 @@ scale = Vector2(10.769231, 7.692308)
 top_level = true
 points = PackedVector2Array(20, -12, 50, -12)
 width = 1.0
-default_color = Color(1, 0.58381015, 0.9966522, 1)
+default_color = Color(0.11077016, 1.1241538e-05, 0.11355739, 1)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1724587346]
 stream = SubResource("AudioStreamRandomizer_tsgae")

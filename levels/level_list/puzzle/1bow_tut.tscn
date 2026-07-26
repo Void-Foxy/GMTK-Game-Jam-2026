@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://ch0e2a6n1u4i1"]
 
 [ext_resource type="Script" uid="uid://b7s8tok4nt8fy" path="res://levels/level.gd" id="1_i3kjd"]
-[ext_resource type="Texture2D" uid="uid://gg5rua1yrnf4" path="res://icon.svg" id="2_4ywjn"]
+[ext_resource type="Texture2D" uid="uid://5kmwelvg31t8" path="res://sprites/puzzle icon.png" id="2_43bhn"]
 [ext_resource type="PackedScene" uid="uid://1ucbm3ov5krm" path="res://player/player.tscn" id="3_6oya1"]
 [ext_resource type="PackedScene" uid="uid://b6so8lvnkc0ln" path="res://tiles/tile_map_layer/background_layer.tscn" id="3_43bhn"]
 [ext_resource type="PackedScene" uid="uid://brfn3mn1bhknf" path="res://tiles/tile_map_layer/main_tile_layer.tscn" id="4_7auct"]
@@ -12,7 +12,7 @@
 script = ExtResource("1_i3kjd")
 level_id = "Bow Tutorial"
 main_tile_layer = NodePath("TileMapLayers/TileMapLayer")
-texture = ExtResource("2_4ywjn")
+texture = ExtResource("2_43bhn")
 
 [node name="TileMapLayers" type="Node2D" parent="." unique_id=959366449]
 
