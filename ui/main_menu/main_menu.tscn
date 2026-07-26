@@ -30,14 +30,14 @@ theme_override_constants/margin_bottom = 100
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1775571841]
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
 theme_override_constants/separation = 15
 
 [node name="LevelSelectButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1285063562]
 layout_mode = 2
+size_flags_vertical = 3
 text = "Level Select"
 
 [node name="ExitGameButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1319896247]
 layout_mode = 2
+size_flags_vertical = 3
 text = "Exit"

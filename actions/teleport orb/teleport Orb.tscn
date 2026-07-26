@@ -9,13 +9,14 @@ radius = 8.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_yi0h0"]
 radius = 8.0
 
-[node name="teleport orb" type="RigidBody2D" unique_id=1012338163 node_paths=PackedStringArray("area2D") groups=["things that can go in a cannon"]]
+[node name="teleport orb" type="RigidBody2D" unique_id=1012338163 node_paths=PackedStringArray("area2D", "fizzler") groups=["things that can go in a cannon"]]
 collision_layer = 2
 collision_mask = 8388610
 contact_monitor = true
 max_contacts_reported = 5
 script = ExtResource("1_cqi4o")
 area2D = NodePath("Area2D")
+fizzler = NodePath("FizzleDetection")
 
 [node name="TeleportOrb" type="Sprite2D" parent="." unique_id=213403820]
 position = Vector2(2.3841858e-07, -2.3841858e-07)
@@ -30,4 +31,11 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=612721445]
+shape = SubResource("CircleShape2D_yi0h0")
+
+[node name="FizzleDetection" type="Area2D" parent="." unique_id=1904390972]
+collision_layer = 8388608
+collision_mask = 8388608
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FizzleDetection" unique_id=881635297]
 shape = SubResource("CircleShape2D_yi0h0")
