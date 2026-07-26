@@ -32,6 +32,21 @@ position = Vector2(122, 746)
 process_mode = 2
 mouse_filter = 2
 
+[node name="Shotgun" parent="Player/Actions" parent_id_path=PackedInt32Array(2079557712, 766765288) index="0" unique_id=1273445609]
+infinite_amount = true
+
+[node name="Bow" parent="Player/Actions" parent_id_path=PackedInt32Array(2079557712, 766765288) index="1" unique_id=1805242496]
+infinite_amount = true
+
+[node name="Teleport" parent="Player/Actions" parent_id_path=PackedInt32Array(2079557712, 766765288) index="2" unique_id=2057908756]
+infinite_amount = true
+
+[node name="Explosive" parent="Player/Actions" parent_id_path=PackedInt32Array(2079557712, 766765288) index="3" unique_id=613749430]
+infinite_amount = true
+
+[node name="Cannon" parent="Player/Actions" parent_id_path=PackedInt32Array(2079557712, 766765288) index="4" unique_id=1515054134]
+infinite_amount = true
+
 [node name="Throwables" type="Node2D" parent="." unique_id=1680356930]
 
 [node name="Hud" parent="." unique_id=566647011 instance=ExtResource("6_xcshf")]

@@ -137,12 +137,20 @@ func _process(delta: float) -> void:
 		throwLine.clear_points()
 	
 	if Global.level.timerChallenge:
+		if timer.time_left <= 0.1:
+			timer.stop()
+			kill_player()
 		updateTimer()
 	pass
 
 
 
 func removeTimeToChallengeTimer(time : float) -> void:
+	var result := timer.time_left - time
+	if result <= 0.1:
+		timer.stop()
+		kill_player()
+		return
 	timer.start(timer.time_left - time)
 
 func throwTeleport() -> void:
