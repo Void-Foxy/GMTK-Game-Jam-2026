@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dimxo2kgtlow2"]
 
 [ext_resource type="Script" uid="uid://c4bfcafnv4ca2" path="res://ui/main_menu/main_menu.gd" id="1_uhj5c"]
-[ext_resource type="PackedScene" uid="uid://cj65yjqao2hwr" path="res://ui/level_select/level_select.tscn" id="2_mu8pm"]
+[ext_resource type="PackedScene" uid="uid://ctj80a8h46vk2" path="res://ui/level_select/level_pack/level_pack.tscn" id="2_mu8pm"]
 
 [node name="MainMenu" type="Control" unique_id=970228861 node_paths=PackedStringArray("level_select", "exit_game")]
 process_mode = 3
@@ -12,7 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uhj5c")
-level_select_screen = ExtResource("2_mu8pm")
+pack_select_screen = ExtResource("2_mu8pm")
 level_select = NodePath("MarginContainer/VBoxContainer/LevelSelectButton")
 exit_game = NodePath("MarginContainer/VBoxContainer/ExitGameButton")
 

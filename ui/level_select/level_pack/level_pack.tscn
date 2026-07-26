@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://ctj80a8h46vk2"]
+
+[ext_resource type="Script" uid="uid://d3mq1peife1ih" path="res://ui/level_select/level_pack/level_pack.gd" id="1_tby7s"]
+[ext_resource type="PackedScene" uid="uid://cj65yjqao2hwr" path="res://ui/level_select/level_select.tscn" id="2_4pbfr"]
+
+[node name="LevelPack" type="Control" unique_id=1430696741 node_paths=PackedStringArray("puzzle_btn", "speedrun_btn", "misc_btn")]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tby7s")
+puzzle_btn = NodePath("MarginContainer/VBoxContainer/HBoxContainer/PuzzlePack")
+speedrun_btn = NodePath("MarginContainer/VBoxContainer/HBoxContainer/SpeedrunPack")
+misc_btn = NodePath("MarginContainer/VBoxContainer/MiscPack")
+level_select_scene = ExtResource("2_4pbfr")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=64173374]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=616495889]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=2034995593]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PuzzlePack" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=611951148]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 60
+text = "PUZZLE PACK"
+
+[node name="SpeedrunPack" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=610357229]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 60
+text = "SPEEDRUN PACK"
+
+[node name="MiscPack" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1269996332]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+theme_override_font_sizes/font_size = 60
+text = "MISC. PACK"

@@ -4,8 +4,17 @@ var level_info_map: Dictionary[PackedScene, LevelInfo]
 var level_to_next_level: Dictionary[PackedScene, PackedScene]
 var level_id_to_scene: Dictionary[String, PackedScene]
 
+var pack_to_ids: Dictionary[String, PackedStringArray]
+
 func _ready() -> void:
-	var levels := FileLoader.load_scenes("res://levels/level_list/")
+	load_levels_in_pack("puzzle")
+	load_levels_in_pack("speedrun")
+	load_levels_in_pack("misc")
+
+func load_levels_in_pack(pack: String) -> void:
+	var levels := FileLoader.load_scenes("res://levels/level_list/" + pack + "/")
+	
+	pack_to_ids[pack] = PackedStringArray()
 	
 	var last_level_scene: PackedScene = null
 	for level_name in levels:
@@ -20,7 +29,9 @@ func _ready() -> void:
 			elif scene_state.get_node_property_name(0, i) == "level_id":
 				level_info.level_id = scene_state.get_node_property_value(0, i)
 		
-		assert(level_info.level_id != "", "Hi Ryan, just need to set the level id for the level")
+		assert(level_info.level_id != "")
+		
+		pack_to_ids[pack].append(level_info.level_id)
 		
 		level_id_to_scene[level_info.level_id] = level_scene
 		
