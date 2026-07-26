@@ -14,6 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://chp472xr3bi7i" path="res://sprites/cannon barrel.png" id="7_hg6s5"]
 [ext_resource type="Script" uid="uid://sv3bf5qr03r1" path="res://player/states/setting_up_cannon.gd" id="7_kb6p2"]
 [ext_resource type="PackedScene" uid="uid://cuevyqhlfjkwn" path="res://actions/bow/bow.tscn" id="10_8t03j"]
+[ext_resource type="Texture2D" uid="uid://b54xbqviao7uk" path="res://sprites/bomb.png" id="11_e7oew"]
+[ext_resource type="Texture2D" uid="uid://3v0quvtlsseo" path="res://sprites/sniper.png" id="12_c35mf"]
+[ext_resource type="Texture2D" uid="uid://b737m6u0svhtm" path="res://sprites/teleport orb.png" id="13_65viv"]
+[ext_resource type="Texture2D" uid="uid://hq7otk7xnans" path="res://sprites/bow.png" id="14_x7c3f"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g1dw6"]
 friction = 0.0
@@ -111,22 +115,26 @@ script = ExtResource("5_rgyib")
 [node name="Explosive" type="Node" parent="Actions" unique_id=613749430]
 script = ExtResource("5_boad6")
 action_name = "explosion action"
+action_icon = ExtResource("11_e7oew")
 timeCost = 4.0
 
 [node name="Shotgun" type="Node" parent="Actions" unique_id=1273445609]
 script = ExtResource("5_boad6")
 action_name = "shotgun action"
+action_icon = ExtResource("12_c35mf")
 infinite_amount = true
 timeCost = 1.0
 
 [node name="Teleport" type="Node" parent="Actions" unique_id=2057908756]
 script = ExtResource("5_boad6")
 action_name = "teleport action"
+action_icon = ExtResource("13_65viv")
 timeCost = 1.5
 
 [node name="Bow" type="Node" parent="Actions" unique_id=1805242496]
 script = ExtResource("5_boad6")
 action_name = "bow action"
+action_icon = ExtResource("14_x7c3f")
 infinite_amount = true
 timeCost = 1.0
 
