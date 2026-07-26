@@ -3,6 +3,7 @@ class_name Hud
 
 @export var action_amount_bank_slot_scene: PackedScene
 
+@export var action_amount_bank_main_container: Container
 @export var action_amount_bank: HBoxContainer
 @export var action_slots_container: HBoxContainer
 @export var timerLabel : Label 
@@ -16,6 +17,8 @@ var all_disabled: bool:
 	get: return disabled_bank_slots.size() >= action_amount_bank.get_child_count()
 
 func create_amount_bank_slots(amount_list: PackedInt32Array) -> void:
+	if not amount_list.is_empty():
+		action_amount_bank_main_container.show()
 	for amount in amount_list:
 		var bank_slot: AmountBankSlot = action_amount_bank_slot_scene.instantiate()
 		bank_slot.was_disabled.connect(update_disabled_bank_slots.bind(bank_slot))
@@ -27,4 +30,5 @@ func create_amount_bank_slots(amount_list: PackedInt32Array) -> void:
 func update_disabled_bank_slots(bank_slot: AmountBankSlot) -> void:
 	disabled_bank_slots.append(bank_slot)
 	if all_disabled:
+		action_amount_bank_main_container.hide()
 		all_actions_assigned.emit()
