@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://gg5rua1yrnf4" path="res://icon.svg" id="2_lqoxw"]
 [ext_resource type="PackedScene" uid="uid://brfn3mn1bhknf" path="res://tiles/tile_map_layer/main_tile_layer.tscn" id="3_lqoxw"]
 [ext_resource type="PackedScene" uid="uid://crejd55phygjg" path="res://tiles/tile_map_layer/wiring.tscn" id="4_33gr5"]
-[ext_resource type="Script" path="res://player/states/victory_state.gd" id="4_dl6gc"]
 [ext_resource type="PackedScene" uid="uid://dknnqhpjetyj6" path="res://ui/hud/hud.tscn" id="4_lqoxw"]
 [ext_resource type="PackedScene" uid="uid://u3wfqyj7fvky" path="res://enemy/enemy.tscn" id="5_dl6gc"]
 
@@ -21,10 +20,7 @@ position = Vector2(536, 496)
 contact_monitor = false
 max_contacts_reported = 0
 
-[node name="VictoryState" parent="Player/FiniteStateMachine" parent_id_path=PackedInt32Array(2079557712, 1989054244) index="1" unique_id=116830716]
-script = ExtResource("4_dl6gc")
-
-[node name="VictoryScreen" parent="Player/FiniteStateMachine/VictoryState" index="0" unique_id=388784050]
+[node name="VictoryScreen" parent="Player/FiniteStateMachine/VictoryState" parent_id_path=PackedInt32Array(2079557712, 116830716) index="0" unique_id=388784050]
 offset_top = 0.0
 offset_bottom = 0.0
 
@@ -33,19 +29,18 @@ infinite_amount = true
 timeCost = 5.0
 
 [node name="Shotgun" parent="Player/Actions" parent_id_path=PackedInt32Array(2079557712, 766765288) index="1" unique_id=1273445609]
-timeCost = 1.0
+infinite_amount = true
 
 [node name="Teleport" parent="Player/Actions" parent_id_path=PackedInt32Array(2079557712, 766765288) index="2" unique_id=2057908756]
 infinite_amount = true
 timeCost = 2.0
 
 [node name="Bow" parent="Player/Actions" parent_id_path=PackedInt32Array(2079557712, 766765288) index="3" unique_id=1805242496]
-timeCost = 1.0
+infinite_amount = true
 
 [node name="Cannon" parent="Player/Actions" parent_id_path=PackedInt32Array(2079557712, 766765288) index="4" unique_id=1515054134]
 action_icon = null
 infinite_amount = true
-timeCost = 1.0
 
 [node name="Throwables" type="Node2D" parent="." unique_id=1680356930]
 
