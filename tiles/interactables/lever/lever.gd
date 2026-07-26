@@ -20,4 +20,6 @@ func interaction_output() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body is TileMapLayer:
 		return
+	if body is BreakableWall:
+		return
 	interaction_output()
