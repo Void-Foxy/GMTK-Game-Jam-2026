@@ -35,9 +35,11 @@ theme_override_constants/separation = 15
 [node name="LevelSelectButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1285063562]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 67
 text = "Level Select"
 
 [node name="ExitGameButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1319896247]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 67
 text = "Exit"

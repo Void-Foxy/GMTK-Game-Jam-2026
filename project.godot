@@ -47,6 +47,10 @@ player=""
 teleportable=""
 end_flag=""
 
+[gui]
+
+theme/custom="uid://doxh042qb0g6i"
+
 [input]
 
 left={
